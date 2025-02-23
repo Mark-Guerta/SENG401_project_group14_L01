@@ -5,6 +5,10 @@ import { Helmet } from 'react-helmet'
 import './register.css'
 
 const Register = (props) => {
+  
+  const navigateTo = (path) => {
+    window.location.href = path;
+  };
   return (
     <div className="register-container">
       <Helmet>
@@ -89,7 +93,7 @@ const Register = (props) => {
             className="register-ellipse6"
           />
         </div>
-        <div className="register-input-login">
+        <div className="register-input-login" >
           <img
             src="/external/repassword5830-c2kx.svg"
             alt="repassword5830"
@@ -140,7 +144,7 @@ const Register = (props) => {
             alt="Rectangle11928"
             className="register-rectangle1"
           />
-          <div className="register-prepare-meal-button">
+          <div className="register-prepare-meal-button" onClick={() => navigateTo('/login')}>
             <div className="register-company-logo2">
               <img
                 src="/external/imageremovebgpreview1i192-kat8-200h.png"
@@ -153,10 +157,11 @@ const Register = (props) => {
               src="/external/preparemeal1928-8ac-200h.png"
               alt="PrepareMeal1928"
               className="register-prepare-meal"
+              
             />
             <span className="register-text41">Prepare Meal</span>
           </div>
-          <div className="register-login-button">
+          <div className="register-login-button" onClick={() => navigateTo('/login')}>
             <img
               src="/external/login1929-wkd-200h.png"
               alt="Login1929"
@@ -164,7 +169,7 @@ const Register = (props) => {
             />
             <span className="register-text42">Login</span>
           </div>
-          <div className="register-signup-button">
+          <div className="register-signup-button" onClick={() => navigateTo('/register')}>
             <img
               src="/external/signup1929-0w24-200h.png"
               alt="SignUp1929"
@@ -172,7 +177,7 @@ const Register = (props) => {
             />
             <span className="register-text43">Sign up</span>
           </div>
-          <div className="register-home-button">
+          <div className="register-home-button" onClick={() => navigateTo('/')}>
             <img
               src="/external/home1929-7oua-200h.png"
               alt="Home1929"

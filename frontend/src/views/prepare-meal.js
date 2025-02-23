@@ -124,7 +124,7 @@ const PrepareMeal = (props) => {
             alt="Rectangle14318"
             className="prepare-meal-rectangle1"
           />
-          <div className="prepare-meal-prepare-meal-button">
+          <div className="prepare-meal-prepare-meal-button" onClick={() => navigateTo('/prepare-meal')}>
             <div className="prepare-meal-company-logo2">
               <img
                 src="/external/imageremovebgpreview1i431-euj-200h.png"
@@ -140,7 +140,7 @@ const PrepareMeal = (props) => {
             />
             <span className="prepare-meal-text36">Prepare Meal</span>
           </div>
-          <div className="prepare-meal-signup-button1">
+          <div className="prepare-meal-signup-button1" onClick={() => navigateTo('/')}>
             <img
               src="/external/signup4319-puua-200h.png"
               alt="SignUp4319"
@@ -148,7 +148,7 @@ const PrepareMeal = (props) => {
             />
             <span className="prepare-meal-text37">Sign out</span>
           </div>
-          <div className="prepare-meal-signup-button2">
+          <div className="prepare-meal-signup-button2" onClick={() => navigateTo('/')}>
             <img
               src="/external/signup6030-uw0j-200h.png"
               alt="SignUp6030"
@@ -156,7 +156,7 @@ const PrepareMeal = (props) => {
             />
             <span className="prepare-meal-text38">Sign out</span>
           </div>
-          <div className="prepare-meal-home-button">
+          <div className="prepare-meal-home-button" onClick={() => navigateTo('/')}>
             <img
               src="/external/home4320-bkcg-200h.png"
               alt="Home4320"
