@@ -158,7 +158,7 @@ const HomePage = (props) => {
             />
             <span className="home-page-text42">Sign up</span>
           </div>
-          <div className="home-page-home-button" onClick={() => navigateTo('/home-page')}>
+          <div className="home-page-home-button" onClick={() => navigateTo('/')}>
             <img
               src="/external/home4365-dpgd-200h.png"
               alt="Home4365"

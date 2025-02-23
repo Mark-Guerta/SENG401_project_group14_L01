@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet'
 import './register.css'
 
 const Register = (props) => {
-  
+
   const navigateTo = (path) => {
     window.location.href = path;
   };
@@ -94,30 +94,30 @@ const Register = (props) => {
           />
         </div>
         <div className="register-input-login" >
-          <img
-            src="/external/repassword5830-c2kx.svg"
-            alt="repassword5830"
-            className="register-repassword"
-          />
+         
           <span className="register-text33">Confirm Password:</span>
-          <img
-            src="/external/password5837-w5ab.svg"
-            alt="password5837"
-            className="register-password"
+           <input className= "PasswordInput"
+            type="password"
+            placeholder="Enter your Password"
           />
           <span className="register-text34">Enter Password:</span>
-          <img
-            src="/external/email5840-gnaq-200h.png"
-            alt="email5840"
-            className="register-email"
+          <input className= "PasswordInput2"
+            type="password"
+            placeholder="Re-Enter your Password"
           />
           <span className="register-text35">Enter Email:</span>
-          <img
-            src="/external/username5832-at-200h.png"
-            alt="username5832"
-            className="register-username"
+          
+          <input className="reg_email"
+            type="email"
+            placeholder="Enter your Email"
           />
+
+
           <span className="register-text36">Enter New Username:</span>
+          <input className= "reg_username"
+            type="email"
+            placeholder="Enter your Email"
+          />
         </div>
         <img
           src="/external/signup5843-xcv-200h.png"

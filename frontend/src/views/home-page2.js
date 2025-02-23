@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 import './home-page2.css'
 
 const HomePage2 = (props) => {
+  
   const navigateTo = (path) => {
     window.location.href = path;
   };

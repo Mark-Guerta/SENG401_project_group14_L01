@@ -5,6 +5,11 @@ import { Helmet } from 'react-helmet'
 import './prepare-meal.css'
 
 const PrepareMeal = (props) => {
+  
+  const navigateTo = (path) => {
+    window.location.href = path;
+  };
+
   return (
     <div className="prepare-meal-container">
       <Helmet>
