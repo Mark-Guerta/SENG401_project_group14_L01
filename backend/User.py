@@ -1,5 +1,4 @@
 uniqueKey = 0
-name = ''
 email = ''
 
 def initializeUser():
