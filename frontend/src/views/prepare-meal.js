@@ -124,11 +124,15 @@ const PrepareMeal = (props) => {
         </span>
         <span className="prepare-meal-text34">Recipes Made With Magic:</span>
         <div className="prepare-meal-navigation-bar">
+
+        
           <img
             src="/external/rectangle14318-6o78-200h.png"
             alt="Rectangle14318"
             className="prepare-meal-rectangle1"
           />
+
+
           <div className="prepare-meal-prepare-meal-button" onClick={() => navigateTo('/prepare-meal')}>
             <div className="prepare-meal-company-logo2">
               <img
