@@ -13,6 +13,7 @@ const HomePage = (props) => {
     <div className="home-page-container">
       <Helmet>
         <title>White Dressing</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Helmet>
       <div className="home-page-home-page">
         <div className="home-page-bottom-bar">

@@ -92,6 +92,11 @@ const Login = (props) => {
             className="login-ellipse6"
           />
         </div>
+
+
+
+
+        <form >
         <div className="login-input-login">
          
           <span className="login-text33">Password:</span>
@@ -117,21 +122,36 @@ const Login = (props) => {
           />
           <span className="login-text35" onClick={() => navigateTo('/home-page2')} >Continue as Guest</span>
         </div>
-        <div className="login-signup-button1">
+        
+
+        <button type="submit" className="login-signup-button1">
+
+       
           <img
             src="/external/signup5818-3wp5-200h.png"
             alt="SignUp5818"
             className="login-sign-up1"
           />
           <span className="login-text36">Login</span>
-        </div>
-        <div className="login-design2">
+
+        </button>
+
+
+       
+
+
+    </form>
+
+
+    <div  className="login-design2"> 
           <img
             src="/external/wprocessed15822-mij-500h.png"
             alt="wprocessed15822"
             className="login-wprocessed1"
           />
-        </div>
+          </div>
+  
+
         <div className="login-didyouknow">
           <span className="login-text37">Did you know?</span>
           <span className="login-text38">

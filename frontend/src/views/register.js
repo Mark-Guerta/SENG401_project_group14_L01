@@ -10,6 +10,7 @@ const Register = (props) => {
     window.location.href = path;
   };
   return (
+    
     <div className="register-container">
       <Helmet>
         <title>exported project</title>
@@ -94,7 +95,7 @@ const Register = (props) => {
           />
         </div>
 
-        <form >
+        <form>
           <div className="register-input-login">
             <span className="ConfirmPass">Confirm Password:</span>
             <input
@@ -135,6 +136,8 @@ const Register = (props) => {
             <span className="register-text37">Register</span>
           </button>
         </form>
+
+        
         <div className="register-didyouknow">
           <span className="register-text38">Did you know?</span>
           <span className="register-text39">
