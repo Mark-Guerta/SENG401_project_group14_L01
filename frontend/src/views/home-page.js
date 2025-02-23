@@ -12,7 +12,7 @@ const HomePage = (props) => {
   return (
     <div className="home-page-container">
       <Helmet>
-        <title>exported project</title>
+        <title>White Dressing</title>
       </Helmet>
       <div className="home-page-home-page">
         <div className="home-page-bottom-bar">
@@ -70,6 +70,9 @@ const HomePage = (props) => {
           </span>
           <span className="home-page-text37">Endless Recipes</span>
         </div>
+
+
+        
         <div className="home-page-design">
           <img
             src="/external/ellipse94387-fg7j-1600h.png"

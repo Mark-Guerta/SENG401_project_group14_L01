@@ -96,7 +96,7 @@ const Login = (props) => {
          
           <span className="login-text33">Password:</span>
             
-          <input className= "PasswordInput"
+          <input className= "PasswordInput3"
             type="password"
             placeholder="Enter your Password"
           />

@@ -1,3 +1,155 @@
+.regEmail{
+  border-radius: 90px;
+background: #CDFECF;
+  
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  top: 340px;
+  left: 150px;
+  width: 400px;
+  height: 40px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+
+}
+.regUsername{
+  border-radius: 90px;
+background: #CDFECF;
+  
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  top: 240px;
+  left: 150px;
+  width: 300px;
+  height: 40px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+
+}
+
+
+.ConfirmPass {
+  top:500px;
+  left: 150px;
+  color: rgba(0, 0, 0, 1);
+  width: 243px;
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Maven Pro;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.EnterPass {
+  top: 400px;
+  left: 150px;
+  color: rgba(0, 0, 0, 1);
+  width: 243px;
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Maven Pro;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+
+.EnterEmail {
+  top: 300px;
+  left: 150px;
+  color: rgba(0, 0, 0, 1);
+  width: 278px;
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Maven Pro;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+
+.EnterUsername {
+  left: 150px;
+  top: 200px;
+  color: rgba(0, 0, 0, 1);
+  width: 278px;
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Maven Pro;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.PasswordInput {
+  border-radius: 90px;
+background: #CDFECF;
+  
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  top: 440px;
+  left: 150px;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+
+}
+
+
+.PasswordInput2 {
+  border-radius: 90px;
+background: #CDFECF;
+  
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  top: 540px;
+  left: 150px;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+
+}
+
+.RegisterButton{
+  position: absolute;
+  left:150px;
+  
+
+}
+
+.register-sign-up1 {
+  top:612px;
+
+  width: 195px;
+  height: 80px;
+  position: absolute;
+  border-radius: 90px;
+}
+ 
+
 .register-container {
   width: 100%;
   display: flex;
@@ -29,12 +181,7 @@
   flex-shrink: 1;
 }
 
-.Re-PasswordInput{
-  
-  border-radius: 90px;
-  background: #CDFECF;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
+
 
 .register-text10 {
   top: 115px;
@@ -219,17 +366,7 @@
 
 
  
-.register-input-login {
-  top: 200px;
-  left: 140px;
-  width: 611px;
-  height: 583px;
-  
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
-}
- 
+
 .register-repassword {
   top: 508px;
   left: 0px;
@@ -239,22 +376,6 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
 }
  
-.register-text33 {
-  top: 454px;
-  left: 16px;
-  color: rgba(0, 0, 0, 1);
-  width: 243px;
-  height: auto;
-  position: absolute;
-  font-size: 24px;
-  font-style: Bold;
-  text-align: left;
-  font-family: Maven Pro;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
  
 .register-password {
   top: 361px;
@@ -265,22 +386,7 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
 }
  
-.register-text34 {
-  top: 307px;
-  left: 16px;
-  color: rgba(0, 0, 0, 1);
-  width: 243px;
-  height: auto;
-  position: absolute;
-  font-size: 24px;
-  font-style: Bold;
-  text-align: left;
-  font-family: Maven Pro;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
+
  
 .register-email {
   top: 214px;
@@ -291,22 +397,6 @@
   border-radius: 90px;
 }
  
-.register-text35 {
-  top: 153px;
-  left: 16px;
-  color: rgba(0, 0, 0, 1);
-  width: 278px;
-  height: auto;
-  position: absolute;
-  font-size: 24px;
-  font-style: Bold;
-  text-align: left;
-  font-family: Maven Pro;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
  
 .register-username {
   top: 61px;
@@ -317,34 +407,10 @@
   border-radius: 90px;
 }
  
-.register-text36 {
-  left: 16px;
-  color: rgba(0, 0, 0, 1);
-  width: 278px;
-  height: auto;
-  position: absolute;
-  font-size: 24px;
-  font-style: Bold;
-  text-align: left;
-  font-family: Maven Pro;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
- 
-.register-sign-up1 {
-  top: 674px;
-  left: 897px;
-  width: 195px;
-  height: 80px;
-  position: absolute;
-  border-radius: 90px;
-}
  
 .register-text37 {
-  top: 695px;
-  left: 932px;
+  top: 630px;
+  left: 35px;
   color: rgba(0, 0, 0, 1);
   width: 175px;
   height: auto;

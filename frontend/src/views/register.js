@@ -86,45 +86,55 @@ const Register = (props) => {
             src="/external/ellipse71928-dcyp-200h.png"
             alt="Ellipse71928"
             className="register-ellipse7"
-          />
+         />
           <img
             src="/external/ellipse61928-ubzc-200h.png"
             alt="Ellipse61928"
             className="register-ellipse6"
           />
         </div>
-        <div className="register-input-login" >
-         
-          <span className="register-text33">Confirm Password:</span>
-           <input className= "PasswordInput"
-            type="password"
-            placeholder="Enter your Password"
-          />
-          <span className="register-text34">Enter Password:</span>
-          <input className= "PasswordInput2"
-            type="password"
-            placeholder="Re-Enter your Password"
-          />
-          <span className="register-text35">Enter Email:</span>
-          
-          <input className="reg_email"
-            type="email"
-            placeholder="Enter your Email"
-          />
 
+        <form >
+          <div className="register-input-login">
+            <span className="ConfirmPass">Confirm Password:</span>
+            <input
+              className="PasswordInput"
+              type="password"
+              placeholder="Enter your Password"
+            />
 
-          <span className="register-text36">Enter New Username:</span>
-          <input className= "reg_username"
-            type="email"
-            placeholder="Enter your Email"
-          />
-        </div>
-        <img
-          src="/external/signup5843-xcv-200h.png"
-          alt="SignUp5843"
-          className="register-sign-up1"
-        />
-        <span className="register-text37">Register</span>
+            <span className="EnterPass">Enter Password:</span>
+            <input
+              className="PasswordInput2"
+              type="password"
+              placeholder="Re-Enter your Password"
+            />
+            <span className="EnterEmail">Enter Email:</span>
+
+            <input
+              className="regEmail"
+              type="email"
+              placeholder="Enter your Email"
+            />
+
+            <span className="EnterUsername">Enter New Username:</span>
+
+            <input
+              className="regUsername"
+              type="text"
+              placeholder="Enter your Username"
+            />
+          </div>
+
+          <button type="submit" className="RegisterButton">
+            <img
+              src="/external/signup5843-xcv-200h.png"
+              alt="SignUp5843"
+              className="register-sign-up1"
+            />
+            <span className="register-text37">Register</span>
+          </button>
+        </form>
         <div className="register-didyouknow">
           <span className="register-text38">Did you know?</span>
           <span className="register-text39">
@@ -144,7 +154,10 @@ const Register = (props) => {
             alt="Rectangle11928"
             className="register-rectangle1"
           />
-          <div className="register-prepare-meal-button" onClick={() => navigateTo('/login')}>
+          <div
+            className="register-prepare-meal-button"
+            onClick={() => navigateTo('/login')}
+          >
             <div className="register-company-logo2">
               <img
                 src="/external/imageremovebgpreview1i192-kat8-200h.png"
@@ -157,11 +170,13 @@ const Register = (props) => {
               src="/external/preparemeal1928-8ac-200h.png"
               alt="PrepareMeal1928"
               className="register-prepare-meal"
-              
             />
             <span className="register-text41">Prepare Meal</span>
           </div>
-          <div className="register-login-button" onClick={() => navigateTo('/login')}>
+          <div
+            className="register-login-button"
+            onClick={() => navigateTo('/login')}
+          >
             <img
               src="/external/login1929-wkd-200h.png"
               alt="Login1929"
@@ -169,7 +184,10 @@ const Register = (props) => {
             />
             <span className="register-text42">Login</span>
           </div>
-          <div className="register-signup-button" onClick={() => navigateTo('/register')}>
+          <div
+            className="register-signup-button"
+            onClick={() => navigateTo('/register')}
+          >
             <img
               src="/external/signup1929-0w24-200h.png"
               alt="SignUp1929"
@@ -188,7 +206,7 @@ const Register = (props) => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Register
