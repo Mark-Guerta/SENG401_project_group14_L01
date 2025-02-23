@@ -6,8 +6,25 @@
   align-items: center;
   flex-direction: column;
 }
- 
+.login-text300{
+  top: 395px;
+  left: 235px;
+  color: rgba(104, 115, 105, 1);
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Maven Pro;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+
+} 
+
 .login-login1 {
+
   width: 100%;
   height: 1484px;
   display: flex;
@@ -16,8 +33,33 @@
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.09) 32.5%, rgba(255, 255, 255, 0.10) 38%, rgba(255, 255, 255, 0.20) 100%), linear-gradient(180deg, #FFF 0%, #6EFD77 100%);
   align-items: flex-start;
   flex-shrink: 0;
-}
  
+}
+.LoginInput {
+  top: 225px;
+  left: 252px;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+
+
+}
+.PasswordInput {
+  top: 320px;
+  left: 252px;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+
+}
+
+
 .login-bottom-bar {
   top: 953px;
   left: 130px;
@@ -210,16 +252,7 @@
   position: absolute;
 }
  
-.login-input-login {
-  top: 187px;
-  left: 252px;
-  width: 611px;
-  height: 366px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
-}
+
  
 .login-rectangle2 {
   top: 224px;
@@ -231,11 +264,17 @@
 }
  
 .login-text33 {
-  top: 173px;
-  left: 16px;
+  top: 280px;
+  left: 252px;
+  width: 611px;
+  height: 10px; /* Lowered the height */
+  display: flex;
+  position: absolute;
+
+  flex-shrink: 1;
+
   color: rgba(0, 0, 0, 1);
-  width: 188px;
-  height: auto;
+
   position: absolute;
   font-size: 24px;
   font-style: Bold;
@@ -257,9 +296,18 @@
 }
  
 .login-text34 {
-  left: 16px;
+  top: 187px;
+  left: 252px;
+  width: 611px;
+  height: 366px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+
+
   color: rgba(0, 0, 0, 1);
-  width: 278px;
+
   height: auto;
   position: absolute;
   font-size: 24px;
@@ -282,8 +330,8 @@
 }
  
 .login-text35 {
-  top: 332px;
-  left: 9px;
+  top: 400px;
+  left: 250px;
   color: rgba(104, 115, 105, 1);
   height: auto;
   position: absolute;

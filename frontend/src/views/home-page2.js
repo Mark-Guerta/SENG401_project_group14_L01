@@ -5,7 +5,11 @@ import { Helmet } from 'react-helmet'
 import './home-page2.css'
 
 const HomePage2 = (props) => {
+  const navigateTo = (path) => {
+    window.location.href = path;
+  };
   return (
+    
     <div className="home-page2-container">
       <Helmet>
         <title>exported project</title>
@@ -113,7 +117,7 @@ const HomePage2 = (props) => {
             className="home-page2-lasagna"
           />
         </div>
-        <div className="home-page2-signup-button1">
+        <div className="home-page2-signup-button1" onClick={() => navigateTo('/prepare-meal')}>
           <span className="home-page2-text38">Prepare Meal</span>
         </div>
         <div className="home-page2-navigation-bar1">
@@ -122,7 +126,7 @@ const HomePage2 = (props) => {
             alt="Rectangle16031"
             className="home-page2-rectangle1"
           />
-          <div className="home-page2-prepare-meal-button">
+          <div className="home-page2-prepare-meal-button" onClick={() => navigateTo('/prepare-meal')}>
             <div className="home-page2-company-logo2">
               <img
                 src="/external/imageremovebgpreview1i603-4m26-200h.png"
@@ -138,7 +142,7 @@ const HomePage2 = (props) => {
             />
             <span className="home-page2-text40">Prepare Meal</span>
           </div>
-          <div className="home-page2-signup-button2">
+          <div className="home-page2-signup-button2" onClick={() => navigateTo('/')}>
             <img
               src="/external/signup6031-mcx-200h.png"
               alt="SignUp6031"
@@ -146,7 +150,7 @@ const HomePage2 = (props) => {
             />
             <span className="home-page2-text41">Sign out</span>
           </div>
-          <div className="home-page2-signup-button3">
+          <div className="home-page2-signup-button3" onClick={() => navigateTo('/')}>
             <img
               src="/external/signup6031-q4y3-200h.png"
               alt="SignUp6031"

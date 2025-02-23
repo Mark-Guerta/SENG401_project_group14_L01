@@ -5,6 +5,9 @@ import { Helmet } from 'react-helmet'
 import './login.css'
 
 const Login = (props) => {
+  const navigateTo = (path) => {
+    window.location.href = path;
+  };
   return (
     <div className="login-container">
       <Helmet>
@@ -90,24 +93,29 @@ const Login = (props) => {
           />
         </div>
         <div className="login-input-login">
-          <img
-            src="/external/rectangle21930-6t7.svg"
-            alt="Rectangle21930"
-            className="login-rectangle2"
-          />
+         
           <span className="login-text33">Password:</span>
-          <img
-            src="/external/rectangle41931-71sn-200h.png"
-            alt="Rectangle41931"
-            className="login-rectangle4"
+            
+          <input className= "PasswordInput"
+            type="password"
+            placeholder="Enter your Password"
           />
+          
+          
           <span className="login-text34">Username / Email:</span>
+        
+          
+          <input className= "LoginInput"
+            type="text"
+            placeholder="Username"
+          />
+          
           <img
             src="/external/rectangle51932-qb4-200h.png"
             alt="Rectangle51932"
-            className="login-rectangle5"
+            className="login-text300"
           />
-          <span className="login-text35">Continue as Guest</span>
+          <span className="login-text35" onClick={() => navigateTo('/home-page2')} >Continue as Guest</span>
         </div>
         <div className="login-signup-button1">
           <img
@@ -162,7 +170,7 @@ const Login = (props) => {
             />
             <span className="login-text41">Login</span>
           </div>
-          <div className="login-signup-button2">
+          <div className="login-signup-button2" onClick={() => navigateTo('/register')}>
             <img
               src="/external/signup1925-o1w2-200h.png"
               alt="SignUp1925"
@@ -170,7 +178,7 @@ const Login = (props) => {
             />
             <span className="login-text42">Sign up</span>
           </div>
-          <div className="login-home-button">
+          <div className="login-home-button" onClick={() => navigateTo('/')}>
             <img
               src="/external/home1925-afwih-200h.png"
               alt="Home1925"

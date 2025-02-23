@@ -5,6 +5,10 @@ import { Helmet } from 'react-helmet'
 import './home-page.css'
 
 const HomePage = (props) => {
+  const navigateTo = (path) => {
+    window.location.href = path;
+  };
+
   return (
     <div className="home-page-container">
       <Helmet>
@@ -113,7 +117,7 @@ const HomePage = (props) => {
             className="home-page-lasagna"
           />
         </div>
-        <div className="home-page-signup-button1">
+        <div className="home-page-signup-button1" onClick={() => navigateTo('/login')}>
           <span className="home-page-text38">Prepare Meal</span>
         </div>
         <div className="home-page-navigation-bar">
@@ -122,7 +126,7 @@ const HomePage = (props) => {
             alt="Rectangle1196"
             className="home-page-rectangle1"
           />
-          <div className="home-page-prepare-meal-button">
+          <div className="home-page-prepare-meal-button" onClick={() => navigateTo('/login')}>
             <div className="home-page-company-logo2">
               <img
                 src="/external/imageremovebgpreview14312-gtp-200h.png"
@@ -138,7 +142,7 @@ const HomePage = (props) => {
             />
             <span className="home-page-text40">Prepare Meal</span>
           </div>
-          <div className="home-page-login-button">
+          <div className="home-page-login-button" onClick={() => navigateTo('/login')}>
             <img
               src="/external/login4360-2lxu-200h.png"
               alt="Login4360"
@@ -146,7 +150,7 @@ const HomePage = (props) => {
             />
             <span className="home-page-text41">Login</span>
           </div>
-          <div className="home-page-signup-button2">
+          <div className="home-page-signup-button2" onClick={() => navigateTo('/register')}>
             <img
               src="/external/signup4348-monc-200h.png"
               alt="SignUp4348"
@@ -154,7 +158,7 @@ const HomePage = (props) => {
             />
             <span className="home-page-text42">Sign up</span>
           </div>
-          <div className="home-page-home-button">
+          <div className="home-page-home-button" onClick={() => navigateTo('/home-page')}>
             <img
               src="/external/home4365-dpgd-200h.png"
               alt="Home4365"
