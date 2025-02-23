@@ -1,17 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+import './style.css'
+import HomePage from './views/home-page'
+import Login from './views/login'
+import Register from './views/register'
+import PrepareMeal from './views/prepare-meal'
+import LoginPrompt from './views/login-prompt'
+import RegisterPrompt from './views/register-prompt'
+import HomePage2 from './views/home-page2'
+import Home1Prompt from './views/home1-prompt'
+import NotFound from './views/not-found'
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const App = () => {
+  return (
+    <Router>
+      <Switch>
+        <Route component={HomePage} exact path="/" />
+        <Route component={Login} exact path="/login" />
+        <Route component={Register} exact path="/register" />
+        <Route component={PrepareMeal} exact path="/prepare-meal" />
+        <Route component={LoginPrompt} exact path="/login-prompt" />
+        <Route component={RegisterPrompt} exact path="/register-prompt" />
+        <Route component={HomePage2} exact path="/home-page2" />
+        <Route component={Home1Prompt} exact path="/home1-prompt" />
+        <Route component={NotFound} path="**" />
+        <Redirect to="**" />
+      </Switch>
+    </Router>
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById('app'))
