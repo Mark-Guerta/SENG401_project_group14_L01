@@ -1,16 +1,20 @@
-# username 
-# email 
-# password
+from User import initializeUser
 
-def createRegisteredUser(guest = None):
-    if guest == None:
-        # if user is attempting to become a registered user from guest account 
-        
-        return 0
+def createRegisteredUser():
+    # create a registered user 
+    # return: boolean to prompting if user was created successfully or failed
+    (username, email, password) = inputSignupCredentials()
+    newRegisteredUser = initializeUser(username, email, password)
+    if (newRegisteredUser != None):
+        return True
     else:
-        (username, email, password) = inputSignupCredentials()
+        return False
         
 def inputSignupCredentials():
     # take in credentials for signup from frontend 
-    return 0
+    # TODO: recieve credentials from frontend
+    username = ""
+    email = ""
+    password = ""
+    return (username, email, password)
 
