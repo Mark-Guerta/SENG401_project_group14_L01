@@ -1,3 +1,35 @@
+.prepare-meal-input-rectangle5 {
+  border-radius: 90px;
+  background: #ffffff;
+  top: 239px;
+  left: 919px;
+  width: 793px;
+  height: 960px;
+  display: flex;
+  position: absolute;
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+  font-size: 24px; 
+  padding: 10px; 
+}
+
+.prepare-meal-input-rectangle4 {
+  border-radius: 90px;
+  background: #ffffff;
+  top: 239px;
+  left: 160px;
+  width: 683px;
+  height: 261px;
+  display: flex;
+  position: absolute;
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+  font-size: 24px; 
+  padding: 10px; 
+}
+
 .prepare-meal-container {
   width: 100%;
   display: flex;
