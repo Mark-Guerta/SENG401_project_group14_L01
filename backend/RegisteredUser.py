@@ -13,10 +13,10 @@ class RegisteredUser(User):
     def getInfo():
         return {"username": "username", "email": "email", "password": "password"}
     
-    def set_result(self, result):
+    def setResult(self, result):
         self.result = result
     # function to set the user's result after entering prompt
 
-    def get_result(self):
+    def getResult(self):
         return self.result
     

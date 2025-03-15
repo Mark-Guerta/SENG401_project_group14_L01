@@ -7,8 +7,8 @@ class Guest(User):
     def getInfo(self):
         pass
 
-    def set_result(self, result):
+    def setResult(self, result):
         pass
 
-    def get_result(self):
+    def getResult(self):
         pass
