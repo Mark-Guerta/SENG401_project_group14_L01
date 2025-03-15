@@ -1,11 +1,9 @@
-def errorMessage():
-    # general error message
-    return 0
+class Prompt:
+    def __init__(self, message: str):
+        self.message = message
 
-def successfulMessage():
-    # general success message
-    return 0
+    def set_message(self, message: str):
+        self.message = message
 
-def successRegisteredUserMessage():
-    # message shown when user is successfully created 
-    return 0
+    def get_message(self):
+        return self.message
