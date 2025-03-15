@@ -1,13 +1,40 @@
-import React from 'react'
-
-import { Helmet } from 'react-helmet'
-
-import './login.css'
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
+import './login.css';
 
 const Login = (props) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
   const navigateTo = (path) => {
     window.location.href = path;
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const loginData = {
+      username: username,
+      password: password,
+    };
+    // Send loginData to the backend
+    fetch('/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(loginData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+        // Handle successful login
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        // Handle login error
+      });
+  };
+
   return (
     <div className="login-container">
       <Helmet>
@@ -93,64 +120,51 @@ const Login = (props) => {
           />
         </div>
 
+        <form onSubmit={handleSubmit}>
+          <div className="login-input-login">
+            <span className="login-text33">Password:</span>
+            <input
+              className="PasswordInput3"
+              type="password"
+              placeholder="Enter your Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <span className="login-text34">Username / Email:</span>
+            <input
+              className="LoginInput"
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <img
+              src="/external/rectangle51932-qb4-200h.png"
+              alt="Rectangle51932"
+              className="login-text300"
+            />
+            <span className="login-text35" onClick={() => navigateTo('/home-page2')}>
+              Continue as Guest
+            </span>
+          </div>
 
+          <button type="submit" className="login-signup-button1">
+            <img
+              src="/external/signup5818-3wp5-200h.png"
+              alt="SignUp5818"
+              className="login-sign-up1"
+            />
+            <span className="login-text36">Login</span>
+          </button>
+        </form>
 
-
-        <form >
-        <div className="login-input-login">
-         
-          <span className="login-text33">Password:</span>
-            
-          <input className= "PasswordInput3"
-            type="password"
-            placeholder="Enter your Password"
-          />
-          
-          
-          <span className="login-text34">Username / Email:</span>
-        
-          
-          <input className= "LoginInput"
-            type="text"
-            placeholder="Username"
-          />
-          
-          <img
-            src="/external/rectangle51932-qb4-200h.png"
-            alt="Rectangle51932"
-            className="login-text300"
-          />
-          <span className="login-text35" onClick={() => navigateTo('/home-page2')} >Continue as Guest</span>
-        </div>
-        
-
-        <button type="submit" className="login-signup-button1">
-
-       
-          <img
-            src="/external/signup5818-3wp5-200h.png"
-            alt="SignUp5818"
-            className="login-sign-up1"
-          />
-          <span className="login-text36">Login</span>
-
-        </button>
-
-
-       
-
-
-    </form>
-
-
-    <div  className="login-design2"> 
+        <div className="login-design2">
           <img
             src="/external/wprocessed15822-mij-500h.png"
             alt="wprocessed15822"
             className="login-wprocessed1"
           />
-          </div>
-  
+        </div>
 
         <div className="login-didyouknow">
           <span className="login-text37">Did you know?</span>
@@ -167,7 +181,7 @@ const Login = (props) => {
             className="login-rectangle1"
           />
           <div className="login-prepare-meal-button">
-            <div className="login-company-logo2">
+            <div className="login-company-logo2"></div>
               <img
                 src="/external/imageremovebgpreview1i192-oe3-200h.png"
                 alt="imageremovebgpreview1I192"
@@ -208,8 +222,7 @@ const Login = (props) => {
           </div>
         </div>
       </div>
-    </div>
-  )
-}
+);
+};
 
-export default Login
+export default Login;
