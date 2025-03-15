@@ -3,8 +3,9 @@ Frontend:
         1. npm install
         2. npm install -g npm
         3. pip install flask-cors
-        4. npm install craco
-        5. npm start
+        4. pip install google-generativeai
+        5. npm install craco
+        6. npm start
 
 Backend:
     Create SQL server on MySQL workbench.
