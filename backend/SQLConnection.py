@@ -1,13 +1,24 @@
 from DatabaseSingleton import databaseInstance
+import mysql.connector
 
 class SQLConnect:
 
     def __init__(self):
-        self.databaseUsernames = None
-        self.databasePasswords = None
-        self.database = databaseInstance.getConnection()
+        self.database = None
 
-    def storeDatabase(self):
+    def connectDB(self):
+        try:
+            self.database = mysql.connector.connect(host='127.0.0.1', user='root', password='')
+        except:
+            print("Could not connect to database")
+
+    def closeDB(self):
+        try:
+            self.database.close()
+        except:
+            print('Either not connected to database or just could not disconnect properly')
+
+    def getDatabase(self):
         try:
             cursor = self.database.cursor()
         except:
@@ -16,16 +27,11 @@ class SQLConnect:
             else:
                 print("Cursor already created")
 
-
         cursor.execute("SELECT userName, userPassword FROM User")
-
-        self.databaseUsernames, self.databasePasswords = cursor.fetchall()
-
+        databaseUsernames, databasePasswords = cursor.fetchall()
         cursor.close()
-        return
 
-    def getDatabase(self):
-        return self.databaseUsernames, self.databasePasswords
+        return databaseUsernames, databasePasswords
     
     def inputDatabase(self, username, email, password):
         try:
@@ -37,7 +43,4 @@ class SQLConnect:
                 print("Cursor already created")
 
         cursor.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", (username, email, password))
-
-        self.storeDatabase()
-
         cursor.close()
