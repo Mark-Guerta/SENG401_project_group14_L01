@@ -1,13 +1,16 @@
-import React from 'react'
-
+import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
-
 import './prepare-meal.css'
 
 const PrepareMeal = (props) => {
-  
+  const [inputText, setInputText] = useState('');
+
   const navigateTo = (path) => {
     window.location.href = path;
+  };
+
+  const handleInputChange = (event) => {
+    setInputText(event.target.value);
   };
 
   return (
@@ -99,21 +102,32 @@ const PrepareMeal = (props) => {
           alt="Rectangle24320"
           className="prepare-meal-rectangle2"
         />
+        
         <img
           src="/external/rectangle46022-2gcb.svg"
           alt="Rectangle46022"
           className="prepare-meal-rectangle4"
+        />
+        <input
+          type="text"
+          className="prepare-meal-input-rectangle4"
         />
         <img
           src="/external/rectangle34321-ld45.svg"
           alt="Rectangle34321"
           className="prepare-meal-rectangle3"
         />
+
         <img
           src="/external/rectangle56022-obet.svg"
           alt="Rectangle56022"
           className="prepare-meal-rectangle5"
         />
+        <input
+          type="text"
+          className="prepare-meal-input-rectangle5"
+        />
+        
         <img
           src="/external/image16022-y60i-800h.png"
           alt="image16022"
@@ -122,6 +136,7 @@ const PrepareMeal = (props) => {
         <span className="prepare-meal-text33">
           Enter Your Ingredients Here:
         </span>
+        
         <span className="prepare-meal-text34">Recipes Made With Magic:</span>
         <div className="prepare-meal-navigation-bar">
 
