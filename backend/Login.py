@@ -12,6 +12,8 @@ class Login:
         # Call this function to initate a login.
         # Check credentials (call function)
         # Match a corresponding message to FALSE for failure or TRUE for success
+        self.usernames, self.passwords = self.SQL.getDatabase()
+
         if username not in self.usernames:
             return False
         
@@ -25,6 +27,8 @@ class Login:
     def checkRegisteredUserInDatabase(self, username):
         # Check if inputed credentials match with any users in database (return TRUE if they are)
         # If not then guest login is initated by returning FALSE
+        self.usernames, self.passwords = self.SQL.getDatabase()
+        
         if username in self.usernames:
             return True
         else:

@@ -26,3 +26,18 @@ class SQLConnect:
 
     def getDatabase(self):
         return self.databaseUsernames, self.databasePasswords
+    
+    def inputDatabase(self, username, email, password):
+        try:
+            cursor = self.database.cursor()
+        except:
+            if(self.database == None):
+                print("Database not connected")
+            else:
+                print("Cursor already created")
+
+        cursor.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", (username, email, password))
+
+        self.storeDatabase()
+
+        cursor.close()

@@ -1,10 +1,10 @@
-from User import initializeUser
+from RegisteredUser import RegisteredUser
 
 def createRegisteredUser():
     # create a registered user 
     # return: boolean to prompting if user was created successfully or failed
     (username, email, password) = inputSignupCredentials()
-    newRegisteredUser = initializeUser(username, email, password)
+    newRegisteredUser = RegisteredUser(username, email, password)
     if (newRegisteredUser != None):
         return True
     else:
