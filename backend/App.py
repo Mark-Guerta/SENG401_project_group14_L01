@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import Signup
 import Login 
+import Gemini
 
 app = Flask(__name__) 
 CORS(app)
@@ -26,7 +27,11 @@ def register_user():
     else:
         return jsonify({"error": "User registration failed"}), 500
     
-    
+#@app.route('/prepare-meal', methods=['POST'])
+#def prompt():
+ #   data = request.json
+  #  message = Gemini.getResponse(data)
+   # return jsonify({message})
     
 @app.route('/login', methods=['POST'])
 def login_user():
@@ -43,4 +48,4 @@ def login_user():
         return jsonify({"error": "Invalid username or password"}), 401
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=3000)
