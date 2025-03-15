@@ -12,13 +12,15 @@ class Signup:
         self.email = None
         self.password = None
 
-    def inputSignupCredentials(self):
+    def setSignupCredentials(self, username, email, password):
         """
         Take in credentials for signup from frontend.
         """
-        self.username = input("Enter username: ")
-        self.email = input("Enter email: ")
-        self.password = input("Enter password: ")
+        self.username = username
+        self.email = email
+        self.password = password
+    
+    def getSignupCredentials(self):
         return self.username, self.email, self.password
 
     def createRegisteredUser(self):
