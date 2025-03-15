@@ -1,21 +1,12 @@
-from User import initializeUser
+from User import User
 
-class RegisteredUser:
-    def __init__(self, userBase = None):
-        self.userBase = initializeUser(userBase)
-        self.id = None
+class RegisteredUser(User):
+    def __init__(self, email = "", password = "", username = ""):
+        self.username = username
+        self.email = email
+        self.password = password
 
-    def initializeRegisteredUser(self, userBase):
-        newRisteredUser = RegisteredUser(userBase)
-        if (newRisteredUser != None):
-            return newRisteredUser
-        else:
-            return None
-        
-    def setID(self, id):
-        self.id = id
-
-    def getID(self):
-        return self.id
+    def getInfo():
+        return {"username": "username", "email": "email", "password": "password"}
     
     
