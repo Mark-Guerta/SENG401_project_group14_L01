@@ -1,4 +1,4 @@
-from SQLConnection import SQLConnect, 
+from SQLConnection import SQLConnect
 
 class Login:
 
