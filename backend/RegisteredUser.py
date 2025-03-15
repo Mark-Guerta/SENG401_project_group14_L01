@@ -1,6 +1,6 @@
-from User import User
+import User
 
-class RegisteredUser(User):
+class RegisteredUser(User.User):
     def __init__(self, email = "", password = "", username = ""):
         self.username = username
         self.email = email

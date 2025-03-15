@@ -1,11 +1,10 @@
-from RegisteredUser import RegisteredUser
-
-from SQLConnection import SQLConnect
+import RegisteredUser
+import SQLConnection
 # use sqlconnection as it seeks to modify database
 
 class Signup:
     
-    SQL = SQLConnect()
+    SQL = SQLConnection.SQLConnect()
     
     def __init__(self):
         self.username = None
@@ -28,8 +27,8 @@ class Signup:
         Creates a registered user.
         Returns: Boolean indicating if the user was created successfully.
         """
-        username, email, password = self.inputSignupCredentials()
-        newRegisteredUser = RegisteredUser(username, email, password)
+        username, email, password = self.setSignupCredentials()
+        newRegisteredUser = RegisteredUser.RegisteredUser(username, email, password)
         self.transportUserCrendentialsIntoDatabase()
         return newRegisteredUser is not None  # Cleaner check
     

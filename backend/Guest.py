@@ -1,6 +1,6 @@
-from User import User
+import User
 
-class Guest(User):
+class Guest(User.User):
     def __init__(self):
         self.result = ""
 

@@ -1,10 +1,11 @@
-from DatabaseSingleton import databaseInstance
 import mysql.connector
+import DatabaseSingleton
 
 class SQLConnect:
 
     def __init__(self):
         self.database = None
+        self.databaseInstance = DatabaseSingleton.DatabaseSingleton()
 
     def connectDB(self):
         try:
@@ -42,7 +43,7 @@ class SQLConnect:
             else:
                 print("Cursor already created")
 
-        usernames, passwords = databaseInstance.getLoginData()
+        usernames, passwords = self.databaseInstance.getLoginData()
 
         if username in usernames:
             cursor.close()
@@ -50,6 +51,6 @@ class SQLConnect:
 
         cursor.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", (username, email, password))
 
-        databaseInstance.setLoginData()
+        self.databaseInstance.setLoginData()
 
         cursor.close()

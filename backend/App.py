@@ -1,18 +1,17 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from Signup import Signup 
-from Login import Login   
+import Signup
+import Login 
 
 app = Flask(__name__) 
 CORS(app, origins=["http://localhost:3000"])
 
 # Initialize Signup instance
-signup = Signup()
+signup = Signup.Signup()
 
 @app.route('/register', methods=['POST'])
 def register_user():
     data = request.json
-    
 
     if not data or 'username' not in data or 'password' not in data or 'email' not in data:
         return jsonify({"error": "Missing username, password, or email"}), 400
@@ -37,7 +36,7 @@ def login_user():
     if not data or 'username' not in data or 'password' not in data:
         return jsonify({"error": "Missing username or password"}), 400
 
-    is_authenticated = Login.loginProcess(data['username'], data['password'])
+    is_authenticated = Login.Login.loginProcess(data['username'], data['password'])
 
     if is_authenticated:
         return jsonify({"message": "Login successful", "user": data['username']}), 200
