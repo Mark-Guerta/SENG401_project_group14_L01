@@ -1,16 +1,60 @@
-import React from 'react'
-
-import { Helmet } from 'react-helmet'
-
-import './register.css'
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
+import './register.css';
 
 const Register = (props) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [validationMessage, setValidationMessage] = useState('');
 
   const navigateTo = (path) => {
     window.location.href = path;
   };
+
+  const validatePassword = (password) => {
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasNumber = /\d/.test(password);
+    return hasUpperCase && hasLowerCase && hasNumber;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!validatePassword(password)) {
+      setValidationMessage('Password must contain at least one uppercase letter, one lowercase letter, and one number.');
+      return;
+    }
+    if (password !== confirmPassword) {
+      setValidationMessage('Passwords do not match.');
+      return;
+    }
+    const loginData = {
+      username: username,
+      password: password,
+      email: email,
+    };
+    // Send loginData to the backend
+    fetch('/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(loginData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+        // Handle successful login
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        // Handle login error
+      });
+  };
+
   return (
-    
     <div className="register-container">
       <Helmet>
         <title>exported project</title>
@@ -87,7 +131,7 @@ const Register = (props) => {
             src="/external/ellipse71928-dcyp-200h.png"
             alt="Ellipse71928"
             className="register-ellipse7"
-         />
+          />
           <img
             src="/external/ellipse61928-ubzc-200h.png"
             alt="Ellipse61928"
@@ -95,13 +139,15 @@ const Register = (props) => {
           />
         </div>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="register-input-login">
             <span className="ConfirmPass">Confirm Password:</span>
             <input
               className="PasswordInput"
               type="password"
               placeholder="Enter your Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
 
             <span className="EnterPass">Enter Password:</span>
@@ -109,6 +155,8 @@ const Register = (props) => {
               className="PasswordInput2"
               type="password"
               placeholder="Re-Enter your Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <span className="EnterEmail">Enter Email:</span>
 
@@ -116,6 +164,8 @@ const Register = (props) => {
               className="regEmail"
               type="email"
               placeholder="Enter your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
 
             <span className="EnterUsername">Enter New Username:</span>
@@ -124,8 +174,12 @@ const Register = (props) => {
               className="regUsername"
               type="text"
               placeholder="Enter your Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
+
+          {validationMessage && <p className="validation-message">{validationMessage}</p>}
 
           <button type="submit" className="RegisterButton">
             <img
@@ -137,7 +191,6 @@ const Register = (props) => {
           </button>
         </form>
 
-        
         <div className="register-didyouknow">
           <span className="register-text38">Did you know?</span>
           <span className="register-text39">
@@ -187,10 +240,7 @@ const Register = (props) => {
             />
             <span className="register-text42">Login</span>
           </div>
-          <div
-            className="register-signup-button"
-            onClick={() => navigateTo('/register')}
-          >
+          <div className="register-signup-button" onClick={() => navigateTo('/register')}>
             <img
               src="/external/signup1929-0w24-200h.png"
               alt="SignUp1929"
@@ -212,4 +262,4 @@ const Register = (props) => {
   );
 }
 
-export default Register
+export default Register;
