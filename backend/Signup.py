@@ -1,6 +1,12 @@
 from RegisteredUser import RegisteredUser
 
+from SQLConnection import SQLConnect
+# use sqlconnection as it seeks to modify database
+
 class Signup:
+    
+    SQL = SQLConnect()
+    
     def __init__(self):
         self.username = None
         self.email = None
@@ -22,4 +28,18 @@ class Signup:
         """
         username, email, password = self.inputSignupCredentials()
         newRegisteredUser = RegisteredUser(username, email, password)
+        self.transportUserCrendentialsIntoDatabase()
         return newRegisteredUser is not None  # Cleaner check
+    
+    # sending registered information into database
+    def transportUserCrendentialsIntoDatabase(self):
+        # open connection to database
+        self.SQL.connectDB()
+        self.SQL.inputDatabase(self.username, self.email, self.password)
+        self.SQL.closeDB()
+        
+        
+        
+        
+        
+    
