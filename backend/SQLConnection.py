@@ -42,5 +42,14 @@ class SQLConnect:
             else:
                 print("Cursor already created")
 
+        usernames, passwords = databaseInstance.getLoginData()
+
+        if username in usernames:
+            cursor.close()
+            return print("Username already in use")
+
         cursor.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", (username, email, password))
+
+        databaseInstance.setLoginData()
+
         cursor.close()
