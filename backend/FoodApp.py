@@ -1,5 +1,3 @@
-
-
 def viewResults(selectedUser):
     # make call to database to recieve results
     return 0
