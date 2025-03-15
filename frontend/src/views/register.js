@@ -36,23 +36,30 @@ const Register = (props) => {
       email: email,
     };
     // Send loginData to the backend
-    fetch('/api/login', {
+    fetch('http://127.0.0.1:5000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(loginData),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then((data) => {
         console.log('Success:', data);
         // Handle successful login
+        navigateTo('/home-page2');
       })
       .catch((error) => {
         console.error('Error:', error);
         // Handle login error
+        setValidationMessage('Login failed. Please try again.');
       });
-  };
+  };3
 
   return (
     <div className="register-container">
