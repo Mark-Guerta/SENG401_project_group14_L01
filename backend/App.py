@@ -4,8 +4,7 @@ import Signup
 import Login 
 
 app = Flask(__name__) 
-CORS(app, origins=["http://localhost:3000"])
-
+CORS(app)
 # Initialize Signup instance
 signup = Signup.Signup()
 
