@@ -1,57 +1,31 @@
-from DatabaseConnection import getDB
-import mysql.connector
+import SQLConnection
 
-def loginProcess(username, password):
-    # Call this function to initate a login.
-    # Check credentials (call function)
-    # Match a corresponding message to FALSE for failure or TRUE for success
-    mydb = getDB()
-    try:
-        cursor = mydb.cursor()
-    except:
-        if(mydb == None):
-            print("Database not connected")
+class Login:
+
+    def __init__(self):
+        self.SQL = SQLConnection()
+        self.SQL.storeDatabase()
+        self.usernames, self.passwords = self.SQL.getDatabase()
+
+    def loginProcess(self, username, password):
+        # Call this function to initate a login.
+        # Check credentials (call function)
+        # Match a corresponding message to FALSE for failure or TRUE for success
+        if username not in self.usernames:
+            return False
+        
+        usernameIndex = self.usernames.index(username)
+
+        if self.passwords[usernameIndex] == password:
+            return True
         else:
-            print("Cursor already created")
+            return False
 
-
-    cursor.execute("SELECT userName, userPassword FROM User")
-
-    usernames, passwords = cursor.fetchall()
-
-    cursor.close()
-
-    if username not in usernames:
-        return False
-    
-    usernameIndex = usernames.index(username)
-
-    if passwords[usernameIndex] == password:
-        return True
-    else:
-        return False
-
-def checkRegisteredUserInDatabase(username):
-    # Check if inputed credentials match with any users in database (return TRUE if they are)
-    # If not then guest login is initated by returning FALSE
-    mydb = getDB()
-    try:
-        cursor = mydb.cursor()
-    except:
-        if(mydb == None):
-            print("Database not connected")
+    def checkRegisteredUserInDatabase(self, username):
+        # Check if inputed credentials match with any users in database (return TRUE if they are)
+        # If not then guest login is initated by returning FALSE
+        if username in self.usernames:
+            return True
         else:
-            print("Cursor already created")
-
-
-    cursor.execute("SELECT userName FROM User")
-
-    myresult = cursor.fetchall()
-
-    cursor.close()
-
-    if username in myresult:
-        return True
-    else:
-        return False
+            return False
  

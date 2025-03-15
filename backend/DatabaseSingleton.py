@@ -1,0 +1,30 @@
+import mysql.connector
+
+class DatabaseSingleton():
+
+    _instance = None
+    mydb = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(DatabaseSingleton, cls).__new__(cls)
+        return cls._instance
+  
+    def connectDB(self):
+        try:
+            DatabaseSingleton.mydb = mysql.connector.connect(host='127.0.0.1', user='root', password='')
+        except:
+            print("Could not connect to database")
+
+    def closeDB(self):
+        try:
+            DatabaseSingleton.mydb.close()
+        except:
+            print('Either not connected to database or just could not disconnect properly')
+
+    def getConnection(self):
+        return DatabaseSingleton.mydb
+    
+databaseInstance = DatabaseSingleton() 
+  
+
