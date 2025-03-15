@@ -1,9 +1,10 @@
-import SQLConnection
+from SQLConnection import SQLConnect, 
 
 class Login:
 
+    SQL = SQLConnect()
+
     def __init__(self):
-        self.SQL = SQLConnection()
         self.SQL.storeDatabase()
         self.usernames, self.passwords = self.SQL.getDatabase()
 

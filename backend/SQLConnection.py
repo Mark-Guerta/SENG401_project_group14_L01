@@ -1,6 +1,6 @@
 from DatabaseSingleton import databaseInstance
 
-class SQLConnection:
+class SQLConnect:
 
     def __init__(self):
         self.databaseUsernames = None
@@ -22,6 +22,7 @@ class SQLConnection:
         self.databaseUsernames, self.databasePasswords = cursor.fetchall()
 
         cursor.close()
+        return
 
     def getDatabase(self):
         return self.databaseUsernames, self.databasePasswords
