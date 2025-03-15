@@ -5,7 +5,7 @@ import Login
 import Gemini
 
 app = Flask(__name__) 
-CORS(app)
+CORS(app, origins=["http://localhost:3000"])
 # Initialize Signup instance
 signup = Signup.Signup()
 
@@ -48,4 +48,4 @@ def login_user():
         return jsonify({"error": "Invalid username or password"}), 401
 
 if __name__ == '__main__':
-    app.run(debug=True, port=3000)
+    app.run(debug=True)
