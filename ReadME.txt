@@ -5,3 +5,10 @@ Frontend:
         3. pip install flask-cors
         4. npm install craco
         5. npm start
+
+Backend:
+    Create SQL server on MySQL workbench.
+    Install SQLtools addon in Visual Studio Code
+    Create connection to sql server in visual studio Code
+    Run 401LoginSchema.sql on active connection
+    Run App.py
