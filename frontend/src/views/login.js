@@ -17,7 +17,7 @@ const Login = (props) => {
       password: password,
     };
     // Send loginData to the backend
-    fetch('/api/login', {
+    fetch('http://localhost:3000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
