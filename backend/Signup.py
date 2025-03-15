@@ -28,6 +28,7 @@ class Signup:
         """
         username, email, password = self.inputSignupCredentials()
         newRegisteredUser = RegisteredUser(username, email, password)
+        self.transportUserCrendentialsIntoDatabase()
         return newRegisteredUser is not None  # Cleaner check
     
     # sending registered information into database
