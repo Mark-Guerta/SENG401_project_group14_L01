@@ -49,14 +49,12 @@ class Register extends Component {
       })
         .then((response) => response.json())
         .then((json) => {
-          console.log(json);
-          if (json.error) {
-            this.setState({ error: json.error });
+          
+          if (json.error=="Signup Successful") {
+            this.setState({"error": "Signup Successful"});
             this.navigateTo('/home-page2');
           } else {
-            this.setState({error: 'Failed'});
-       
-          
+            this.setState({error: 'Failed'}); 
           }
         });
     }

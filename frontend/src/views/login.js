@@ -1,228 +1,250 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import './login.css';
 
-const Login = (props) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: '',
+      error: ''
+    };
+  }
 
-  const navigateTo = (path) => {
+  handleInputChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
+
+  navigateTo = (path) => {
     window.location.href = path;
   };
 
-  const handleSubmit = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
-    const loginData = {
-      username: username,
-      password: password,
-    };
-    // Send loginData to the backend
-    fetch('http://localhost:5000/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(loginData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Success:', data);
-        // Handle successful login
+    const { username, password } = this.state;
+    if (!username || !password) {
+      this.setState({ error: 'Please fill in all fields' });
+    } else {
+      const user = {
+        username,
+        password
+      };
+
+      fetch("http://127.0.0.1:5000/login", {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-Type": "application/json"
+        }
       })
-      .catch((error) => {
-        console.error('Error:', error);
-        // Handle login error
-      });
-  };
+        .then((response) => response.json())
+        .then((json) => {
+          if (json.error == 'Login Failed') {
+            this.setState({error: 'Username or Password does not exists'})
+          } else {
+            this.setState({ error: 'Login Successful' });
+            this.navigateTo('/home-page2');
+          }
+        });
+    }
+  }
 
-  return (
-    <div className="login-container">
-      <Helmet>
-        <title>exported project</title>
-      </Helmet>
-      <div className="login-login1">
-        <div className="login-bottom-bar">
-          <span className="login-text10">
-            <span>Email:</span>
-            <br></br>
-            <span>white.dressing@coomer.com</span>
-            <br></br>
-            <br></br>
-            <span>Phone number:</span>
-            <br></br>
-            <span>403-1111-2222</span>
-          </span>
-          <span className="login-text19">Contacts</span>
-          <span className="login-text20">Account</span>
-          <span className="login-text21">
-            <span>Forgot Password</span>
-            <br></br>
-            <br></br>
-            <span>Frequently Asked Questions</span>
-            <br></br>
-            <br></br>
-            <span>Sign up</span>
-            <br></br>
-            <br></br>
-            <span>Support</span>
-          </span>
-          <div className="login-company-logo1">
-            <img
-              src="/external/imageremovebgpreview1i192-3wrb-400h.png"
-              alt="imageremovebgpreview1I192"
-              className="login-imageremovebgpreview11"
-            />
-          </div>
-          <img
-            src="/external/socialmedialogo1923-eabl-200h.png"
-            alt="SocialMediaLogo1923"
-            className="login-social-media-logo"
-          />
-          <span className="login-text32">
-            @WhiteDressing Privacy Policy AI Agreement Terms and Conditions
-          </span>
-        </div>
-        <div className="login-design1">
-          <img
-            src="/external/ellipse91923-5fnc-1600h.png"
-            alt="Ellipse91923"
-            className="login-ellipse9"
-          />
-          <img
-            src="/external/ellipse11924-s8k8-1500h.png"
-            alt="Ellipse11924"
-            className="login-ellipse1"
-          />
-          <img
-            src="/external/ellipse21924-sdoj-700h.png"
-            alt="Ellipse21924"
-            className="login-ellipse2"
-          />
-          <img
-            src="/external/ellipse31924-cr3a-300h.png"
-            alt="Ellipse31924"
-            className="login-ellipse3"
-          />
-          <img
-            src="/external/ellipse41924-cbia-200h.png"
-            alt="Ellipse41924"
-            className="login-ellipse4"
-          />
-          <img
-            src="/external/ellipse71924-w1t5-200h.png"
-            alt="Ellipse71924"
-            className="login-ellipse7"
-          />
-          <img
-            src="/external/ellipse61924-u3at-200h.png"
-            alt="Ellipse61924"
-            className="login-ellipse6"
-          />
-        </div>
+  render() {
+    const { username, password, error } = this.state;
 
-        <form onSubmit={handleSubmit}>
-          <div className="login-input-login">
-            <span className="login-text33">Password:</span>
-            <input
-              className="PasswordInput3"
-              type="password"
-              placeholder="Enter your Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <span className="login-text34">Username / Email:</span>
-            <input
-              className="LoginInput"
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <img
-              src="/external/rectangle51932-qb4-200h.png"
-              alt="Rectangle51932"
-              className="login-text300"
-            />
-            <span className="login-text35" onClick={() => navigateTo('/home-page2')}>
-              Continue as Guest
+    return (
+      <div className="login-container">
+        <Helmet>
+          <title>exported project</title>
+        </Helmet>
+        <div className="login-login1">
+          <div className="login-bottom-bar">
+            <span className="login-text10">
+              <span>Email:</span>
+              <br></br>
+              <span>white.dressing@coomer.com</span>
+              <br></br>
+              <br></br>
+              <span>Phone number:</span>
+              <br></br>
+              <span>403-1111-2222</span>
             </span>
-          </div>
-
-          <button type="submit" className="login-signup-button1">
-            <img
-              src="/external/signup5818-3wp5-200h.png"
-              alt="SignUp5818"
-              className="login-sign-up1"
-            />
-            <span className="login-text36">Login</span>
-          </button>
-        </form>
-
-        <div className="login-design2">
-          <img
-            src="/external/wprocessed15822-mij-500h.png"
-            alt="wprocessed15822"
-            className="login-wprocessed1"
-          />
-        </div>
-
-        <div className="login-didyouknow">
-          <span className="login-text37">Did you know?</span>
-          <span className="login-text38">
-            Every culture has a unique approach to food. Japan emphasizes on
-            simplicity and freshness, Indian cuisine are rich with spices, and
-            Mexican food showcases vibrant colors!
-          </span>
-        </div>
-        <div className="login-navigation-bar">
-          <img
-            src="/external/rectangle11924-fc8-200h.png"
-            alt="Rectangle11924"
-            className="login-rectangle1"
-          />
-          <div className="login-prepare-meal-button">
-            <div className="login-company-logo2"></div>
+            <span className="login-text19">Contacts</span>
+            <span className="login-text20">Account</span>
+            <span className="login-text21">
+              <span>Forgot Password</span>
+              <br></br>
+              <br></br>
+              <span>Frequently Asked Questions</span>
+              <br></br>
+              <br></br>
+              <span>Sign up</span>
+              <br></br>
+              <br></br>
+              <span>Support</span>
+            </span>
+            <div className="login-company-logo1">
               <img
-                src="/external/imageremovebgpreview1i192-oe3-200h.png"
+                src="/external/imageremovebgpreview1i192-3wrb-400h.png"
                 alt="imageremovebgpreview1I192"
-                className="login-imageremovebgpreview12"
+                className="login-imageremovebgpreview11"
               />
-              <span className="login-text39">White Dressing</span>
             </div>
             <img
-              src="/external/preparemeal1925-nwz9-200h.png"
-              alt="PrepareMeal1925"
-              className="login-prepare-meal"
+              src="/external/socialmedialogo1923-eabl-200h.png"
+              alt="SocialMediaLogo1923"
+              className="login-social-media-logo"
             />
-            <span className="login-text40">Prepare Meal</span>
+            <span className="login-text32">
+              @WhiteDressing Privacy Policy AI Agreement Terms and Conditions
+            </span>
           </div>
-          <div className="login-login-button">
+          <div className="login-design1">
             <img
-              src="/external/login1925-9i85-200h.png"
-              alt="Login1925"
-              className="login-login2"
+              src="/external/ellipse91923-5fnc-1600h.png"
+              alt="Ellipse91923"
+              className="login-ellipse9"
             />
-            <span className="login-text41">Login</span>
+            <img
+              src="/external/ellipse11924-s8k8-1500h.png"
+              alt="Ellipse11924"
+              className="login-ellipse1"
+            />
+            <img
+              src="/external/ellipse21924-sdoj-700h.png"
+              alt="Ellipse21924"
+              className="login-ellipse2"
+            />
+            <img
+              src="/external/ellipse31924-cr3a-300h.png"
+              alt="Ellipse31924"
+              className="login-ellipse3"
+            />
+            <img
+              src="/external/ellipse41924-cbia-200h.png"
+              alt="Ellipse41924"
+              className="login-ellipse4"
+            />
+            <img
+              src="/external/ellipse71924-w1t5-200h.png"
+              alt="Ellipse71924"
+              className="login-ellipse7"
+            />
+            <img
+              src="/external/ellipse61924-u3at-200h.png"
+              alt="Ellipse61924"
+              className="login-ellipse6"
+            />
           </div>
-          <div className="login-signup-button2" onClick={() => navigateTo('/register')}>
+  
+          <form onSubmit={this.handleSubmit}>
+            <div className="login-input-login">
+              <span className="login-text33">Password:</span>
+              <input
+                className="PasswordInput3"
+                type="password"
+                placeholder="Enter your Password"
+                value={password}
+                onChange={this.handleInputChange}
+              />
+              <span className="login-text34">Username / Email:</span>
+              <input
+                className="LoginInput"
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={this.handleInputChange}
+              />
+              {error && <p className="validation-message">{error}</p>}
+              <img
+                src="/external/rectangle51932-qb4-200h.png"
+                alt="Rectangle51932"
+                className="login-text300"
+              />
+              <span className="login-text35" onClick={() => this.navigateTo('/home-page2')}>
+                Continue as Guest
+              </span>
+            </div>
+  
+            <button type="submit" className="login-signup-button1">
+              <img
+                src="/external/signup5818-3wp5-200h.png"
+                alt="SignUp5818"
+                className="login-sign-up1"
+              />
+              <span className="login-text36">Login</span>
+            </button>
+          </form>
+  
+          <div className="login-design2">
             <img
-              src="/external/signup1925-o1w2-200h.png"
-              alt="SignUp1925"
-              className="login-sign-up2"
+              src="/external/wprocessed15822-mij-500h.png"
+              alt="wprocessed15822"
+              className="login-wprocessed1"
             />
-            <span className="login-text42">Sign up</span>
           </div>
-          <div className="login-home-button" onClick={() => navigateTo('/')}>
+  
+          <div className="login-didyouknow">
+            <span className="login-text37">Did you know?</span>
+            <span className="login-text38">
+              Every culture has a unique approach to food. Japan emphasizes on
+              simplicity and freshness, Indian cuisine are rich with spices, and
+              Mexican food showcases vibrant colors!
+            </span>
+          </div>
+          <div className="login-navigation-bar">
             <img
-              src="/external/home1925-afwih-200h.png"
-              alt="Home1925"
-              className="login-home"
+              src="/external/rectangle11924-fc8-200h.png"
+              alt="Rectangle11924"
+              className="login-rectangle1"
             />
-            <span className="login-text43">Home</span>
+            <div className="login-prepare-meal-button">
+              <div className="login-company-logo2"></div>
+                <img
+                  src="/external/imageremovebgpreview1i192-oe3-200h.png"
+                  alt="imageremovebgpreview1I192"
+                  className="login-imageremovebgpreview12"
+                />
+                <span className="login-text39">White Dressing</span>
+              </div>
+              <img
+                src="/external/preparemeal1925-nwz9-200h.png"
+                alt="PrepareMeal1925"
+                className="login-prepare-meal"
+              />
+              <span className="login-text40">Prepare Meal</span>
+            </div>
+            <div className="login-login-button">
+              <img
+                src="/external/login1925-9i85-200h.png"
+                alt="Login1925"
+                className="login-login2"
+              />
+              <span className="login-text41">Login</span>
+            </div>
+            <div className="login-signup-button2" onClick={() => this.navigateTo('/register')}>
+              <img
+                src="/external/signup1925-o1w2-200h.png"
+                alt="SignUp1925"
+                className="login-sign-up2"
+              />
+              <span className="login-text42">Sign up</span>
+            </div>
+            <div className="login-home-button" onClick={() => this.navigateTo('/')}>
+              <img
+                src="/external/home1925-afwih-200h.png"
+                alt="Home1925"
+                className="login-home"
+              />
+              <span className="login-text43">Home</span>
+            </div>
           </div>
         </div>
-      </div>
-);
-};
+  );
+  };
+  }
+
 
 export default Login;
