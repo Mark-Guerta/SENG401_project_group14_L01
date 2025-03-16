@@ -5,7 +5,9 @@ Frontend:
         3. pip install flask-cors
         4. pip install google-genai
         5. npm install craco
-        6. npm start
+        6. npm install react-router-dom
+        7. npm start
+
 
 Backend:
     Create SQL server on MySQL workbench.
