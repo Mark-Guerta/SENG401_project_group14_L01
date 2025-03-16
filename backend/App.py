@@ -3,12 +3,14 @@ from flask_cors import CORS
 import Signup
 import Login 
 import Gemini
+import DatabaseSingleton
 
 app = Flask(__name__) 
 CORS(app)
 # Initialize Signup instance
-signup = Signup.Signup()
-
+signup = Signup.Signup
+databaseInstance = DatabaseSingleton.DatabaseSingleton()
+databaseInstance.setLoginData()
 
 
 @app.route('/register', methods=['POST'])
@@ -18,10 +20,10 @@ def register():
     password = request.json['password']
     username = request.json['username']
 
-
+    print(password)
     signup.setSignupCredentials(username, email, password)
     signup.createRegisteredUser()
-
+    databaseInstance.setLoginData()
     
     return jsonify({"error": "Signup failed"}), 500
 

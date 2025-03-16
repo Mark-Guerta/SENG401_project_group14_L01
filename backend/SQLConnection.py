@@ -9,7 +9,7 @@ class SQLConnect:
 
     def connectDB(self):
         try:
-            self.database = mysql.connector.connect(host='127.0.0.1', user='root', password='')
+            self.database = mysql.connector.connect(host='127.0.0.1', user='root', password='Spookygoat32!', database="LoginDB")
         except:
             print("Could not connect to database")
 
@@ -20,6 +20,8 @@ class SQLConnect:
             print('Either not connected to database or just could not disconnect properly')
 
     def getDatabase(self):
+        self.connectDB()
+
         try:
             cursor = self.database.cursor()
         except:
@@ -27,14 +29,21 @@ class SQLConnect:
                 print("Database not connected")
             else:
                 print("Cursor already created")
-
+                
         cursor.execute("SELECT userName, userPassword FROM User")
-        databaseUsernames, databasePasswords = cursor.fetchall()
+        results = cursor.fetchall()
+        databaseUsernames = [row[0] for row in results]
+        databasePasswords = [row[1] for row in results]
         cursor.close()
+        
+        self.closeDB()
 
         return databaseUsernames, databasePasswords
     
     def inputDatabase(self, username, email, password):
+
+        self.connectDB()
+
         try:
             cursor = self.database.cursor()
         except:
@@ -49,8 +58,8 @@ class SQLConnect:
             cursor.close()
             return print("Username already in use")
 
-        cursor.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", (username, email, password))
-
-        self.databaseInstance.setLoginData()
+        cursor.execute("INSERT INTO User (userName, userEmail, userPassword) VALUES (%s, %s, %s)", (username, email, password))
 
         cursor.close()
+
+        self.closeDB()
