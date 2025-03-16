@@ -19,7 +19,6 @@ def register():
     password = request.json['password']
     username = request.json['username']
 
-    print(password)
     signup.setSignupCredentials(username, email, password)
     signup.createRegisteredUser()
     databaseInstance.setLoginData()
