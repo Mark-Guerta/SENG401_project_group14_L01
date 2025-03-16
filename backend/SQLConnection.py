@@ -36,7 +36,6 @@ class SQLConnect:
         databaseUsernames = [row[0] for row in results]
         databasePasswords = [row[1] for row in results]
         cursor.close()
-
         self.closeDB()
 
         return databaseUsernames, databasePasswords
@@ -61,8 +60,8 @@ class SQLConnect:
             return print("Username already in use")
 
         cursor.execute("INSERT INTO User (userName, userEmail, userPassword) VALUES (%s, %s, %s)", (username, email, password))
+        self.database.commit()
 
         cursor.close()
-
         self.closeDB()
 
