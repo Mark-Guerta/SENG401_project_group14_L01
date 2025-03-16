@@ -148,14 +148,15 @@ class Login extends Component {
                 placeholder="Enter your Password"
                 value={password}
                 onChange={this.handleInputChange}
+                name="password"
               />
-              <span className="login-text34">Username / Email:</span>
+              <span className="login-text34">Username</span>
               <input
                 className="LoginInput"
                 type="text"
                 placeholder="Username"
-                value={username}
                 onChange={this.handleInputChange}
+                name="username"
               />
               {error && <p className="validation-message">{error}</p>}
               <img
