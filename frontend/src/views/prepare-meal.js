@@ -196,7 +196,7 @@ const PrepareMeal = (props) => {
             />
             <span className="prepare-meal-text38">Sign out</span>
           </div>
-          <div className="prepare-meal-home-button" onClick={() => navigateTo('/')}>
+          <div className="prepare-meal-home-button" onClick={() => navigateTo('/home-page2')}>
             <img
               src="/external/home4320-bkcg-200h.png"
               alt="Home4320"
