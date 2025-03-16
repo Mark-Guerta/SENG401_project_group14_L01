@@ -2,21 +2,46 @@ import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import './prepare-meal.css'
 
-const PrepareMeal = (props) => {
+const PrepareMeal = () => {
   const [inputText, setInputText] = useState('');
   const [isGuest, setIsGuest] = useState(true);
+  const [error, setError] = useState('');
+
   useEffect(() => {
     const guestStatus = localStorage.getItem("isGuest");
     setIsGuest(guestStatus === "true"); 
   }, []);
 
-
   const navigateTo = (path) => {
     window.location.href = path;
   };
 
-  const handleInputChange = (event) => {
-    setInputText(event.target.value);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!inputText) {
+      setError('Please enter your ingredients');
+    } else {
+      const requestData = {
+        ingredients: inputText
+      };
+
+      fetch("http://127.0.0.1:5000/prepare-meal", {
+        method: "POST",
+        body: JSON.stringify(requestData),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          if (json.error === "Generation Successful") {
+            setError("Generation Successful");
+            navigateTo('/home-page2');
+          } else {
+            setError('Failed to generate recipes');
+          }
+        });
+    }
   };
 
   return (
@@ -115,14 +140,15 @@ const PrepareMeal = (props) => {
           className="prepare-meal-rectangle4"
         />
 
-
-        <form>
-        <input
-          type="text"
-          className="prepare-meal-input-rectangle4"
-        />
-        {!isGuest && (
-          <button type= "text" className="send-email-button">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            className="prepare-meal-input-rectangle4"
+            value={inputText}
+            onChange={(e) => setInputText(e.target.value)}
+          />
+          {!isGuest && (
+            <button type="submit" className="send-email-button">
               <img
                 src="/external/signup5818-3wp5-200h.png"
                 alt="SignUp5818"
@@ -130,55 +156,46 @@ const PrepareMeal = (props) => {
               />
               <span className="send-email-button-text">Send to email</span>
             </button>
-      )}
-        <img
-          src="/external/rectangle34321-ld45.svg"
-          alt="Rectangle34321"
-          className="prepare-meal-rectangle3"
-        />
-
-        <img
-          src="/external/rectangle56022-obet.svg"
-          alt="Rectangle56022"
-          className="prepare-meal-rectangle5"
-        />
-        <input
-          type="text"
-          className="prepare-meal-input-rectangle5"
-        />
-        
-        <img
-          src="/external/image16022-y60i-800h.png"
-          alt="image16022"
-          className="prepare-meal-image1"
-        />
-        <button type= "text" className="generate-button">
-              <img
-                src="/external/signup5818-3wp5-200h.png"
-                alt="SignUp5818"
-                className="login-sign-up1"
-              />
-              <span className="generate-button-text">Generate</span>
-        </button>
-
-        <span className="prepare-meal-text33">
-          Enter Your Ingredients Here:
-        </span>
-      </form>
-
-
+          )}
+          <img
+            src="/external/rectangle34321-ld45.svg"
+            alt="Rectangle34321"
+            className="prepare-meal-rectangle3"
+          />
+          <img
+            src="/external/rectangle56022-obet.svg"
+            alt="Rectangle56022"
+            className="prepare-meal-rectangle5"
+          />
+          <input
+            type="text"
+            className="prepare-meal-input-rectangle5"
+          />
+          <img
+            src="/external/image16022-y60i-800h.png"
+            alt="image16022"
+            className="prepare-meal-image1"
+          />
+          <button type="submit" className="generate-button">
+            <img
+              src="/external/signup5818-3wp5-200h.png"
+              alt="SignUp5818"
+              className="login-sign-up1"
+            />
+            <span className="generate-button-text">Generate</span>
+          </button>
+          <span className="prepare-meal-text33">
+            Enter Your Ingredients Here:
+          </span>
+        </form>
         
         <span className="prepare-meal-text34">Recipes Made With Magic:</span>
         <div className="prepare-meal-navigation-bar">
-
-        
           <img
             src="/external/rectangle14318-6o78-200h.png"
             alt="Rectangle14318"
             className="prepare-meal-rectangle1"
           />
-
-
           <div className="prepare-meal-prepare-meal-button" onClick={() => navigateTo('/prepare-meal')}>
             <div className="prepare-meal-company-logo2">
               <img
@@ -219,7 +236,6 @@ const PrepareMeal = (props) => {
             />
             <span className="prepare-meal-text39">Home</span>
           </div>
-          
         </div>
       </div>
     </div>
