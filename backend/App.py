@@ -25,7 +25,7 @@ def register():
     signup.createRegisteredUser()
     databaseInstance.setLoginData()
     
-    return jsonify({"error": "Signup failed"}), 500
+    return jsonify({"error": "Signup Successful"}), 500
 
 #@app.route('/prepare-meal', methods=['POST'])
 #def prompt():
