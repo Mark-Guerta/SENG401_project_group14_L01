@@ -20,10 +20,10 @@ def register():
     username = request.json['username']
 
     signup.setSignupCredentials(username, email, password)
-    signup.createRegisteredUser()
+    check = signup.createRegisteredUser()
     databaseInstance.setLoginData()
     
-    if signup.createRegisteredUser():
+    if check:
         return jsonify({"error": "Signup Successful"}), 500
     else:
         return jsonify({"error": "Signup Failed"}), 500
