@@ -68,63 +68,14 @@ class Register extends Component {
           <title>exported project</title>
         </Helmet>
 
-        <div className="register-company-logo1">
-            <img
-              src="/external/imageremovebgpreview1i192-cbkc-400h.png"
-              alt="imageremovebgpreview1I192"
-              className="register-imageremovebgpreview11"
-            />
-          </div>
-          <img
-            src="/external/socialmedialogo1927-63ch-200h.png"
-            alt="SocialMediaLogo1927"
-            className="register-social-media-logo"
-          />
-          <span className="register-text32">
-            @WhiteDressing Privacy Policy AI Agreement Terms and Conditions
-          </span>
-
-          <div className="register-design">
-          <img
-            src="/external/ellipse91927-1qqs-1600h.png"
-            alt="Ellipse91927"
-            className="register-ellipse9"
-          />
-          <img
-            src="/external/ellipse11927-g8dm-1500h.png"
-            alt="Ellipse11927"
-            className="register-ellipse1"
-          />
-          <img
-            src="/external/ellipse21927-eyxe-700h.png"
-            alt="Ellipse21927"
-            className="register-ellipse2"
-          />
-          <img
-            src="/external/ellipse31927-v3tq-300h.png"
-            alt="Ellipse31927"
-            className="register-ellipse3"
-          />
-          <img
-            src="/external/ellipse41928-0i7m-200h.png"
-            alt="Ellipse41928"
-            className="register-ellipse4"
-          />
-          <img
-            src="/external/ellipse71928-dcyp-200h.png"
-            alt="Ellipse71928"
-            className="register-ellipse7"
-          />
-          <img
-            src="/external/ellipse61928-ubzc-200h.png"
-            alt="Ellipse61928"
-            className="register-ellipse6"
-          />
-        </div>
+       
 
 
         <div className="register-register">
         
+
+
+            
              <div className="register-design">
           <img
             src="/external/ellipse91927-1qqs-1600h.png"
@@ -162,6 +113,8 @@ class Register extends Component {
             className="register-ellipse6"
           />
         </div>
+
+        
 
           
           <form onSubmit={this.handleSubmit}>
@@ -218,6 +171,10 @@ class Register extends Component {
               <span className="register-text37">Register</span>
             </button>
           </form>
+
+          
+
+          
 
         </div>
       </div>
