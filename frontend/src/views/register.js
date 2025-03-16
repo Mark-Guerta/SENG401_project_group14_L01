@@ -65,28 +65,18 @@ class Register extends Component {
     return (
       <div className="register-container">
         <Helmet>
-          <title>White Soup</title>
+          <title>exported project</title>
         </Helmet>
-        <div className="register-register">
-          
 
-        <div className="register-company-logo1">
-            <img
-              src="/external/imageremovebgpreview1i192-cbkc-400h.png"
-              alt="imageremovebgpreview1I192"
-              className="register-imageremovebgpreview11"
-            />
-          </div>
-          <img
-            src="/external/socialmedialogo1927-63ch-200h.png"
-            alt="SocialMediaLogo1927"
-            className="register-social-media-logo"
-          />
-          <span className="register-text32">
-            @WhiteDressing Privacy Policy AI Agreement Terms and Conditions
-          </span>
-        </div>
-        <div className="register-design">
+       
+
+
+        <div className="register-register">
+        
+
+
+            
+             <div className="register-design">
           <img
             src="/external/ellipse91927-1qqs-1600h.png"
             alt="Ellipse91927"
@@ -122,7 +112,9 @@ class Register extends Component {
             alt="Ellipse61928"
             className="register-ellipse6"
           />
-       
+        </div>
+
+        
 
           
           <form onSubmit={this.handleSubmit}>
@@ -180,7 +172,10 @@ class Register extends Component {
             </button>
           </form>
 
-          {/* The rest of your code here */}
+          
+
+          
+
         </div>
       </div>
     );
