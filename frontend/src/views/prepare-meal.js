@@ -4,6 +4,7 @@ import './prepare-meal.css'
 
 const PrepareMeal = () => {
   const [inputText, setInputText] = useState('');
+  const [outputText, setOutputText] = useState('');
   const [isGuest, setIsGuest] = useState(true);
   const [error, setError] = useState('');
 
@@ -37,6 +38,7 @@ const PrepareMeal = () => {
           if (json.error === "Generation Successful") {
             setError("Generation Successful");
             console.log("Generated Meal:", json.message);
+            setOutputText(json.message); 
           } else {
             setError('Failed to generate recipes');
           }
@@ -167,15 +169,20 @@ const PrepareMeal = () => {
             alt="Rectangle56022"
             className="prepare-meal-rectangle5"
           />
-          <input
-            type="text"
-            className="prepare-meal-input-rectangle5"
-          />
+
+
+
+          <span className="prepare-meal-recipe-output">
+            {outputText ? outputText : "No recipe generated yet"}
+          </span>
           <img
             src="/external/image16022-y60i-800h.png"
             alt="image16022"
             className="prepare-meal-image1"
           />
+
+
+          
           <button type="submit" className="generate-button">
             <img
               src="/external/signup5818-3wp5-200h.png"
