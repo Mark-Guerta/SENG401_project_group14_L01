@@ -1,4 +1,36 @@
 
+
+.generate-button {
+  top:540px;
+  left: 650px;
+  width: 300.00003051757812px;
+  height: 60px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+  font-size: 10px;
+  
+}
+
+.generate-button-text{
+  top: 18.05260467529297px;
+  left: 28.92151870727539px;
+  color: rgba(0, 0, 0, 1);
+  width: 175px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Maven Pro;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+
 .send-email-button {
   top: 1250px;
   left: 1500px;

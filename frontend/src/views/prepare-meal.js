@@ -114,12 +114,15 @@ const PrepareMeal = (props) => {
           alt="Rectangle46022"
           className="prepare-meal-rectangle4"
         />
+
+
+        <form>
         <input
           type="text"
           className="prepare-meal-input-rectangle4"
         />
         {!isGuest && (
-          <button className="send-email-button">
+          <button type= "text" className="send-email-button">
               <img
                 src="/external/signup5818-3wp5-200h.png"
                 alt="SignUp5818"
@@ -149,9 +152,21 @@ const PrepareMeal = (props) => {
           alt="image16022"
           className="prepare-meal-image1"
         />
+        <button type= "text" className="generate-button">
+              <img
+                src="/external/signup5818-3wp5-200h.png"
+                alt="SignUp5818"
+                className="login-sign-up1"
+              />
+              <span className="generate-button-text">Generate</span>
+        </button>
+
         <span className="prepare-meal-text33">
           Enter Your Ingredients Here:
         </span>
+      </form>
+
+
         
         <span className="prepare-meal-text34">Recipes Made With Magic:</span>
         <div className="prepare-meal-navigation-bar">
