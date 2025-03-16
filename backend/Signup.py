@@ -35,7 +35,9 @@ class Signup:
     # sending registered information into database
     def transportUserCrendentialsIntoDatabase(self):
         # open connection to database
+        self.SQL.connectDB()
         self.SQL.inputDatabase(self.username, self.email, self.password)
+        self.SQL.closeDB()
         
         
         
