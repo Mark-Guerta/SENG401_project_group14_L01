@@ -57,10 +57,12 @@ class SQLConnect:
 
         if username in usernames:
             cursor.close()
+            self.closeDB()
             return print("Username already in use")
 
         cursor.execute("INSERT INTO User (userName, userEmail, userPassword) VALUES (%s, %s, %s)", (username, email, password))
 
+        cursor.close()
+
         self.closeDB()
 
-        cursor.close()
