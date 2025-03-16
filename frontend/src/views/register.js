@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
+import './register.css';
 
-
-class Register extends React.Component {
+class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,11 +13,15 @@ class Register extends React.Component {
       error: '' 
     };
   }
-
+  
   handleInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
+
+  navigateTo = (path) => {
+    window.location.href = path;
+  };
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -26,7 +31,6 @@ class Register extends React.Component {
     } else if (password !== confirmPassword) {
       this.setState({ error: 'Passwords do not match' });
     } else {
-
       const newUser = {
         username,
         password,
@@ -34,7 +38,6 @@ class Register extends React.Component {
       };
      
       fetch("http://127.0.0.1:5000/register", {
-       
         method: "POST",
         body: JSON.stringify(newUser),
         headers: {
@@ -46,61 +49,139 @@ class Register extends React.Component {
           console.log(json);
           if (json.error) {
             this.setState({ error: json.error });
+            this.navigateTo('/home-page2');
           } else {
-            this.setState({ error: '' });
-        
+            this.setState({error: 'Failed'});
+       
+          
           }
         });
-      }
-    
     }
+  }
+
   render() {
-    const formStyle = {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '10px',
-      maxWidth: '200px'
-    };
+    const { username, password, email, confirmPassword, error } = this.state;
 
     return (
+      <div className="register-container">
+        <Helmet>
+          <title>White Soup</title>
+        </Helmet>
+        <div className="register-register">
+          
 
-      <div>
-    
-        <h2>Sign Up</h2>
-        <form onSubmit={this.handleSubmit} style={formStyle} method = "POST">
-          {this.state.error && <div>{this.state.error}</div>} {/* Display error message */}
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={this.state.username}
-            onChange={this.handleInputChange}
+        <div className="register-company-logo1">
+            <img
+              src="/external/imageremovebgpreview1i192-cbkc-400h.png"
+              alt="imageremovebgpreview1I192"
+              className="register-imageremovebgpreview11"
+            />
+          </div>
+          <img
+            src="/external/socialmedialogo1927-63ch-200h.png"
+            alt="SocialMediaLogo1927"
+            className="register-social-media-logo"
           />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleInputChange}
+          <span className="register-text32">
+            @WhiteDressing Privacy Policy AI Agreement Terms and Conditions
+          </span>
+        </div>
+        <div className="register-design">
+          <img
+            src="/external/ellipse91927-1qqs-1600h.png"
+            alt="Ellipse91927"
+            className="register-ellipse9"
           />
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            value={this.state.confirmPassword}
-            onChange={this.handleInputChange}
+          <img
+            src="/external/ellipse11927-g8dm-1500h.png"
+            alt="Ellipse11927"
+            className="register-ellipse1"
           />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={this.state.email}
-            onChange={this.handleInputChange}
+          <img
+            src="/external/ellipse21927-eyxe-700h.png"
+            alt="Ellipse21927"
+            className="register-ellipse2"
           />
-          <button type="submit">Sign up</button>
-          <button type="button" onClick={this.props.onSwitchToLogin}>Switch to Login</button>
-        </form>
+          <img
+            src="/external/ellipse31927-v3tq-300h.png"
+            alt="Ellipse31927"
+            className="register-ellipse3"
+          />
+          <img
+            src="/external/ellipse41928-0i7m-200h.png"
+            alt="Ellipse41928"
+            className="register-ellipse4"
+          />
+          <img
+            src="/external/ellipse71928-dcyp-200h.png"
+            alt="Ellipse71928"
+            className="register-ellipse7"
+          />
+          <img
+            src="/external/ellipse61928-ubzc-200h.png"
+            alt="Ellipse61928"
+            className="register-ellipse6"
+          />
+       
 
+          
+          <form onSubmit={this.handleSubmit}>
+            <div className="register-input-login">
+              <span className="ConfirmPass">Confirm Password:</span>
+              <input
+                className="PasswordInput"
+                type="password"
+                placeholder="Enter your Password"
+                value={confirmPassword}
+                onChange={this.handleInputChange}
+                name="confirmPassword"
+              />
+
+              <span className="EnterPass">Enter Password:</span>
+              <input
+                className="PasswordInput2"
+                type="password"
+                placeholder="Re-Enter your Password"
+                value={password}
+                onChange={this.handleInputChange}
+                name="password"
+              />
+
+              <span className="EnterEmail">Enter Email:</span>
+              <input
+                className="regEmail"
+                type="email"
+                placeholder="Enter your Email"
+                value={email}
+                onChange={this.handleInputChange}
+                name="email"
+              />
+
+              <span className="EnterUsername">Enter New Username:</span>
+              <input
+                className="regUsername"
+                type="text"
+                placeholder="Enter your Username"
+                value={username}
+                onChange={this.handleInputChange}
+                name="username"
+              />
+            </div>
+
+            {error && <p className="validation-message">{error}</p>}
+
+            <button type="submit" className="RegisterButton">
+              <img
+                src="/external/signup5843-xcv-200h.png"
+                alt="SignUp5843"
+                className="register-sign-up1"
+              />
+              <span className="register-text37">Register</span>
+            </button>
+          </form>
+
+          {/* The rest of your code here */}
+        </div>
       </div>
     );
   }

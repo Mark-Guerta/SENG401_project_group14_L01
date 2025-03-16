@@ -20,10 +20,10 @@ def register():
 
 
     signup.setSignupCredentials(username, email, password)
-    signup.createRegisteredUser()
+    #signup.createRegisteredUser()
 
     
-    return jsonify({"error": "Signup failed"}), 500
+    return jsonify({"error": "Signup Successful"}), 500
 
 #@app.route('/prepare-meal', methods=['POST'])
 #def prompt():
