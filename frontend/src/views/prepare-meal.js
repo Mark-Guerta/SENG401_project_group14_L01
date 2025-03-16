@@ -36,7 +36,7 @@ const PrepareMeal = () => {
         .then((json) => {
           if (json.error === "Generation Successful") {
             setError("Generation Successful");
-            navigateTo('/home-page2');
+            console.log("Generated Meal:", json.message);
           } else {
             setError('Failed to generate recipes');
           }

@@ -48,13 +48,15 @@ def login():
         return jsonify({'error': 'Login Failed'}), 500
     
     
-@app.route('/prepare-meal', methods=['POST','GET'])
+@app.route('/prepare-meal', methods=['POST'])
 def prompt():
     
     ingredients = request.json['ingredients']
     message = Gemini.getResponse(ingredients)
-    return jsonify({message})
-       
+    
+    return jsonify({"error": "Generation Successful", "message": message})
+
+
     
 if __name__ == '__main__':
     app.run(debug=True)
