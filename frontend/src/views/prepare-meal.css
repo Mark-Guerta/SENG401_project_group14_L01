@@ -1,4 +1,36 @@
 
+.prepare-meal-input {
+
+  border-radius: 90px;
+  background: #ffffff;
+  top: 239px;
+  left: 919px;
+  width: 793px;
+  height: 960px;
+  display: flex;
+  position: absolute;
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+  font-size: 24px; 
+  padding: 10px; 
+}
+
+.prepare-meal-input-text {
+  
+  color: rgba(0, 0, 0, 1);
+  width: 175px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Maven Pro;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
 
 .generate-button {
   top:540px;
@@ -61,21 +93,9 @@
   text-decoration: none;
 }
 
-.prepare-meal-input-rectangle5 {
-  border-radius: 90px;
-  background: #ffffff;
-  top: 239px;
-  left: 919px;
-  width: 793px;
-  height: 960px;
-  display: flex;
-  position: absolute;
-  align-items: center; 
-  justify-content: center; 
-  text-align: center; 
-  font-size: 24px; 
-  padding: 10px; 
-}
+
+
+
 
 .prepare-meal-input-rectangle4 {
   border-radius: 90px;

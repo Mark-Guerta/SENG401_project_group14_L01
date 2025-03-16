@@ -168,19 +168,22 @@ const PrepareMeal = () => {
             src="/external/rectangle56022-obet.svg"
             alt="Rectangle56022"
             className="prepare-meal-rectangle5"
-          />
-
-
-
-          <span className="prepare-meal-recipe-output">
-            {outputText ? outputText : "No recipe generated yet"}
-          </span>
-          <img
+          />  
+             <img
             src="/external/image16022-y60i-800h.png"
             alt="image16022"
             className="prepare-meal-image1"
           />
 
+
+
+          <div className="prepare-meal-input">
+          <span clssName="prepare-meal-input-text">
+
+            {outputText ? outputText : "No recipe generated yet"}
+          </span>
+     
+          </div>
 
           
           <button type="submit" className="generate-button">
