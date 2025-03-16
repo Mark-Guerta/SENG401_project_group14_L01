@@ -119,7 +119,14 @@ const PrepareMeal = (props) => {
           className="prepare-meal-input-rectangle4"
         />
         {!isGuest && (
-        <button className="send-email-button">Send to Email</button>
+          <button className="send-email-button">
+              <img
+                src="/external/signup5818-3wp5-200h.png"
+                alt="SignUp5818"
+                className="login-sign-up1"
+              />
+              <span className="send-email-button-text">Send to email</span>
+            </button>
       )}
         <img
           src="/external/rectangle34321-ld45.svg"
