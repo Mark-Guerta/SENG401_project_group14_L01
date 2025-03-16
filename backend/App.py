@@ -9,6 +9,7 @@ app = Flask(__name__)
 CORS(app)
 # Initialize Signup instance
 signup = Signup.Signup()
+logins = Login.Login()
 databaseInstance = DatabaseSingleton.DatabaseSingleton()
 databaseInstance.setLoginData()
 
@@ -39,7 +40,7 @@ def login():
 
 
     
-    is_authenticated = Login.Login.loginProcess(username, password)
+    is_authenticated = logins.loginProcess(username, password)
 
     if is_authenticated==True:
         return jsonify({'error': 'Login Successful'}), 500

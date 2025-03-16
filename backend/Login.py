@@ -5,7 +5,8 @@ class Login:
     def __init__(self):
         # self.SQL.storeDatabase()
         # self.usernames, self.passwords = self.SQL.getDatabase()
-        self.usernames, self.passwords = None
+        self.usernames = None
+        self.passwords = None
         self.databaseInstance = DatabaseSingleton.DatabaseSingleton()
 
     def loginProcess(self, username, password):
