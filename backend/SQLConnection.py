@@ -20,6 +20,9 @@ class SQLConnect:
             print('Either not connected to database or just could not disconnect properly')
 
     def getDatabase(self):
+
+        self.connectDB()
+
         try:
             cursor = self.database.cursor()
         except:
@@ -29,12 +32,19 @@ class SQLConnect:
                 print("Cursor already created")
 
         cursor.execute("SELECT userName, userPassword FROM User")
-        databaseUsernames, databasePasswords = cursor.fetchall()
+        results = cursor.fetchall()
+        databaseUsernames = [row[0] for row in results]
+        databasePasswords = [row[1] for row in results]
         cursor.close()
+
+        self.closeDB()
 
         return databaseUsernames, databasePasswords
     
     def inputDatabase(self, username, email, password):
+
+        self.connectDB()
+
         try:
             cursor = self.database.cursor()
         except:
@@ -49,8 +59,8 @@ class SQLConnect:
             cursor.close()
             return print("Username already in use")
 
-        cursor.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", (username, email, password))
+        cursor.execute("INSERT INTO User (userName, userEmail, userPassword) VALUES (%s, %s, %s)", (username, email, password))
 
-        self.databaseInstance.setLoginData()
+        self.closeDB()
 
         cursor.close()
