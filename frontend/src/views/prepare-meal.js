@@ -1,9 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import './prepare-meal.css'
 
 const PrepareMeal = (props) => {
   const [inputText, setInputText] = useState('');
+  const [isGuest, setIsGuest] = useState(true);
+  useEffect(() => {
+    const guestStatus = localStorage.getItem("isGuest");
+    setIsGuest(guestStatus === "true"); 
+  }, []);
+
 
   const navigateTo = (path) => {
     window.location.href = path;
@@ -16,7 +22,7 @@ const PrepareMeal = (props) => {
   return (
     <div className="prepare-meal-container">
       <Helmet>
-        <title>exported project</title>
+        <title>White Soup</title>
       </Helmet>
       <div className="prepare-meal-prepare-meal1">
         <div className="prepare-meal-bottom-bar">
@@ -112,6 +118,9 @@ const PrepareMeal = (props) => {
           type="text"
           className="prepare-meal-input-rectangle4"
         />
+        {!isGuest && (
+        <button className="send-email-button">Send to Email</button>
+      )}
         <img
           src="/external/rectangle34321-ld45.svg"
           alt="Rectangle34321"
@@ -188,6 +197,7 @@ const PrepareMeal = (props) => {
             />
             <span className="prepare-meal-text39">Home</span>
           </div>
+          
         </div>
       </div>
     </div>

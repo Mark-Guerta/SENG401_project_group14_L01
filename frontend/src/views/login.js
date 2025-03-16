@@ -42,8 +42,9 @@ class Login extends Component {
         .then((response) => response.json())
         .then((json) => {
           if (json.error == 'Login Failed') {
-            this.setState({error: 'Username or Password does not exists'})
+            this.setState({ error: 'Username or Password does not exist' });
           } else {
+            localStorage.setItem("isGuest", "false");
             this.setState({ error: 'Login Successful' });
             this.navigateTo('/home-page2');
           }
@@ -164,9 +165,10 @@ class Login extends Component {
                 alt="Rectangle51932"
                 className="login-text300"
               />
-              <span className="login-text35" onClick={() => this.navigateTo('/home-page2')}>
-                Continue as Guest
-              </span>
+              <span className="login-text35" onClick={() => {
+                    localStorage.setItem("isGuest", "true");
+                    this.navigateTo('/home-page2');}}>
+                 Continue as Guest</span>
             </div>
   
             <button type="submit" className="login-signup-button1">
