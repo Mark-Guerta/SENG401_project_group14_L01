@@ -26,7 +26,7 @@ const App = () => {
         <Route component={PrepareMeal} exact path="/prepare-meal" />
         <Route component={HomePage2} exact path="/home-page2" />
         <Route component={Home1Prompt} exact path="/home1-prompt" />
-        <Route component={NotFound} path="**" />
+       
         <Redirect to="**" />
       </Switch>
     </Router>

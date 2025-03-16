@@ -27,7 +27,7 @@ class Signup:
         Creates a registered user.
         Returns: Boolean indicating if the user was created successfully.
         """
-        username, email, password = self.setSignupCredentials()
+        username, email, password = self.getSignupCredentials()
         newRegisteredUser = RegisteredUser.RegisteredUser(username, email, password)
         self.transportUserCrendentialsIntoDatabase()
         return newRegisteredUser is not None  # Cleaner check

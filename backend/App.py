@@ -5,28 +5,26 @@ import Login
 import Gemini
 
 app = Flask(__name__) 
-CORS(app, origins=["http://localhost:3000"])
+CORS(app)
 # Initialize Signup instance
 signup = Signup.Signup()
 
+
+
 @app.route('/register', methods=['POST'])
-def register_user():
-    data = request.json
+def register():
 
-    if not data or 'username' not in data or 'password' not in data or 'email' not in data:
-        return jsonify({"error": "Missing username, password, or email"}), 400
+    email = request.json['email']
+    password = request.json['password']
+    username = request.json['username']
 
- 
-    signup.setSignupCredentials(data['username'], data['email'], data['password'])
+
+    signup.setSignupCredentials(username, email, password)
+    signup.createRegisteredUser()
 
     
-    user_created = signup.createRegisteredUser()
+    return jsonify({"error": "Signup failed"}), 500
 
-    if user_created:
-        return jsonify({"message": "User registered successfully", "user": data}), 201
-    else:
-        return jsonify({"error": "User registration failed"}), 500
-    
 #@app.route('/prepare-meal', methods=['POST'])
 #def prompt():
  #   data = request.json
