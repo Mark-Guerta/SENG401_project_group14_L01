@@ -176,7 +176,7 @@ const PrepareMeal = () => {
           />
 
 
-
+          
           <div className="prepare-meal-input">
           <span clssName="prepare-meal-input-text">
 
@@ -184,6 +184,8 @@ const PrepareMeal = () => {
           </span>
      
           </div>
+
+
 
           
           <button type="submit" className="generate-button">
