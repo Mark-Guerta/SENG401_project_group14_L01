@@ -31,14 +31,15 @@ class SQLConnect:
             else:
                 print("Cursor already created")
 
-        cursor.execute("SELECT userName, userPassword FROM User")
+        cursor.execute("SELECT userName, userEmail, userPassword FROM User")
         results = cursor.fetchall()
         databaseUsernames = [row[0] for row in results]
-        databasePasswords = [row[1] for row in results]
+        databaseEmails = [row[1] for row in results]
+        databasePasswords = [row[2] for row in results]
         cursor.close()
         self.closeDB()
 
-        return databaseUsernames, databasePasswords
+        return databaseUsernames, databaseEmails, databasePasswords
     
     def inputDatabase(self, username, email, password):
 
@@ -52,7 +53,7 @@ class SQLConnect:
             else:
                 print("Cursor already created")
 
-        usernames, passwords = self.databaseInstance.getLoginData()
+        usernames, emails, passwords = self.databaseInstance.getLoginData()
 
         if username in usernames:
             cursor.close()
@@ -65,3 +66,63 @@ class SQLConnect:
         cursor.close()
         self.closeDB()
 
+    def removeFromDatabase(self, username):
+
+        self.connectDB()
+
+        try:
+            cursor = self.database.cursor()
+        except:
+            if(self.database == None):
+                print("Database not connected")
+            else:
+                print("Cursor already created")
+
+        try:
+            cursor.execute("DELETE FROM User WHERE userName = %s", (username))
+            self.database.commit()
+        except:
+            print("ERROR: NO ACCOUNT FOUND")
+
+        cursor.close()
+        self.closeDB()
+
+    def editDatabasePass(self, username, email, password):
+        self.connectDB()
+
+        try:
+            cursor = self.database.cursor()
+        except:
+            if(self.database == None):
+                print("Database not connected")
+            else:
+                print("Cursor already created")
+
+        try:
+            cursor.execute("UPDATE User SET userPass = %s WHERE userName = %s AND userEmail = %s ", (password, username, email))
+            self.database.commit()
+        except:
+            print("ERROR: NO ACCOUNT FOUND")
+
+        cursor.close()
+        self.closeDB()
+
+    def editDatabaseEmail(self, username, email):
+        self.connectDB()
+
+        try:
+            cursor = self.database.cursor()
+        except:
+            if(self.database == None):
+                print("Database not connected")
+            else:
+                print("Cursor already created")
+
+        try:
+            cursor.execute("UPDATE User SET userEmail = %s WHERE userName = %s", (email, username))
+            self.database.commit()
+        except:
+            print("ERROR: NO ACCOUNT FOUND")
+
+        cursor.close()
+        self.closeDB()
