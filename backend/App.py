@@ -85,7 +85,7 @@ def RetrieveData():
     profile= databaseInstance.retrieveProfile(username)
     
     #profile = {"username": "Mark", "email": "markjimenez@gmail.com","password": "Apple1"}
-        
+    
     
     return jsonify({"error": "Success", "message": profile})
 
