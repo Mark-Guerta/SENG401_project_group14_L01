@@ -409,12 +409,7 @@ class Profile extends Component {
                 />
                 <span className="prepare-meal-text35">White Dressing</span>
               </div>
-              <img
-                src="/external/preparemeal4319-9bg-200h.png"
-                alt="PrepareMeal4319"
-                className="prepare-meal-prepare-meal2"
-              />
-              <span className="prepare-meal-text36">Prepare Meal</span>
+              
             </div>
             <div className="prepare-meal-signup-button1" onClick={() => this.navigateTo('/')}>
               <img
