@@ -139,16 +139,13 @@ class SQLConnect:
                 print("Cursor already created")
 
         try:
-            cursor.execute("SELECT userName, userEmail, userPassword FROM User WHERE userName = %s", (username))
-            result = cursor.fetchone()
-            if result:
-                profile = {
-                    "username": result[0],
-                    "email": result[1],
-                    "password": result[2]
-                }
-            else:
-                profile = None
+            cursor.execute("SELECT userEmail, userPassword FROM User WHERE userName = %s", (username))
+            result = cursor.fetchall()
+            profile = {
+                "username": username,
+                "email": result[1],
+                "password": result[2]
+            }
         except:
             print("ERROR: NO ACCOUNT FOUND")
             profile = None
