@@ -4,10 +4,11 @@ import './profile-page.css';
 
 class Profile extends Component {
     
+    
   constructor(props) {
     super(props);
     this.state = {
-      username: username,
+      username: '',
       email:'',
       password:'',
 
@@ -17,11 +18,13 @@ class Profile extends Component {
       newPassword:'',
       confirmpassword: ''
     };
-
     const username = localStorage.getItem("username");
     if (username) {
       this.setState({ username });
     }
+    console.log(this.state.username)
+
+   
   }
   componentDidMount() {
     const { username } = this.state;
