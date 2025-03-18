@@ -45,6 +45,9 @@ class Login extends Component {
             this.setState({ error: 'Username or Password does not exist' });
           } else {
             localStorage.setItem("isGuest", "false");
+            
+            localStorage.setItem("username", username);
+
             this.setState({ error: 'Login Successful' });
             this.navigateTo('/home-page2');
           }
