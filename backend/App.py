@@ -57,7 +57,7 @@ def switchPassword():
     username = request.json['username']
 
     databaseInstance.changePass(username, email, password)
-    atabaseInstance.setLoginData()
+    databaseInstance.setLoginData()
 
 @app.route('/change-email', methods=['POST'])
 def switchEmail():
