@@ -7,8 +7,8 @@ CORS(app)
 # Initialize Signup instance
 signup = Signup.Signup()
 logins = Login.Login()
-databaseInstance = DatabaseSingleton.DatabaseSingleton()
-databaseInstance.setLoginData()
+#databaseInstance = DatabaseSingleton.DatabaseSingleton()
+#databaseInstance.setLoginData()
 recipeInstance = FoodApp.FoodApp()
 
 @app.route('/register', methods=['POST'])
@@ -20,7 +20,7 @@ def register():
 
     signup.setSignupCredentials(username, email, password)
     check = signup.createRegisteredUser()
-    databaseInstance.setLoginData()
+    #databaseInstance.setLoginData()
     
     if check:
         return jsonify({"error": "Signup Successful"}), 500
@@ -32,12 +32,12 @@ def login():
     password = request.json['password']
     username = request.json['username']
 
-    is_authenticated = logins.loginProcess(username, password)
+    #is_authenticated = logins.loginProcess(username, password)
 
-    if is_authenticated==True:
-        return jsonify({'error': 'Login Successful'}), 500
-    else:
-        return jsonify({'error': 'Login Failed'}), 500
+    #if is_authenticated==True:
+    #    return jsonify({'error': 'Login Successful'}), 500
+    #else:
+    return jsonify({'error': 'Login Failed'}), 500
     
 @app.route('/prepare-meal', methods=['POST'])
 def prompt():
@@ -55,8 +55,8 @@ def switchPassword():
     password = request.json['password']
     username = request.json['username']
 
-    databaseInstance.changePass(username, email, password)
-    databaseInstance.setLoginData()
+    #databaseInstance.changePass(username, email, password)
+    #databaseInstance.setLoginData()
 
 @app.route('/change-email', methods=['POST'])
 def switchEmail():
@@ -64,16 +64,16 @@ def switchEmail():
     email = request.json['email']
     username = request.json['username']
 
-    databaseInstance.changeEmail(username, email)
-    databaseInstance.setLoginData()
+    #databaseInstance.changeEmail(username, email)
+    #databaseInstance.setLoginData()
 
 @app.route('/delete-acc', methods=['POST'])
 def deleteAccount():
     #Need to be signed in to delete
     username = request.json['username']
 
-    databaseInstance.deleteAcc(username)
-    databaseInstance.setLoginData()
+    #atabaseInstance.deleteAcc(username)
+    #atabaseInstance.setLoginData()
     
     
 @app.route('/retreive', methods=['POST'])
@@ -81,9 +81,10 @@ def RetrieveData():
     
     username = request.json['username']
 
-    profile = databaseInstance.retrieveProfile(username)
+    #profile = databaseInstance.retrieveProfile(username)
+    print(username)
     
-    return jsonify({"error": "Success", "message": profile})
+    return jsonify({"error": "Success", "message": username})
 
 @app.route('/results', methods=['POST'])
 def downloadRecipe():

@@ -4,22 +4,20 @@ import './profile-page.css';
 
 class Profile extends Component {
     
-    
-constructor(props) {
-    super(props);
-    this.state = {
-        username: '',
-        email: '',
-        password: '',
-        newUsername: '',
-        newEmail: '',
-        newPassword: '',
-        confirmPassword: ''
-    };
-    const username = localStorage.getItem("username");
-    this.setState({ username });
-    console.log(this.state.username);
-}
+    constructor(props) {
+        super(props);
+        const username = localStorage.getItem("username");
+        this.state = {
+            username: username || '',
+            email: '',
+            password: '',
+            newUsername: '',
+            newEmail: '',
+            newPassword: '',
+            confirmPassword: ''
+        };
+
+    }
   componentDidMount() {
     const { username } = this.state;
     fetch("http://127.0.0.1:5000/retreive", {

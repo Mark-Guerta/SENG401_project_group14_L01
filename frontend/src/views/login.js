@@ -41,6 +41,7 @@ class Login extends Component {
       })
         .then((response) => response.json())
         .then((json) => {
+          localStorage.setItem("username", username);
           if (json.error == 'Login Failed') {
             this.setState({ error: 'Username or Password does not exist' });
           } else {
