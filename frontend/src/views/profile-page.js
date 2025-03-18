@@ -98,7 +98,7 @@ handleSubmitNewPassword = (event) => {
     } else {
       const newUser = {
         username,
-        email: newEmail,
+        newEmail,
       };
      
       fetch("http://127.0.0.1:5000/change-email", {
