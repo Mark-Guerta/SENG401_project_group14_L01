@@ -7,7 +7,7 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      username: username,
       email:'',
       password:'',
 
@@ -21,10 +21,9 @@ class Profile extends Component {
     const username = localStorage.getItem("username");
     if (username) {
       this.setState({ username });
-
     }
   }
-componentDidMount() {
+  componentDidMount() {
     const { username } = this.state;
     fetch("http://127.0.0.1:5000/retreive", {
         method: "POST",
@@ -33,17 +32,24 @@ componentDidMount() {
             "Content-type": "application/json; charset=UTF-8"
         }
     })
-        .then((response) => response.json())
-        .then((json) => {
-            if (json.error === "Success") {
-                const { email, password } = json.message;
-                this.setState({ email, password });
-            } else {
-                this.setState({ error: 'Failed to retrieve profile' });
-            }
-        });
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then((json) => {
+        if (json.error === "Success") {
+            const { email, password } = json.message;
+            this.setState({ email, password });
+        } else {
+            this.setState({ error: 'Failed to retrieve profile' });
+        }
+    })
+    .catch((error) => {
+        this.setState({ error: 'Failed to retrieve profile: ' + error.message });
+    });
 }
-
   
   handleInputChange = (event) => {
     const { name, value } = event.target;
