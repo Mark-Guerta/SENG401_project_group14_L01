@@ -55,10 +55,9 @@ class Profile extends Component {
     window.location.href = path;
   };
 
-
-  handleSubmitNewPassword = (event) => {
+handleSubmitNewPassword = (event) => {
     event.preventDefault();
-    const { username, newPassword, confirmPassword,} = this.state;
+    const { username, newPassword, confirmPassword, email } = this.state;
     if (!username || !newPassword || !confirmPassword || !email) {
       this.setState({ error: 'Please fill in all fields' });
     } else if (newPassword !== confirmPassword) {
@@ -66,8 +65,8 @@ class Profile extends Component {
     } else {
       const newUser = {
         username,
-        password,
-        newPassword,
+        password: newPassword,
+        email,
       };
      
       fetch("http://127.0.0.1:5000/change-pass", {
@@ -79,29 +78,27 @@ class Profile extends Component {
       })
         .then((response) => response.json())
         .then((json) => {
-          
-          if (json.error=="Signup Successful") {
-            this.setState({"error": "Signup Successful"});
+          if (json.error === "Signup Successful") {
+            this.setState({ error: "Password change successful" });
             this.navigateTo('/home-page2');
           } else {
-            this.setState({error: 'Failed'}); 
+            this.setState({ error: 'Failed to change password' }); 
           }
         });
     }
   }
 
-
   handleSubmitNewEmail = (event) => {
     event.preventDefault();
-    const { username, password, confirmPassword,} = this.state;
-    if (!username || !password || !confirmPassword || !email) {
+    const { username, newEmail, password, confirmPassword } = this.state;
+    if (!username || !newEmail || !password || !confirmPassword) {
       this.setState({ error: 'Please fill in all fields' });
     } else if (password !== confirmPassword) {
       this.setState({ error: 'Passwords do not match' });
     } else {
       const newUser = {
         username,
-        password,
+        email: newEmail,
       };
      
       fetch("http://127.0.0.1:5000/change-email", {
@@ -113,17 +110,15 @@ class Profile extends Component {
       })
         .then((response) => response.json())
         .then((json) => {
-          
-          if (json.error=="Signup Successful") {
-            this.setState({"error": "Signup Successful"});
+          if (json.error === "Signup Successful") {
+            this.setState({ error: "Email change successful" });
             this.navigateTo('/home-page2');
           } else {
-            this.setState({error: 'Failed'}); 
+            this.setState({ error: 'Failed to change email' }); 
           }
         });
     }
   }
-
 
 
   handleSubmitDeleteAccount = (event) => {
