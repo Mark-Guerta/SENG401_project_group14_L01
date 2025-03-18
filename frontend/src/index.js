@@ -14,7 +14,8 @@ import Register from './views/register'
 import PrepareMeal from './views/prepare-meal'
 import HomePage2 from './views/home-page2'
 import Home1Prompt from './views/home1-prompt'
-import NotFound from './views/not-found'
+import Profile from './views/profile-page'
+
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route component={HomePage} exact path="/" />
         <Route component={Login} exact path="/login" />
         <Route component={Register} exact path="/register" />
+        <Route component={Profile} exact path="/profile-page" />
         <Route component={PrepareMeal} exact path="/prepare-meal" />
         <Route component={HomePage2} exact path="/home-page2" />
         <Route component={Home1Prompt} exact path="/home1-prompt" />

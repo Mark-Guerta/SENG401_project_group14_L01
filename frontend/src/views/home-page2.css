@@ -18,6 +18,25 @@
   flex-shrink: 0;
 }
  
+
+
+
+.home-page2-text {
+  top: 11px;
+  left: 23px;
+  color: rgba(0, 0, 0, 1);
+  width: 104px;
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Maven Pro;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
 .home-page2-bottom-bar {
   top: 1699px;
   left: 79px;

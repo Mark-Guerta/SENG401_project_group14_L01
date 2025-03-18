@@ -27,4 +27,9 @@ class DatabaseSingleton():
 
     def changePass(self, username, email, password):
         self.mydb.editDatabasePass(username, email, password)
-
+        
+        
+    def retrieveProfile(self, username):
+        profile = self.mydb.retrieveProfile(username)
+        return profile
+        

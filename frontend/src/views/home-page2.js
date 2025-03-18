@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Helmet } from 'react-helmet'
 
 import './home-page2.css'
 
 const HomePage2 = (props) => {
-  
+   const [isGuest, setIsGuest] = useState(true);
   const navigateTo = (path) => {
     window.location.href = path;
   };
+
+
+   useEffect(() => {
+      const guestStatus = localStorage.getItem("isGuest");
+      setIsGuest(guestStatus === "true"); 
+    }, []);
+
   return (
     
     <div className="home-page2-container">
@@ -127,6 +134,7 @@ const HomePage2 = (props) => {
             alt="Rectangle16031"
             className="home-page2-rectangle1"
           />
+
           <div className="home-page2-prepare-meal-button" onClick={() => navigateTo('/prepare-meal')}>
             <div className="home-page2-company-logo2">
               <img
@@ -143,6 +151,19 @@ const HomePage2 = (props) => {
             />
             <span className="home-page2-text40">Prepare Meal</span>
           </div>
+
+          {!isGuest && (
+          <div className="home-page-login-button" onClick={() => navigateTo('/profile-page.js')}>
+            <img
+              src="/external/login4360-2lxu-200h.png"
+              alt="Login4360"
+              className="home-page-login"
+            />
+            <span className="home-page2-text">Profile</span>
+          </div>
+        )}
+
+
           <div className="home-page2-signup-button2" onClick={() => navigateTo('/')}>
             <img
               src="/external/signup6031-mcx-200h.png"

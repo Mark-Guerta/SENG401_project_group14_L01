@@ -126,3 +126,34 @@ class SQLConnect:
 
         cursor.close()
         self.closeDB()
+        
+    def retrieveProfile(self, username):
+        self.connectDB()
+
+        try:
+            cursor = self.database.cursor()
+        except:
+            if self.database is None:
+                print("Database not connected")
+            else:
+                print("Cursor already created")
+
+        try:
+            cursor.execute("SELECT userName, userEmail, userPassword FROM User WHERE userName = %s", (username,))
+            result = cursor.fetchone()
+            if result:
+                profile = {
+                    "username": result[0],
+                    "email": result[1],
+                    "password": result[2]
+                }
+            else:
+                profile = None
+        except:
+            print("ERROR: NO ACCOUNT FOUND")
+            profile = None
+
+        cursor.close()
+        self.closeDB()
+
+        return profile
