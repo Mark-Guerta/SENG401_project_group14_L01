@@ -58,7 +58,7 @@ class Login extends Component {
     return (
       <div className="login-container">
         <Helmet>
-          <title>exported project</title>
+          <title>White Soup</title>
         </Helmet>
         <div className="login-login1">
           <div className="login-bottom-bar">
@@ -197,6 +197,9 @@ class Login extends Component {
               Mexican food showcases vibrant colors!
             </span>
           </div>
+
+
+
           <div className="login-navigation-bar">
             <img
               src="/external/rectangle11924-fc8-200h.png"
@@ -211,14 +214,14 @@ class Login extends Component {
                   className="login-imageremovebgpreview12"
                 />
                 <span className="login-text39">White Dressing</span>
-              </div>
+              
               <img
                 src="/external/preparemeal1925-nwz9-200h.png"
                 alt="PrepareMeal1925"
                 className="login-prepare-meal"
               />
               <span className="login-text40">Prepare Meal</span>
-            </div>
+              </div>
             <div className="login-login-button">
               <img
                 src="/external/login1925-9i85-200h.png"
@@ -242,6 +245,7 @@ class Login extends Component {
                 className="login-home"
               />
               <span className="login-text43">Home</span>
+            </div>
             </div>
           </div>
         </div>
