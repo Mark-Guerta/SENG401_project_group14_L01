@@ -1,9 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import Signup
-import Login 
-import Gemini
-import DatabaseSingleton
+import Signup, Login, Gemini, FoodApp, DatabaseSingleton
 
 app = Flask(__name__) 
 CORS(app)
@@ -12,6 +9,7 @@ signup = Signup.Signup()
 logins = Login.Login()
 databaseInstance = DatabaseSingleton.DatabaseSingleton()
 databaseInstance.setLoginData()
+recipeInstance = FoodApp.FoodApp()
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -46,7 +44,8 @@ def prompt():
     
     ingredients = request.json['ingredients']
     message = Gemini.getResponse(ingredients)
-    
+    recipeInstance.setResults(message)
+
     return jsonify({"error": "Generation Successful", "message": message})
 
 @app.route('/change-pass', methods=['POST'])
@@ -83,11 +82,11 @@ def deleteAccount():
     username = request.json['username']
 
     databaseInstance.retrieveProfile(username)
-    
-    
-    return 
+    databaseInstance.setLoginData()
 
-
+@app.route('/results', methods=['POST'])
+def downloadRecipe():
+    recipeInstance.downloadResults()
 
 
 if __name__ == '__main__':
