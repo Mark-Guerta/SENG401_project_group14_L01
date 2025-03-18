@@ -81,8 +81,11 @@ def RetrieveData():
     
     username = request.json['username']
 
-    databaseInstance.retrieveProfile(username)
-    databaseInstance.setLoginData()
+    profile = databaseInstance.retrieveProfile(username)
+    
+    #profile = {"username": "Mark", "email": "markjimenez@gmail.com","password": "Apple1"}
+    
+    return jsonify({"error": "Success", "message": profile})
 
 @app.route('/results', methods=['POST'])
 def downloadRecipe():
