@@ -57,15 +57,16 @@ componentDidMount() {
 
   handleSubmitNewPassword = (event) => {
     event.preventDefault();
-    const { username, password, confirmPassword,} = this.state;
-    if (!username || !password || !confirmPassword || !email) {
+    const { username, newPassword, confirmPassword,} = this.state;
+    if (!username || !newPassword || !confirmPassword || !email) {
       this.setState({ error: 'Please fill in all fields' });
-    } else if (password !== confirmPassword) {
+    } else if (newPassword !== confirmPassword) {
       this.setState({ error: 'Passwords do not match' });
     } else {
       const newUser = {
         username,
         password,
+        newPassword,
       };
      
       fetch("http://127.0.0.1:5000/change-pass", {
