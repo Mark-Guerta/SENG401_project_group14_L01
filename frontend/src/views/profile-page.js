@@ -7,9 +7,7 @@ class Profile extends Component {
     super(props);
     this.state = {
       username: '',
-      password: '',
-      email: '',
-      error: '' 
+      
     };
   }
 

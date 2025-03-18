@@ -82,10 +82,10 @@ def deleteAccount():
     
     username = request.json['username']
 
-    databaseInstance.retrieveProfile(username)
+    profile= databaseInstance.retrieveProfile(username)
     
     
-    return 
+    return jsonify({"error": "Success", "message": profile})
 
 
 
