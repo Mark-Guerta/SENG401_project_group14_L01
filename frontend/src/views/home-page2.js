@@ -153,7 +153,7 @@ const HomePage2 = (props) => {
           </div>
 
           {!isGuest && (
-          <div className="home-page-login-button" onClick={() => navigateTo('/profile-page.js')}>
+          <div className="home-page-login-button" onClick={() => navigateTo('/profile-page')}>
             <img
               src="/external/login4360-2lxu-200h.png"
               alt="Login4360"
