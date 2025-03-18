@@ -127,7 +127,7 @@ class SQLConnect:
         cursor.close()
         self.closeDB()
         
-    def retrieveProfile(self, username):
+    def retrieveProfileData(self, username):
         self.connectDB()
 
         try:
@@ -139,7 +139,7 @@ class SQLConnect:
                 print("Cursor already created")
 
         try:
-            cursor.execute("SELECT userName, userEmail, userPassword FROM User WHERE userName = %s", (username,))
+            cursor.execute("SELECT userName, userEmail, userPassword FROM User WHERE userName = %s", (username))
             result = cursor.fetchone()
             if result:
                 profile = {
