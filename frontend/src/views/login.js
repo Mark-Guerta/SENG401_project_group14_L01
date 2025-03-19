@@ -61,27 +61,19 @@ class Login extends Component {
 
     return (
       
-    
+      
       <div className="login-container">
 
     
        
-        <div className="login-login1">
+        <div className="Box-Container">
 
 
           <form onSubmit={this.handleSubmit}>
             <div >
-              <span className="login-text33">Password:</span>
-              <input
-                className="PasswordInput3"
-                type="password"
-                placeholder="Enter your Password"
-                value={password}
-                onChange={this.handleInputChange}
-                name="password"
-              />
+             
 
-              <span className="login-text34">Username</span>
+              <span className="UsernameText">Username</span>
               <input
                 className="LoginInput"
                 type="text"
@@ -90,17 +82,27 @@ class Login extends Component {
                 onChange={this.handleInputChange}
                 name="username"
               />
+               <span className="PasswordText">Password</span>
+              <input
+                className="PasswordInput3"
+                type="password"
+                placeholder="Enter your Password"
+                value={password}
+                onChange={this.handleInputChange}
+                name="password"
+              />
              
-              <span className="login-text35" onClick={() => {
+              <span className="GuestButton" onClick={() => {
                     localStorage.setItem("isGuest", "true");
                     this.navigateTo('/prepare-meal');}}>
                  Continue as Guest</span>
                  {error && <p className="validation-message">{error}</p>}
             </div>
   
-            <button type="submit" className="login-signup-button1">
+
+            <button type="submit" className="LoginButton">
             
-              <span className="login-text36">Login</span>
+              <span className="LoginText">Login</span>
             </button>
           </form>
           </div>
