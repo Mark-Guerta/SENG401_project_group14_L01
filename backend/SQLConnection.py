@@ -79,7 +79,7 @@ class SQLConnect:
                 print("Cursor already created")
 
         try:
-            cursor.execute("DELETE FROM User WHERE userName = %s", (username))
+            cursor.execute("DELETE FROM User WHERE userName = %s", (username,))
             self.database.commit()
         except:
             print("ERROR: NO ACCOUNT FOUND")
@@ -139,7 +139,7 @@ class SQLConnect:
                 print("Cursor already created")
 
         try:
-            cursor.execute("SELECT userEmail, userPassword FROM User WHERE userName = %s", (username))
+            cursor.execute("SELECT userEmail, userPassword FROM User WHERE userName = %s", (username,))
             result = cursor.fetchall()
             profile = {
                 "username": username,
