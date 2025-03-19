@@ -10,7 +10,9 @@ class Login extends Component {
       password: '',
       error: ''
     };
+    localStorage.setItem("isGuest", "false");
   }
+  
 
   handleInputChange = (event) => {
     const { name, value } = event.target;

@@ -1,9 +1,21 @@
 import './nav-bar.css';
+import React, { useState, useEffect } from 'react';
 
 const NavBar = () => {
+  const [isGuest, setIsGuest] = useState(false);
+
+  useEffect(() => {
+    const guestStatus = localStorage.getItem("isGuest");
+    setIsGuest(guestStatus === "true"); 
+  }, []);
 
   const navigateTo = (path) => {
     window.location.href = path;
+  };
+
+  const handleSignOut = () => {
+    localStorage.removeItem("isGuest");
+    navigateTo('/login');
   };
 
   return (
@@ -27,12 +39,20 @@ const NavBar = () => {
       </div>
 
       <div className="navbar-right">
-        <div className="navbar-item" onClick={() => navigateTo('/login')}>
-          <span className="navbar-item-text">Login</span>
-        </div>
-        <div className="navbar-item signup-button" onClick={() => navigateTo('/register')}>
-          <span className="navbar-item-text">Sign Up</span>
-        </div>
+        {isGuest ? (
+          <div className="navbar-item" onClick={handleSignOut}>
+            <span className="navbar-item-text">Sign Out</span>
+          </div>
+        ) : (
+          <>
+            <div className="navbar-item" onClick={() => navigateTo('/login')}>
+              <span className="navbar-item-text">Login</span>
+            </div>
+            <div className="navbar-item signup-button" onClick={() => navigateTo('/register')}>
+              <span className="navbar-item-text">Sign Up</span>
+            </div>
+          </>
+        )}
       </div>
     </nav>
   );
