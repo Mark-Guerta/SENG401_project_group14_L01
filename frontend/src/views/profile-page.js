@@ -324,9 +324,10 @@ handleSubmitNewPassword = (event) => {
                 className="regEmail"
                 type="email"
                 placeholder="Enter your Email"
-                value={newEmail}
+                
                 onChange={this.handleInputChange}
-                name="email"
+                
+                name="newEmail"
               />
 
 
