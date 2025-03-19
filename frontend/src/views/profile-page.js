@@ -58,8 +58,8 @@ class Profile extends Component {
 handleSubmitNewPassword = (event) => {
     event.preventDefault();
     const { username, newPassword, confirmPassword, email } = this.state;
-    if (!username || !newPassword || !confirmPassword || !email) {
-      this.setState({ error: 'Please fill in all fields' });
+    if (!newPassword || !confirmPassword) {
+      this.setState({ error: 'Please fill in password and confirm password' });
     } else if (newPassword !== confirmPassword) {
       this.setState({ error: 'Passwords do not match' });
     } else {
@@ -91,8 +91,8 @@ handleSubmitNewPassword = (event) => {
   handleSubmitNewEmail = (event) => {
     event.preventDefault();
     const { username, newEmail, password, confirmPassword } = this.state;
-    if (!username || !newEmail || !password || !confirmPassword) {
-      this.setState({ error: 'Please fill in all fields' });
+    if (!newEmail) {
+      this.setState({ error: 'Please fill the email input' });
     } else if (password !== confirmPassword) {
       this.setState({ error: 'Passwords do not match' });
     } else {
@@ -123,12 +123,8 @@ handleSubmitNewPassword = (event) => {
 
   handleSubmitDeleteAccount = (event) => {
     event.preventDefault();
-    const { username, password, confirmPassword,} = this.state;
-    if (!username || !password || !confirmPassword || !email) {
-      this.setState({ error: 'Please fill in all fields' });
-    } else if (password !== confirmPassword) {
-      this.setState({ error: 'Passwords do not match' });
-    } else {
+    const { username, password} = this.state;
+   
       const newUser = {
         username,
         password,
