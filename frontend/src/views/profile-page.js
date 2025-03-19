@@ -91,11 +91,7 @@ handleSubmitNewPassword = (event) => {
   handleSubmitNewEmail = (event) => {
     event.preventDefault();
     const { username, newEmail, password, confirmPassword } = this.state;
-    if (!newEmail) {
-      this.setState({ error: 'Please fill the email input' });
-    } else if (password !== confirmPassword) {
-      this.setState({ error: 'Passwords do not match' });
-    } else {
+
       const newUser = {
         username,
         newEmail,
@@ -316,6 +312,8 @@ handleSubmitNewPassword = (event) => {
             </button>
             </form>
 
+
+
             <form onSubmit={this.handleSubmitNewEmail}>
               <span className="EnterEmail">Current Email: {email}</span>
               <input
@@ -327,9 +325,6 @@ handleSubmitNewPassword = (event) => {
                 
                 name="newEmail"
               />
-
-
-
             <button type="submit" className= "ChangeEmail"> 
             <img
                 className="ChangePassword"
@@ -341,7 +336,9 @@ handleSubmitNewPassword = (event) => {
             </button>   
             </form>
 
-           
+
+
+    
               <span className="EnterUsername">Current Username: {username}</span>
               <input
                 className="regUsername"

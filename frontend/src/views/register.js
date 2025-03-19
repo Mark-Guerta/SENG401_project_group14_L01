@@ -66,7 +66,7 @@ class Register extends Component {
     return (
       <div className="register-container">
         <Helmet>
-          <title>exported project</title>
+          <title>White Soup</title>
         </Helmet>
 
        
