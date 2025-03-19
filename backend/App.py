@@ -43,7 +43,7 @@ def login():
 def prompt():
     
     ingredients = request.json['ingredients']
-    message = Gemini.getResponse(ingredients)
+    message = Gemini.getRecipe(ingredients)
     recipeInstance.setResults(message)
 
     return jsonify({"error": "Generation Successful", "message": message})
