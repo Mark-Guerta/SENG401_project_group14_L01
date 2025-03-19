@@ -104,8 +104,7 @@
   height: 60px;
   display: flex;
   flex-shrink: 1;
-  margin-top: 380px;
-  margin-left: 500px;
+
 }
 
 .login-sign-up1 {
@@ -114,9 +113,7 @@
   border-radius: 90px;
 }
 .login-text36 {
-  position: absolute;
-  left: 550px;
-  top:550px;
+
   color: rgba(0, 0, 0, 1);
   font-size: 34px;
   font-style: Bold;
@@ -124,8 +121,7 @@
   font-family: Maven Pro;
   font-weight: 700;
   line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
+
 }
 
 .login-navigation-bar {
@@ -230,6 +226,5 @@
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
-  margin-top: 11px;
-  margin-left: 15px;
+
 }
