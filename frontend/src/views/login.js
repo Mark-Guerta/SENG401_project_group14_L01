@@ -52,7 +52,7 @@ class Login extends Component {
             localStorage.setItem("username", username);
 
             this.setState({ error: 'Login Successful' });
-            this.navigateTo('/home-page2');
+            this.navigateTo('/prepare-meal');
           }
         });
     }
