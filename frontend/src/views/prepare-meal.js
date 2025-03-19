@@ -41,7 +41,7 @@ const PrepareMeal = () => {
         .then((json) => {
           if (json.error === "Generation Successful") {
             setError("Generation Successful");
-            console.log("Generated Meal:", json.message);
+            console.log("Generated Meal:", json.recipeName, json.recipeSteps, json.recipeNotes);
             setOutputText(json.message); 
           } else {
             setError('Failed to generate recipes');
