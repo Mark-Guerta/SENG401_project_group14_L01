@@ -138,7 +138,7 @@ handleSubmitNewPassword = (event) => {
         .then((response) => response.json())
         .then((json) => {
           
-          if (json.error=="Signup Successful") {
+          if (json.error=="Account Deletion Successful") {
             this.setState({"error": "Account Deletion Successful"});
             this.navigateTo('/home-page2');
           } else {
@@ -359,17 +359,11 @@ handleSubmitNewPassword = (event) => {
           </div>
           {error && <p className="validation-message">{error}</p>}
 
-         
-          
-
-
-
-
           <div className="register-didyouknow">
             <span className="register-text38">Did you know?</span>
             <span className="register-text39">
               There are over 7,000 types of apples grown worldwide, with varieties ranging from sweet to tart, 
-              and some even developed for specific uses like baking or cider-making!
+              and some even developed for specisfic uses like baking or cider-making!
               Apples are one of the most diverse fruits globally, 
               and each region has its own unique varieties.
             </span>
