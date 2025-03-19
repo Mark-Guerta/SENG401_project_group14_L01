@@ -319,7 +319,7 @@ handleSubmitNewPassword = (event) => {
             <form onSubmit={this.handleSubmitNewEmail}>
               <span className="EnterEmail">Current Email: {email}</span>
               <input
-                className="regEmail"
+                className="regEmailX"
                 type="email"
                 placeholder="Enter your Email"
                 

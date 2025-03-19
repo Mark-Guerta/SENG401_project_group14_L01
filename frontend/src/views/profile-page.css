@@ -1,6 +1,6 @@
 
 
-.regEmail{
+.regEmailX{
     border-radius: 90px;
   background: #CDFECF;
     
@@ -8,21 +8,6 @@
     top: 310px;
     left: 500px;
     width: 400px;
-    height: 40px;
-    display: flex;
-    position: absolute;
-    align-items: flex-start;
-    flex-shrink: 1;
-  
-  }
-  .regUsername{
-    border-radius: 90px;
-  background: #CDFECF;
-    
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    top: 200px;
-    left: 500px;
-    width: 300px;
     height: 40px;
     display: flex;
     position: absolute;
