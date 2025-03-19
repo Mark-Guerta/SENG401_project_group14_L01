@@ -90,11 +90,7 @@ class Login extends Component {
                 onChange={this.handleInputChange}
                 name="username"
               />
-              <img
-                src="/external/rectangle51932-qb4-200h.png"
-                alt="Rectangle51932"
-                className="login-text300"
-              />
+             
               <span className="login-text35" onClick={() => {
                     localStorage.setItem("isGuest", "true");
                     this.navigateTo('/prepare-meal');}}>
@@ -103,11 +99,7 @@ class Login extends Component {
             </div>
   
             <button type="submit" className="login-signup-button1">
-              <img
-                src="/external/signup5818-3wp5-200h.png"
-                alt="SignUp5818"
-                className="login-sign-up1"
-              />
+            
               <span className="login-text36">Login</span>
             </button>
           </form>
