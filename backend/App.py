@@ -71,9 +71,9 @@ def switchEmail():
     check = databaseInstance.changeEmail(username, email)
     databaseInstance.setLoginData()
     if check==True:
-        return jsonify({'error': 'Email Change Successful'}), 500
+        return jsonify({'error': 'Change Successful'}), 500
     else:
-        return jsonify({'error': 'Email Change Failed'}), 500
+        return jsonify({'error': 'Failed to change email'}), 500
 
 @app.route('/delete-acc', methods=['POST'])
 def deleteAccount():

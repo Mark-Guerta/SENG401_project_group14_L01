@@ -80,8 +80,8 @@ handleSubmitNewPassword = (event) => {
         .then((response) => response.json())
         .then((json) => {
           if (json.error === "Signup Successful") {
-            this.setState({ error: "Password change successful" });
-            this.navigateTo('/home-page2');
+            this.setState({ error: "Password Change Successful" });
+            location.reload()
           } else {
             this.setState({ error: 'Failed to change password' }); 
           }
@@ -109,9 +109,9 @@ handleSubmitNewPassword = (event) => {
       })
         .then((response) => response.json())
         .then((json) => {
-          if (json.error === "Signup Successful") {
+          if (json.error === "Change Successful") {
             this.setState({ error: "Email change successful" });
-            this.navigateTo('/home-page2');
+            location.reload()
           } else {
             this.setState({ error: 'Failed to change email' }); 
           }
@@ -139,10 +139,10 @@ handleSubmitNewPassword = (event) => {
         .then((json) => {
           
           if (json.error=="Signup Successful") {
-            this.setState({"error": "Signup Successful"});
+            this.setState({"error": "Account Deletion Successful"});
             this.navigateTo('/home-page2');
           } else {
-            this.setState({error: 'Failed'}); 
+            this.setState({error: 'Account Deletion Failed'}); 
           }
         });
     }
