@@ -26,7 +26,7 @@ const NavBar = () => {
         </div>
         <div className="navbar-item">
           <img
-            src="/external/imageremovebgpreview1i192-oe3-200h.png"
+            src="/external/Logo2.gif"
             alt="White Dressing"
             className="navbar-item-img"
           />
