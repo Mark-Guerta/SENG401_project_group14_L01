@@ -148,7 +148,8 @@ handleSubmitNewPassword = (event) => {
           }
         });
     }
-  }
+  
+
 
 
   
@@ -433,6 +434,6 @@ handleSubmitNewPassword = (event) => {
       </div>
     );
   }
-
+}
 
 export default Profile;
