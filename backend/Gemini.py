@@ -10,10 +10,10 @@ def getResponse(message):
     )
     formattedResponse = formartResponse(response.text)
     return formattedResponse
-
+# recipeName, recipeSteps, recipeNotes
 def formartResponse(message):
-    requiredFormat = "Remember the format, Recipe Name (only recipe name) \n Recipe Steps (each step on a newline, keeping their numbered list but adding single square brackets before and after the numbered list points) \n Notes (keep notes title) and skipping the last sentence if it relates to the words 'given text'. "
-    promptCreation = "Using the remembered formated and given text, format the given text to the remembered formart. "
+    requiredFormat = "Remember the format, Recipe Name (only recipe name) \n Recipe Steps (each step on a newline, keeping their numbered list but adding single square brackets before and after the numbered list points) \n Notes (keep notes: title) and skipping the last sentence if it relates to the words 'given text'. Additionally, between all of these sections, it should contain the text 'this@is#a*placeholder'."
+    promptCreation = "Using the remembered formated and given text, format the given text to the remembered format. "
     
     client = genai.Client(api_key="AIzaSyCpnYk7EshXUwbqK_PBp7izaPVrd5wK1q8")
     content = requiredFormat + promptCreation + message 
@@ -23,14 +23,12 @@ def formartResponse(message):
     )
     fixedResponse = intenseFormat(response.text)
     return fixedResponse
-    # return response.text
 
 def intenseFormat(message):
-    numberListCounter = 1
-    while (message.find('['+str(numberListCounter)+']') != -1):
-        message = message.replace(str('['+str(numberListCounter)+']'),"\n"+str(numberListCounter))
-        numberListCounter+=1
-        if (numberListCounter >= 30):
-            break
-    return message + str(numberListCounter)
+    # message = "test"
+    responseGroup = message.split(sep='this@is#a*placeholder')
+    recipeName = responseGroup[0]
+    recipeSteps = responseGroup[1]
+    recipeNotes = responseGroup[2]
+    return recipeNotes
         

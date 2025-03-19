@@ -45,9 +45,13 @@ def login():
 def prompt():
     
     ingredients = request.json['ingredients']
+    # recipeName, recipeSteps, recipeNotes = Gemini.getResponse(ingredients)
+    
+    # return jsonify({"error": "Generation Successful", "recipeName": recipeName, "recipeSteps": recipeSteps, "recipeNotes": recipeNotes})
     message = Gemini.getResponse(ingredients)
     
     return jsonify({"error": "Generation Successful", "message": message})
+
 
 @app.route('/change-pass', methods=['POST'])
 def switchPassword():

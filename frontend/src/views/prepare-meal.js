@@ -8,6 +8,10 @@ const PrepareMeal = () => {
   const [isGuest, setIsGuest] = useState(true);
   const [error, setError] = useState('');
 
+  const [recipeName, setRecipeName] = useState('');
+  const [recipeSteps, setRecipeSteps] = useState('');
+  const [recipeNotes, setRecipeNotes] = useState('');
+
   useEffect(() => {
     const guestStatus = localStorage.getItem("isGuest");
     setIsGuest(guestStatus === "true"); 
