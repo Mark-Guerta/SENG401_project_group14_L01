@@ -53,7 +53,7 @@ class SQLConnect:
             else:
                 print("Cursor already created")
 
-        usernames, emails, passwords = self.databaseInstance.getLoginData()
+        usernames = self.databaseInstance.getLoginData()
 
         if username in usernames:
             cursor.close()

@@ -14,9 +14,9 @@ recipeInstance = FoodApp.FoodApp()
 @app.route('/register', methods=['POST'])
 def register():
 
-    email = request.json['email']
-    password = request.json['password']
     username = request.json['username']
+    password = request.json['password']
+    email = request.json['email']
 
     signup.setSignupCredentials(username, email, password)
     check = signup.createRegisteredUser()
@@ -29,8 +29,8 @@ def register():
 
 @app.route('/login', methods=['POST'])
 def login():
-    password = request.json['password']
     username = request.json['username']
+    password = request.json['password']
 
     is_authenticated = logins.loginProcess(username, password)
 
