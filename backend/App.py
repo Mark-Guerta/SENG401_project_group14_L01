@@ -42,8 +42,9 @@ def login():
 @app.route('/prepare-meal', methods=['POST'])
 def prompt():
     
+    location = request.json['location']
     ingredients = request.json['ingredients']
-    message = Gemini.getRecipe(ingredients)
+    message = Gemini.getRecipe(location, ingredients)
     recipeInstance.setResults(message)
 
     return jsonify({"error": "Generation Successful", "message": message})
