@@ -62,7 +62,7 @@ class Login extends Component {
     return (
       
     
-     
+      <div className="login-container">
 
     
        
@@ -111,15 +111,9 @@ class Login extends Component {
               <span className="login-text36">Login</span>
             </button>
           </form>
-  
-       
-
-
-        
-       
           </div>
 
-
+</div>
        
   );
   };

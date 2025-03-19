@@ -3,7 +3,7 @@ const NavBar =() =>{
 
 
     return(
-        <div className="login-container">
+      
 
       
       <div className="login-navigation-bar">
@@ -39,8 +39,7 @@ const NavBar =() =>{
         />
         <span className="login-text42">Sign up</span>
       </div>
-      </div>
-      </div>
+</div>
     );
 };
 

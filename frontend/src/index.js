@@ -13,7 +13,7 @@ import Login from './views/login'
 import Register from './views/register'
 import PrepareMeal from './views/prepare-meal'
 import Profile from './views/profile-page'
-
+import NavBar from './views/nav-bar'
 
 const App = () => {
   return (
@@ -25,6 +25,7 @@ const App = () => {
         <Route component={Profile} exact path="/profile-page" />
         <Route component={PrepareMeal} exact path="/prepare-meal" />
         <Route component={Login} exact path="/home-page2" />
+        <Route component={NavBar} exact path="/nav" />
        
         <Redirect to="**" />
       </Switch>
