@@ -1,666 +1,148 @@
+.login-container {
+  width: 100%;
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+
+  align-items: center; 
+
+  /*background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.09) 32.5%, rgba(255, 255, 255, 0.10) 38%, rgba(255, 255, 255, 0.20) 100%), linear-gradient(180deg, #FFF 0%, #1f9c27 100%);*/
+}
+
+.Box-Container {
+
+  display: flex;
+  flex-direction: column;
+
+  margin-top:100px;
+  background: rgb(255, 255, 255);
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  
+}
 
 .LoginInput {
-  border-radius: 90px;
-background: #CDFECF;
 
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  top: 225px;
-  left: 252px;
+  border-radius: 90px;
+  margin-top:15px;
+  margin-bottom:15px;
+  
+  background: #CDFECF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 300px;
   height: 40px;
   display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
-
+ 
 
 }
 
 .PasswordInput3 {
   border-radius: 90px;
-background: #CDFECF;
-  
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  top: 320px;
-  left: 250px;
+  background: #CDFECF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 300px;
+  margin-top:15px;
+  margin-bottom:15px;
   height: 40px;
   display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
 
 }
 
 
-.login-container {
-  width: 100%;
-  display: flex;
-  overflow: auto;
-  min-height: 100vh;
-  align-items: center;
-  flex-direction: column;
-}
-.login-text300{
+.login-text300 {
+  color: rgba(104, 115, 105, 1);
+  height: auto;
   
-  top: 395px;
-  left: 235px;
-  color: rgba(104, 115, 105, 1);
-  height: auto;
-  position: absolute;
   font-size: 24px;
   font-style: Bold;
-  text-align: left;
   font-family: Maven Pro;
   font-weight: 700;
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
 
-} 
-
-.login-login1 {
-
-  width: 100%;
-  height: 1484px;
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.09) 32.5%, rgba(255, 255, 255, 0.10) 38%, rgba(255, 255, 255, 0.20) 100%), linear-gradient(180deg, #FFF 0%, #6EFD77 100%);
-  align-items: flex-start;
-  flex-shrink: 0;
- 
 }
 
 
-.login-bottom-bar {
-  top: 953px;
-  left: 130px;
-  width: 1790px;
-  height: 479px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
-}
- 
-.login-text10 {
-  top: 115px;
-  left: 915px;
-  color: rgba(0, 0, 0, 1);
-  height: auto;
-  opacity: 0.70;
-  position: absolute;
-  font-size: 25px;
-  font-style: Medium;
-  text-align: left;
-  font-family: Radio Canada;
-  font-weight: 500;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
- 
-.login-text19 {
-  top: 24px;
-  left: 915px;
-  color: rgba(0, 0, 0, 1);
-  height: auto;
-  opacity: 0.50;
-  position: absolute;
-  font-size: 30px;
-  font-style: Medium;
-  text-align: left;
-  font-family: Radio Canada Big;
-  font-weight: 500;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
- 
-.login-text20 {
-  top: 24px;
-  left: 485px;
-  color: rgba(0, 0, 0, 1);
-  height: auto;
-  opacity: 0.50;
-  position: absolute;
-  font-size: 30px;
-  font-style: Medium;
-  text-align: left;
-  font-family: Radio Canada;
-  font-weight: 500;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
- 
-.login-text21 {
-  top: 113px;
-  left: 484px;
-  color: rgba(0, 0, 0, 1);
-  width: 331px;
-  height: auto;
-  opacity: 0.70;
-  position: absolute;
-  font-size: 25px;
-  font-style: Medium;
-  text-align: left;
-  font-family: Radio Canada;
-  font-weight: 500;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
- 
-.login-company-logo1 {
-  top: 0px;
-  left: 0px;
-  width: 1049.1993408203125px;
-  height: 346px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
- 
-.login-imageremovebgpreview11 {
-  top: 0px;
-  left: 0.028524965047836304px;
-  width: 399px;
-  height: 351px;
-  position: absolute;
-}
- 
-.login-social-media-logo {
-  top: 137px;
-  left: 1312px;
-  width: 356px;
-  height: 178px;
-  position: absolute;
-}
- 
-.login-text32 {
-  top: 418px;
-  left: 87px;
-  color: rgba(0, 0, 0, 0.75);
-  width: 1703px;
-  height: auto;
-  position: absolute;
-  font-size: 25px;
-  font-style: Medium;
-  text-align: left;
-  font-family: Raleway;
-  font-weight: 500;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
- 
-.login-design1 {
-  top: -589px;
-  left: -317px;
-  width: 2660px;
-  height: 3246px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
-}
- 
-.login-ellipse9 {
-  top: 1646px;
-  left: 1060px;
-  width: 1600px;
-  height: 1600px;
-  position: absolute;
-}
- 
-.login-ellipse1 {
-  top: 0px;
-  left: 0px;
-  width: 1500px;
-  height: 1500px;
-  position: absolute;
-}
- 
-.login-ellipse2 {
-  top: 328px;
-  left: 1791px;
-  width: 693px;
-  height: 693px;
-  position: absolute;
-}
- 
-.login-ellipse3 {
-  top: 962px;
-  left: 1673px;
-  width: 236px;
-  height: 236px;
-  position: absolute;
-}
- 
-.login-ellipse4 {
-  top: 1198px;
-  left: 1587px;
-  width: 113px;
-  height: 113px;
-  position: absolute;
-}
- 
-.login-ellipse7 {
-  top: 1319px;
-  left: 1492px;
-  width: 70px;
-  height: 70px;
-  position: absolute;
-}
- 
-.login-ellipse6 {
-  top: 1411px;
-  left: 1395px;
-  width: 51px;
-  height: 51px;
-  position: absolute;
-}
- 
-
- 
-.login-rectangle2 {
-  top: 224px;
-  left: 0px;
-  width: 611px;
-  height: 75px;
-  position: absolute;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
-}
- 
-.login-text33 {
-  top: 280px;
-  left: 252px;
-  width: 611px;
-  height: 10px; /* Lowered the height */
-  display: flex;
-  position: absolute;
-
-  flex-shrink: 1;
+.PasswordText {
 
   color: rgba(0, 0, 0, 1);
-
-  position: absolute;
   font-size: 24px;
   font-style: Bold;
-  text-align: left;
   font-family: Maven Pro;
   font-weight: 700;
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
-}
- 
-.login-rectangle4 {
-  top: 61px;
-  left: 0px;
-  width: 611px;
-  height: 75px;
-  position: absolute;
-  border-radius: 90px;
-}
- 
-.login-text34 {
-  top: 187px;
-  left: 252px;
-  width: 611px;
-  height: 366px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
 
+}
 
+.UsernameText {
+ 
+  
   color: rgba(0, 0, 0, 1);
-
-  height: auto;
-  position: absolute;
   font-size: 24px;
   font-style: Bold;
-  text-align: left;
   font-family: Maven Pro;
   font-weight: 700;
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
+
 }
+
+.GuestButton {
  
-.login-rectangle5 {
-  top: 326px;
-  left: 0px;
-  width: 227px;
+  border-radius:50px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding:10px;
+  background-color: rgb(175, 167, 167);
+  color: rgba(0, 0, 0, 1);
+  font-size: 24px;
+  font-style: Bold;
+  font-family: Maven Pro;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+  
+}
+.title-text{
+  margin-right:140px;
+  margin-bottom: 20px;
+  width: 40px; 
   height: 40px;
-  position: absolute;
-  border-radius: 90px;
-}
- 
-.login-text35 {
-  top: 400px;
-  left: 250px;
-  color: rgba(104, 115, 105, 1);
-  height: auto;
-  position: absolute;
-  font-size: 24px;
+  font-size: 50px;
   font-style: Bold;
-  text-align: left;
-  font-family: Maven Pro;
+  font-family: cursive;
   font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
+  
 }
- 
-.login-signup-button1 {
-  top: 380px;
-  left: 500px;
-  width: 300.00003051757812px;
-  height: 60px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
-}
- 
+
+
 .login-sign-up1 {
-  top: 0px;
-  left: 0px;
   width: 195px;
   height: 80px;
-  position: absolute;
   border-radius: 90px;
 }
- 
-.login-text36 {
-  top: 21.05260467529297px;
-  left: 61.52151870727539px;
+
+.LoginButton {
+  width: 300.00003051757812px;
+  height: 100px;
+}
+.LoginText {
+  
+  margin-top:50px;
   color: rgba(0, 0, 0, 1);
-  width: 175px;
-  height: auto;
-  position: absolute;
   font-size: 30px;
   font-style: Bold;
-  text-align: left;
   font-family: Maven Pro;
   font-weight: 700;
   line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
- 
-.login-design2 {
-  top: 589px;
-  left: 1400px;
-  width: 467px;
-  height: 467px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
-}
- 
-.login-wprocessed1 {
-  top: 0px;
-  left: 0px;
-  width: 467px;
-  height: 467px;
-  position: absolute;
-}
- 
-.login-didyouknow {
-  top: 210px;
-  left: 1169px;
-  width: 710px;
-  height: 399px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
-}
- 
-.login-text37 {
-  color: rgba(0, 0, 0, 0.5);
-  width: 710px;
-  height: auto;
-  position: absolute;
-  font-size: 100px;
- 
-  font-style: ExtraBold;
-  text-align: left;
-  font-family: Raleway;
-  font-weight: 800;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
- 
-.login-text38 {
-  top: 140px;
-  left: 6px;
-  color: rgba(0, 0, 0, 0.5);
-  width: 699px;
-  height: auto;
-  position: absolute;
-  font-size: 25px;
-  font-style: Medium;
-  text-align: left;
-  font-family: Raleway;
-  font-weight: 500;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
- 
-.login-navigation-bar {
-  top: 14px;
-  left: 150px;
-  width: 1620px;
-  height: 82px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-radius: 4px;
-}
- 
-.login-rectangle1 {
-  top: 0px;
-  left: 0px;
-  width: 1620px;
-  height: 82px;
-  opacity: 0.25;
-  position: absolute;
-  border-radius: 20px;
-}
- 
-.login-prepare-meal-button {
-  top: 11px;
-  left: 28px;
-  width: 968px;
-  height: 61px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
-}
- 
-.login-company-logo2 {
-  top: 0px;
-  left: 0px;
-  width: 184.9744415283203px;
-  height: 61px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
- 
-.login-imageremovebgpreview12 {
-  top: 0px;
-  left: 0.005028967745602131px;
-  width: 70px;
-  height: 62px;
-  position: absolute;
-}
- 
-.login-text39 {
-  top: 16px;
-  left: 73.98977661132812px;
-  color: rgba(255, 255, 255, 1);
-  width: 85px;
-  height: auto;
-  position: absolute;
-  font-size: 16px;
-  font-style: ExtraBold;
-  text-align: left;
-  font-family: Raleway;
-  font-weight: 800;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
- 
-.login-prepare-meal {
-  top: 5px;
-  left: 782px;
-  width: 186px;
-  height: 51px;
-  position: absolute;
-  border-radius: 90px;
-}
- 
-.login-text40 {
-  top: 16px;
-  left: 799px;
-  color: rgba(0, 0, 0, 1);
-  width: 163px;
-  height: auto;
-  position: absolute;
-  font-size: 24px;
-  font-style: Bold;
-  text-align: left;
-  font-family: Maven Pro;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
- 
-.login-login-button {
-  top: 15px;
-  left: 1339px;
-  width: 130.46429443359375px;
-  height: 52.1340217590332px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
-}
- 
-.login-login2 {
-  top: 0px;
-  left: 0px;
-  width: 119px;
-  height: 52px;
-  position: absolute;
-  border-radius: 90px;
-}
- 
-.login-text41 {
-  top: 11px;
-  left: 26px;
-  color: rgba(0, 0, 0, 1);
-  width: 104px;
-  height: auto;
-  position: absolute;
-  font-size: 24px;
-  font-style: Bold;
-  text-align: left;
-  font-family: Maven Pro;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
- 
-.login-signup-button2 {
-  top: 15px;
-  left: 1469px;
-  width: 119.46428680419922px;
-  height: 52.1340217590332px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
-}
- 
-.login-sign-up2 {
-  top: 0px;
-  left: 0px;
-  width: 119px;
-  height: 52px;
-  position: absolute;
-  border-radius: 90px;
-}
- 
-.login-text42 {
-  top: 11px;
-  left: 15px;
-  color: rgba(0, 0, 0, 1);
-  width: 104px;
-  height: auto;
-  position: absolute;
-  font-size: 24px;
-  font-style: Bold;
-  text-align: left;
-  font-family: Maven Pro;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
- 
-.login-home-button {
-  top: 16px;
-  left: 669px;
-  width: 132.46429443359375px;
-  height: 52.1340217590332px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
-}
- 
-.login-home {
-  top: 0px;
-  left: 0px;
-  width: 119px;
-  height: 52px;
-  position: absolute;
-  border-radius: 90px;
-}
- 
-.login-text43 {
-  top: 11px;
-  left: 28px;
-  color: rgba(0, 0, 0, 1);
-  width: 104px;
-  height: auto;
-  position: absolute;
-  font-size: 24px;
-  font-style: Bold;
-  text-align: left;
-  font-family: Maven Pro;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
+
+  padding: 10px;
+  border-radius: 50px;
+  background: #a2efa4;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }

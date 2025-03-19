@@ -1,144 +1,63 @@
+.profile-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  /*background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.09) 32.5%, rgba(255, 255, 255, 0.10) 38%, rgba(255, 255, 255, 0.20) 100%), linear-gradient(180deg, #FFF 0%, #6EFD77 100%);*/
+}
+
+.profile-box-container {
 
 
-.regEmailX{
-    border-radius: 90px;
+  display: flex;
+  flex-direction: column;
+  margin-top:100px;
+  justify-content: center;
+  background: rgb(255, 255, 255);
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-input {
+  margin-left:20px;
+  border-radius: 90px;
   background: #CDFECF;
-    
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    top: 310px;
-    left: 500px;
-    width: 400px;
-    height: 40px;
-    display: flex;
-    position: absolute;
-    align-items: flex-start;
-    flex-shrink: 1;
-  
-  }
-  
-
-  
-  .PasswordInputX {
-    border-radius: 90px;
-  background: #CDFECF;
-    
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    top: 410px;
-    left: 500px;
-    width: 200px;
-    height: 40px;
-    display: flex;
-    position: absolute;
-    align-items: flex-start;
-    flex-shrink: 1;
-  
-  }
-  
-  
-  .PasswordInputY {
-    border-radius: 90px;
-  background: #CDFECF;
-    
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    top: 510px;
-    left: 500px;
-    width: 200px;
-    height: 40px;
-    display: flex;
-    position: absolute;
-    align-items: flex-start;
-    flex-shrink: 1;
-  
-  }
-
-
-
-
-
-
-  .ChangePassword{
-    position: absolute;
-    left:800px;
-    top:10px;
-    
-
-
-    
-   
-    }
-.ChangeText{
-    position: absolute;
-    left:850px;
-   
-    top:30px;
-
-    color: rgba(0, 0, 0, 1);
-    width: 175px;
-    height: auto;
-    position: absolute;
-    font-size: 30px;
-    font-style: Bold;
-    text-align: left;
-    font-family: Maven Pro;
-    font-weight: 700;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
+  width: 300px;
+  height: 40px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-
-.Change{
-    position: absolute;
-    left:120px;
-    top:490px;
+.profile-label {
+  color: rgba(0, 0, 0, 1);
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Maven Pro;
 }
 
-.ChangeEmail{
-    position: absolute;
-    left:120px;
-    top:280px;
-
+.profile-button {
+  margin-left:20px;
+  width: 200px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: #a2efa4;
+  font-size: 24px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-
-.ChangeEmail{
-    position: absolute;
-    left:120px;
-    top:280px;
-
+.validation-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 15px;
 }
 
-
-.Delete{
-    position: absolute;
-    left:0px;
-    top:600px;
-
-}
-
-.DeleteImg{
-   
- 
-    position: absolute;
-    left:150px;
-    top:10px;
-}
-.ChangeTextL{
-    position: absolute;
-    left:200px;
-   
-    top: 18px;
-
-    color: rgba(0, 0, 0, 1);
-    width: 175px;
-    height: auto;
-    position: absolute;
-    font-size: 30px;
-    font-style: Bold;
-    text-align: left;
-    font-family: Maven Pro;
-    font-weight: 700;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
+.profile-button:hover {
+  background-color: #a2c7a4;
 }
