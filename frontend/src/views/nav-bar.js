@@ -34,7 +34,7 @@ const NavBar = () => {
             alt="White Dressing"
             className="navbar-item-img"
           />
-          <span className="navbar-item-text">White Dressing</span>
+          <span className="navbar-item-logotext">White Dressing</span>
         </div>
       </div>
 
