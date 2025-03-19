@@ -64,9 +64,10 @@ handleSubmitNewPassword = (event) => {
       this.setState({ error: 'Passwords do not match' });
     } else {
       const newUser = {
-        username,
-        password: newPassword,
         email,
+        newPassword,
+        username,
+       
       };
      
       fetch("http://127.0.0.1:5000/change-pass", {
@@ -90,12 +91,13 @@ handleSubmitNewPassword = (event) => {
 
   handleSubmitNewEmail = (event) => {
     event.preventDefault();
-    const { username, newEmail, password, confirmPassword } = this.state;
+    const { username, newEmail } = this.state;
 
   
       const newUser = {
-        username,
         newEmail,
+        username,
+        
       };
      
       fetch("http://127.0.0.1:5000/change-email", {
@@ -124,7 +126,6 @@ handleSubmitNewPassword = (event) => {
    
       const newUser = {
         username,
-        password,
       };
      
       fetch("http://127.0.0.1:5000/delete-acc", {

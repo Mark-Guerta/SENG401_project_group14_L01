@@ -52,7 +52,7 @@ def prompt():
 def switchPassword():
     #Need email and username
     email = request.json['email']
-    password = request.json['password']
+    password = request.json['newPassword']
     username = request.json['username']
 
     databaseInstance.changePass(username, email, password)
@@ -61,7 +61,7 @@ def switchPassword():
 @app.route('/change-email', methods=['POST'])
 def switchEmail():
     #Need to be signed in to change
-    email = request.json['email']
+    email = request.json['newEmail']
     username = request.json['username']
 
     databaseInstance.changeEmail(username, email)
