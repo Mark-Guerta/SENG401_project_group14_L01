@@ -77,15 +77,15 @@ def deleteAccount():
     databaseInstance.setLoginData()
     
     
-@app.route('/profile', methods=['POST'])
-def deleteAccount():
+# @app.route('/profile', methods=['POST'])
+# def deleteAccount():
     
-    username = request.json['username']
+#     username = request.json['username']
 
-    databaseInstance.retrieveProfile(username)
+#     databaseInstance.retrieveProfile(username)
     
     
-    return 
+#     return 
 
 
 

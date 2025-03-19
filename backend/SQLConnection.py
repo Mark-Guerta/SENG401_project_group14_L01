@@ -2,14 +2,14 @@ import mysql.connector
 import DatabaseSingleton
 
 class SQLConnect:
-
+    mypassword = ''
     def __init__(self):
         self.database = None
         self.databaseInstance = DatabaseSingleton.DatabaseSingleton()
 
     def connectDB(self):
         try:
-            self.database = mysql.connector.connect(host='127.0.0.1', user='root', password='', database="LoginDB")
+            self.database = mysql.connector.connect(host='127.0.0.1', user='root', password=self.mypassword, database="LoginDB")
         except:
             print("Could not connect to database")
 
