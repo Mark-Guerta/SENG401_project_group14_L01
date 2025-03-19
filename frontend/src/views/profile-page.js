@@ -154,7 +154,7 @@ handleSubmitNewPassword = (event) => {
 
   render()
    {
-    const { username, password, email, confirmPassword, error , newUsername, newPassword, newEmail} = this.state;
+    const { username, password, email,  error , newUsername, newPassword, newEmail, confirmPassword} = this.state;
 
     return (
       <div className="register-container">
@@ -299,7 +299,7 @@ handleSubmitNewPassword = (event) => {
                 placeholder="Re-Enter your Password"
                 value={newPassword}
                 onChange={this.handleInputChange}
-                name="password"
+                name="newPassword"
               />
 
 
@@ -342,14 +342,7 @@ handleSubmitNewPassword = (event) => {
 
     
               <span className="EnterUsername">Current Username: {username}</span>
-              <input
-                className="regUsername"
-                type="text"
-                placeholder="Enter your Username"
-                value={newUsername}
-                onChange={this.handleInputChange}
-                name="username"
-              />
+             
 
     
         
