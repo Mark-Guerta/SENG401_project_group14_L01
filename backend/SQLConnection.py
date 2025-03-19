@@ -99,7 +99,7 @@ class SQLConnect:
                 print("Cursor already created")
 
         try:
-            cursor.execute("UPDATE User SET userPass = %s WHERE userName = %s AND userEmail = %s ", (password, username, email))
+            cursor.execute("UPDATE User SET userPassword = %s WHERE userName = %s AND userEmail = %s ", (password, username, email))
             self.database.commit()
         except:
             print("ERROR: NO ACCOUNT FOUND")

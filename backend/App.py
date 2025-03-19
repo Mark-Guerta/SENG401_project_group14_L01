@@ -52,9 +52,9 @@ def prompt():
 def switchPassword():
     #Need email and username
     email = request.json['email']
+    email = email[0]
     password = request.json['newPassword']
     username = request.json['username']
-
     check = databaseInstance.changePass(username, email, password)
     databaseInstance.setLoginData()
     if check==True:
