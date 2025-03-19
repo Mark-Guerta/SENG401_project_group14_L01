@@ -21,12 +21,15 @@ class DatabaseSingleton():
     
     def deleteAcc(self, username):
         self.mydb.removeFromDatabase(username)
+        return True
 
     def changeEmail(self, username, email):
         self.mydb.editDatabaseEmail(username, email)
+        return True
 
     def changePass(self, username, email, password):
         self.mydb.editDatabasePass(username, email, password)
+        return True
         
     def retrieveProfile(self, username):
         profile = self.mydb.retrieveProfileData(username)

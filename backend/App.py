@@ -55,8 +55,12 @@ def switchPassword():
     password = request.json['newPassword']
     username = request.json['username']
 
-    databaseInstance.changePass(username, email, password)
+    check = databaseInstance.changePass(username, email, password)
     databaseInstance.setLoginData()
+    if check==True:
+        return jsonify({'error': 'Password Change Successful'}), 500
+    else:
+        return jsonify({'error': 'Password Change Failed'}), 500
 
 @app.route('/change-email', methods=['POST'])
 def switchEmail():
@@ -64,17 +68,24 @@ def switchEmail():
     email = request.json['newEmail']
     username = request.json['username']
 
-    databaseInstance.changeEmail(username, email)
+    check = databaseInstance.changeEmail(username, email)
     databaseInstance.setLoginData()
+    if check==True:
+        return jsonify({'error': 'Email Change Successful'}), 500
+    else:
+        return jsonify({'error': 'Email Change Failed'}), 500
 
 @app.route('/delete-acc', methods=['POST'])
 def deleteAccount():
     #Need to be signed in to delete
     username = request.json['username']
 
-    databaseInstance.deleteAcc(username)
+    check = databaseInstance.deleteAcc(username)
     databaseInstance.setLoginData()
-    
+    if check==True:
+        return jsonify({'error': 'Account Deletion Successful'}), 500
+    else:
+        return jsonify({'error': 'Account Deletion Failed'}), 500
     
 @app.route('/retreive', methods=['POST'])
 def RetrieveData():
@@ -87,6 +98,7 @@ def RetrieveData():
 @app.route('/results', methods=['POST'])
 def downloadRecipe():
     recipeInstance.downloadResults()
+    return
 
 
 if __name__ == '__main__':
