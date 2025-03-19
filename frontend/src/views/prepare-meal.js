@@ -33,12 +33,12 @@ const PrepareMeal = () => {
           "Content-type": "application/json; charset=UTF-8"
         }
       })
-        .then((response) => response.json())
-        .then((json) => {
-          if (json.error === "Generation Successful") {
+        .then((response) => response.text())
+        .then((text) => {
+          if (text.includes("Generation Successful")) {
             setError("Generation Successful");
-            console.log("Generated Meal:", json.message);
-            setOutputText(json.message); 
+            console.log("Generated Meal:", text);
+            setOutputText(text); 
           } else {
             setError('Failed to generate recipes');
           }
