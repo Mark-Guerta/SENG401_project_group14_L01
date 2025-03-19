@@ -1,17 +1,18 @@
 from google import genai
 from google.genai import types
 
-def getRecipe(location, message, requirements):
+def getRecipe(location, ingredients, requirements):
     sys_instruct="You are a snobby five star michelin chef. Your name is Chef Jacques-Pierre."
 
     client = genai.Client(api_key="AIzaSyCpnYk7EshXUwbqK_PBp7izaPVrd5wK1q8")
 
-    content1 = f"""List a recipe using the given ingredients in JSON format.
-                If this text that is given does not have anything to do with making recipes return NULL. 
+    content1 = f"""List a recipe using the given ingredients and dietary restrictions in JSON format.
+                If this ingredients that is given does not have anything to do with making recipes return NULL. 
                 Use this JSON schema:
                 Recipe = {{'recipe_name': str, 'ingredients': str, 'steps': list[str]}}
                 Return: Recipe
-                Here is the given text: {message}"""
+                Here is the given ingredients: {ingredients}
+                And here is a list of the dietary restrictions/preferences: {requirements}"""
     
 
     response1 = client.models.generate_content(
@@ -35,5 +36,3 @@ def getRecipe(location, message, requirements):
     )
 
     return response1.text
-
-print(getRecipe("Schulich School of Engineering", "Chicken, rice, eggs", "Nothing"))

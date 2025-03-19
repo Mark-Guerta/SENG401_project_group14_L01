@@ -41,7 +41,18 @@ def login():
     
 @app.route('/prepare-meal', methods=['POST'])
 def prompt():
-    
+
+    requirements = []
+    requirements[0] = request.json['location']
+    requirements[1] = request.json['location']
+    requirements[2] = request.json['location']
+    requirements[3] = request.json['location']
+    requirements[4] = request.json['location']
+    requirements[5] = request.json['location']
+    requirements[6] = request.json['location']
+    requirements[7] = request.json['location']
+    requirements[8] = request.json['location']
+    requirements[9] = request.json['location']
     location = request.json['location']
     ingredients = request.json['ingredients']
     message = Gemini.getRecipe(location, ingredients)
