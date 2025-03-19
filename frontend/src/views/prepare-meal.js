@@ -42,7 +42,10 @@ const PrepareMeal = () => {
           if (json.error === "Generation Successful") {
             setError("Generation Successful");
             console.log("Generated Meal:", json.recipeName, json.recipeSteps, json.recipeNotes);
-            setOutputText(json.message); 
+            // setOutputText(json.message); 
+            setRecipeName(json.recipeName)
+            setRecipeSteps(json.recipeSteps)
+            setRecipeNotes(json.recipeNotes)
           } else {
             setError('Failed to generate recipes');
           }
@@ -182,11 +185,14 @@ const PrepareMeal = () => {
 
           
           <div className="prepare-meal-input">
-          <span clssName="prepare-meal-input-text">
+          <span className="prepare-meal-input-text">
 
             {outputText ? outputText : "No recipe generated yet"}
+            
           </span>
-     
+          <script>
+            {/* TODO: create functions that change the sections of text to their correct form */}
+          </script>
           </div>
 
 
