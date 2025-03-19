@@ -153,7 +153,8 @@ handleSubmitNewPassword = (event) => {
 
   
 
-  render() {
+  render()
+   {
     const { username, password, email, confirmPassword, error , newUsername, newPassword, newEmail} = this.state;
 
     return (
@@ -432,6 +433,6 @@ handleSubmitNewPassword = (event) => {
       </div>
     );
   }
-}
+
 
 export default Profile;
