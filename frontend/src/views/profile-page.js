@@ -92,6 +92,7 @@ handleSubmitNewPassword = (event) => {
     event.preventDefault();
     const { username, newEmail, password, confirmPassword } = this.state;
 
+  
       const newUser = {
         username,
         newEmail,
@@ -114,7 +115,7 @@ handleSubmitNewPassword = (event) => {
           }
         });
     }
-  }
+  
 
 
   handleSubmitDeleteAccount = (event) => {
@@ -336,7 +337,7 @@ handleSubmitNewPassword = (event) => {
             </button>   
             </form>
 
-
+            
 
     
               <span className="EnterUsername">Current Username: {username}</span>
