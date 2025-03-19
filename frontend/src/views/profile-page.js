@@ -146,8 +146,9 @@ class Profile extends Component {
     const { username, password, email, error, newUsername, newPassword, newEmail, confirmPassword } = this.state;
 
     return (
-      <div><NavBar />
+      
       <div className="profile-container">
+          <NavBar />
         <div className="profile-box-container">
         <span className="profile-label">Current Username: {username}</span>
         
@@ -167,6 +168,7 @@ class Profile extends Component {
         
           <form onSubmit={this.handleSubmitNewPassword}>
             <span className="profile-label">Confirm New Password:</span>
+            <br></br>
             <input
               className="profile-input"
               type="password"
@@ -174,9 +176,9 @@ class Profile extends Component {
               value={confirmPassword}
               onChange={this.handleInputChange}
               name="confirmPassword"/>
-
+            <br></br>
             <span className="profile-label">Enter New Password:</span>
-            
+            <br></br>
             <input
               className="profile-input"
               type="password"
@@ -195,7 +197,7 @@ class Profile extends Component {
           {error && <p className="validation-message">{error}</p>}
         </div>
       </div>
-      </div>
+     
     );
 
   }

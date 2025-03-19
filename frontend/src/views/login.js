@@ -103,9 +103,7 @@ class Login extends Component {
                 onChange={this.handleInputChange}
                 name="password"
               />  
-          
-
-</div>
+        </div>
                  {error && <p className="validation-message">{error}</p>}
             
          </div>
