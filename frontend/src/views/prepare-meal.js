@@ -25,7 +25,7 @@ const PrepareMeal = () => {
     } else {
       const requestData = {
         ingredients: inputText
-        
+
 
 
 
@@ -52,11 +52,13 @@ const PrepareMeal = () => {
   };
 
   return (
-    <div> <NavBar />
+    <div>
 <div className="prepare-meal-container">
+
+
+  <NavBar />
   <span className="prepare-meal-text33">Enter Your Ingredients Here:</span>
   <br />
-
   <div className="prepare-meal-prepare-meal1">
     <form onSubmit={handleSubmit}>
       <input
@@ -70,12 +72,13 @@ const PrepareMeal = () => {
         <div className="diet-restrictions-box">
           <h3>Diet Restrictions:</h3>
           <div className="checkbox-list">
-            <label><input type="checkbox" name="diet" value="Lactose intolerant" /> Lactose Intolerant</label>
-            <label><input type="checkbox" name="diet" value="Vegetarian" /> Vegetarian</label>
+            <label><input type="checkbox" name="diet" value="Lactose Free" /> Lactose Free</label>
             <label><input type="checkbox" name="diet" value="Gluten Free" /> Gluten Free</label>
+            <label><input type="checkbox" name="diet" value="Vegetarian" /> Vegetarian</label>
+            <label><input type="checkbox" name="diet" value="Vegan" /> Vegan</label>
             <label><input type="checkbox" name="diet" value="Halal" /> Halal</label>
             <label><input type="checkbox" name="diet" value="Kosher" /> Kosher</label>
-            <label><input type="checkbox" name="diet" value="Vegan" /> Vegan</label>
+            <label><input type="checkbox" name="diet" value="Diabetic" /> Diabetic</label>
           </div>
         </div>
 
@@ -95,9 +98,15 @@ const PrepareMeal = () => {
             <div className="checkbox-list">
               <label><input type="checkbox" name="preference" value="High Protein" /> High Protein</label>
               <label><input type="checkbox" name="preference" value="High Carbs" /> High Carbs</label>
-              <label><input type="checkbox" name="preference" value="Low Sugar" /> Low Sugar</label>
-              <label><input type="checkbox" name="preference" value="High Sugar" /> High Sugar</label>
+              <label><input type="checkbox" name="preference" value="High Fats" /> High Fats</label>
+             
             </div>
+            <div className="height-box">
+
+            <h3>Other:</h3>
+            <input type="text" className="other-input" placeholder="Enter custom preference" />
+          </div>
+
           </div>
         </div>
       </div>

@@ -63,14 +63,14 @@ class Login extends Component {
     const { username, password, error } = this.state;
 
     return (
+    
       
-      <div><NavBar />
       <div className="login-container">
      
       
-       
+      <NavBar />
         <div className="Box-Container">
-
+    
 
           <form onSubmit={this.handleSubmit}>
             <div >
@@ -124,7 +124,7 @@ class Login extends Component {
           </form>
           </div>
 
-</div>
+
 </div>
        
   );

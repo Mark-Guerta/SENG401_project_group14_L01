@@ -2,9 +2,24 @@
   width: 100%;
   height: 100vh; 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+
   align-items: center; 
+
   /*background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.09) 32.5%, rgba(255, 255, 255, 0.10) 38%, rgba(255, 255, 255, 0.20) 100%), linear-gradient(180deg, #FFF 0%, #1f9c27 100%);*/
+}
+
+.Box-Container {
+
+  display: flex;
+  flex-direction: column;
+
+  margin-top:100px;
+  background: rgb(255, 255, 255);
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  
 }
 
 .LoginInput {
@@ -49,17 +64,6 @@
 
 }
 
-.Box-Container {
- 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgb(255, 255, 255);
-  padding: 50px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
 
 .PasswordText {
 

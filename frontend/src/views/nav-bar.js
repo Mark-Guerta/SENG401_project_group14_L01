@@ -22,11 +22,7 @@ const NavBar = () => {
     <nav className="navbar">
       <div className="navbar-left">
         <div className="navbar-logo" >
-          <img 
-            src="/external/rectangle11924-fc8-200h.png"
-            alt="Logo"
-            className="navbar-logo-img"
-          />
+         
         </div>
         <div className="navbar-item">
           <img
@@ -54,6 +50,7 @@ const NavBar = () => {
           </>
         )}
       </div>
+    
     </nav>
   );
 };

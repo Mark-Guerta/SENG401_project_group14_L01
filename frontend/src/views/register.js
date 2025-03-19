@@ -60,8 +60,9 @@ class Register extends Component {
     const { username, password, confirmPassword, email, error } = this.state;
 
     return (
-      <div><NavBar />
+      <div>
         <div className="register-container">
+        <NavBar />
           <div className="Box-ContainerReg">
             <form onSubmit={this.handleSubmit}>
               <div>
