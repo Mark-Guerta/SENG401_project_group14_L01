@@ -14,10 +14,5 @@ def getRecipe(location, message):
         model="gemini-2.0-flash", 
         contents=content2
     )
-    content3 = "Using the given locations and ingredients from this text: " + response2.text + " calculate what the estimated cost of these ingredients would be. If there is no locations or ingredients just say NULL"
-    response3 = client.models.generate_content(
-        model="gemini-2.0-flash", 
-        contents=content3
-    )
 
-    return response1.text, response2.text, response3.text
+    return response1.text, response2.text
