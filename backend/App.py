@@ -55,7 +55,7 @@ def prompt():
     requirements[9] = request.json['location']
     location = request.json['location']
     ingredients = request.json['ingredients']
-    message = Gemini.getRecipe(location, ingredients)
+    message = Gemini.getRecipe(location, ingredients, requirements)
     recipeInstance.setResults(message)
 
     return jsonify({"error": "Generation Successful", "message": message})

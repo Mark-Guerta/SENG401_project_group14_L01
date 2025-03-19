@@ -21,18 +21,18 @@ def getRecipe(location, ingredients, requirements):
         contents=content1
     )
 
-    content2 = "Using the given location: " + location + "Find the addresses of stores that can be used to buy the ingredients in this recipe: " + response1.text + ". If the given recipe is not a recipe type NULL."
-    content2 = f"""Given a location and a recipe, list locations nearby that sell the recipe ingredients in JSON format. 
-                If this text that is given does not have anything to do with making recipes return NULL. 
-                Use this JSON schema:
-                Locations = {{'Locations': {{'location_name': str,'address': str,'food_available': list[str]}}}}
-                Return: Locations
-                Here is the given text: {response1.text}"""
-    
-    response2 = client.models.generate_content(
-        model="gemini-2.0-flash", 
-        config=types.GenerateContentConfig(system_instruction=sys_instruct),
-        contents=content2
-    )
+    if (location != "NULL"):
+        content2 = f"""Given a location and a recipe, list locations nearby that sell the recipe ingredients in JSON format. 
+                    If this text that is given does not have anything to do with making recipes return NULL. 
+                    Use this JSON schema:
+                    Locations = {{'Locations': {{'location_name': str,'address': str,'food_available': list[str]}}}}
+                    Return: Locations
+                    Here is the given text: {response1.text}"""
+        
+        response2 = client.models.generate_content(
+            model="gemini-2.0-flash", 
+            config=types.GenerateContentConfig(system_instruction=sys_instruct),
+            contents=content2
+        )
 
     return response1.text
