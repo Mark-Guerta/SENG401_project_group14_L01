@@ -80,9 +80,7 @@ def deleteAccount():
 def RetrieveData():
     
     username = request.json['username']
-
     profile = databaseInstance.retrieveProfile(username)
-    
     
     return jsonify({"error": "Success", "message": profile})
 

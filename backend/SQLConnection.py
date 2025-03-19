@@ -9,7 +9,7 @@ class SQLConnect:
 
     def connectDB(self):
         try:
-            self.database = mysql.connector.connect(host='127.0.0.1', user='root', password='', database="LoginDB")
+            self.database = mysql.connector.connect(host='127.0.0.1', user='root', password='Spookygoat32!', database="LoginDB")
         except:
             print("Could not connect to database")
 
@@ -143,8 +143,8 @@ class SQLConnect:
             result = cursor.fetchall()
             profile = {
                 "username": username,
-                "email": result[1],
-                "password": result[2]
+                "email":  [row[0] for row in result],
+                "password":  [row[1] for row in result]
             }
         except:
             print("ERROR: NO ACCOUNT FOUND")
