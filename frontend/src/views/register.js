@@ -62,7 +62,7 @@ class Register extends Component {
     return (
       <div><NavBar />
         <div className="register-container">
-          <div className="Box-Container">
+          <div className="Box-ContainerReg">
             <form onSubmit={this.handleSubmit}>
               <div>
                 <span className="UsernameText">Username</span>

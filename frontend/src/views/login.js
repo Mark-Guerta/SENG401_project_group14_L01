@@ -77,6 +77,7 @@ class Login extends Component {
              
 
               <span className="UsernameText">Username</span>
+              <div className="pass-img">
               <input
                 className="LoginInput"
                 type="text"
@@ -85,7 +86,15 @@ class Login extends Component {
                 onChange={this.handleInputChange}
                 name="username"
               />
+            
+            </div>
+
+
+              
                <span className="PasswordText">Password</span>
+               
+
+               <div className="pass-text">
               <input
                 className="PasswordInput3"
                 type="password"
@@ -93,20 +102,25 @@ class Login extends Component {
                 value={password}
                 onChange={this.handleInputChange}
                 name="password"
-              />
-             
-              <span className="GuestButton" onClick={() => {
+              />  
+          
+
+</div>
+                 {error && <p className="validation-message">{error}</p>}
+            
+         </div>
+            <span className="GuestButton" onClick={() => {
                     localStorage.setItem("isGuest", "true");
                     this.navigateTo('/prepare-meal');}}>
                  Continue as Guest</span>
-                 {error && <p className="validation-message">{error}</p>}
-            </div>
-  
-
+            
+            
             <button type="submit" className="LoginButton">
             
               <span className="LoginText">Login</span>
             </button>
+
+
           </form>
           </div>
 
