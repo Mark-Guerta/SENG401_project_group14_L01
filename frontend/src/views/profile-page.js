@@ -79,7 +79,7 @@ handleSubmitNewPassword = (event) => {
       })
         .then((response) => response.json())
         .then((json) => {
-          if (json.error === "Signup Successful") {
+          if (json.error === "Password Change Successful") {
             this.setState({ error: "Password Change Successful" });
             location.reload()
           } else {
@@ -347,7 +347,7 @@ handleSubmitNewPassword = (event) => {
     
         
 
-            <form >
+            <form  onSubmit={this.handleSubmitDeleteAccount}>
                 <button type="submit" className= "Delete"> 
                 <img
                     className="DeleteImg"
