@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './login.css';
+import NavBar from './nav-bar.js'
 
 class Login extends Component {
   constructor(props) {
@@ -61,10 +62,10 @@ class Login extends Component {
 
     return (
       
-      
+      <div><NavBar />
       <div className="login-container">
-
-    
+     
+      
        
         <div className="Box-Container">
 
@@ -107,6 +108,7 @@ class Login extends Component {
           </form>
           </div>
 
+</div>
 </div>
        
   );

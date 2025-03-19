@@ -2,23 +2,23 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto; /* Center the navbar */
   border-radius: 20px;
   padding: 10px 20px;
-  background-color: #4b4b4b;
+  background-color: #d4d1d1;
+
 }
 
-.navbar-logo {
-  flex: 1;
+.navbar-left, .navbar-right {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-logo-img {
-  width: 50px; /* Adjust size as needed */
-}
-
-.navbar-menu {
-  display: flex;
-
+  width: 0px; /* Adjust logo size */
+  
 }
 
 .navbar-item {
@@ -31,14 +31,12 @@
 
 
 .navbar-item-text {
-  
   color: rgba(0, 0, 0, 1);
-  font-size: 20px;
+  font-size: 22px;
   font-style: Bold;
   font-family: Maven Pro;
   font-weight: 700;
   line-height: normal;
-
   padding: 10px;
   border-radius: 50px;
   background: #a2efa4;
@@ -49,10 +47,7 @@
   opacity: 0.8;
 }
 
-
 .signup-button {
-  
   padding: 5px 10px;
   border-radius: 4px;
 }
-
