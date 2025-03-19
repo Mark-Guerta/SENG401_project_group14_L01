@@ -1,3 +1,4 @@
+
 .prepare-meal-container {
   width: 100%;
   display: flex;
@@ -6,16 +7,15 @@
   justify-content: flex-start;
   min-height: 100vh;
   padding: 40px; 
+  /*background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.09) 32.5%, rgba(255, 255, 255, 0.10) 38%, rgba(255, 255, 255, 0.20) 100%), linear-gradient(180deg, #FFF 0%, #1f9c27 100%);*/
   position: relative;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.09) 32.5%, rgba(255, 255, 255, 0.10) 38%, rgba(255, 255, 255, 0.20) 100%), linear-gradient(180deg, #f6f6f6 0%, #6EFD77 100%);
-
 }
 
 .prepare-meal-input-rectangle4 {
   border-radius: 20px;
   background: #ffffff;
   width: 100%;
-  max-width: 800px; 
+  max-width: 1000px; 
   min-height: 150px; 
   display: flex;
   flex-direction: column;
@@ -24,8 +24,8 @@
   text-align: center;
   font-size: 24px;
   padding: 30px; 
-  box-shadow: 0px 6px 6px 2px rgba(0, 0, 0, 0.25);
-  margin-bottom: 50px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+  margin-bottom: 30px;
 }
 
 .diet-info-box {
@@ -34,7 +34,7 @@
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   background: #ffffff;
   padding: 20px;
   border-radius: 15px;
@@ -93,8 +93,10 @@
 .checkbox-list label {
   display: flex;
   align-items: center;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
+  margin-top: 5px;
+  margin-bottom: 5px; 
 }
 
 .checkbox-list input {
@@ -112,16 +114,77 @@
   color: rgba(0, 0, 0, 0.7);
 }
 
+.location-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+}
+
 .prepare-meal-input {
   border-radius: 20px;
   background: #ffffff;
   width: 100%;
   max-width: 800px; 
-  min-height: 500px;
+  min-height: 800px;
   padding: 30px; 
   overflow-y: auto;
-  box-shadow: 0px 6px 6px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
   margin-bottom: 50px; 
+}
+
+.side-by-side-boxes {
+  display: flex;
+  justify-content: space-between; 
+  align-items: flex-start; 
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+
+.main-result-box {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-side-container {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start; 
+}
+
+.location-input-box {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+  width: 100%;
+}
+
+.location-output-box {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  min-height: 705px; 
+}
+
+.location-output-box .output-content {
+  font-size: 18px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.prepare-meal-input-text {
+  font-size: 18px;
+  padding: 10px;
+  font-weight: bold;
 }
 
 .generate-button {
@@ -133,10 +196,32 @@
   cursor: pointer;
   text-align: center;
   margin-top: 0px; 
+  width: 100%;
 }
 
 .generate-button:hover {
   background-color: lightgray;
+}
+
+.send-email-button {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 20px 40px;
+  font-size: 20px;
+  background-color: white;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 15px; 
+  width: 100%; 
+}
+
+.send-email-button:hover {
+  background-color: lightgray;
+}
+
+.send-email-button-text, .generate-button-text {
+  font-weight: bold;
+  color: black;
 }
 
 @media screen and (max-width: 768px) {
@@ -163,4 +248,13 @@
   .prepare-meal-text38 {
     font-size: 16px;
   }
+
+  .side-by-side-boxes {
+    flex-direction: column; 
+  }
+
+  .main-result-box, .right-side-container {
+    width: 100%;
+  }
+
 }

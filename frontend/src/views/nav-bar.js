@@ -21,8 +21,8 @@ const NavBar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <div className="navbar-logo">
-          <img
+        <div className="navbar-logo" >
+          <img 
             src="/external/rectangle11924-fc8-200h.png"
             alt="Logo"
             className="navbar-logo-img"
@@ -41,7 +41,7 @@ const NavBar = () => {
       <div className="navbar-right">
         {isGuest ? (
           <div className="navbar-item" onClick={handleSignOut}>
-            <span className="navbar-item-text">Sign Out</span>
+            <span className="navbar-item-text">Sign up</span>
           </div>
         ) : (
           <>

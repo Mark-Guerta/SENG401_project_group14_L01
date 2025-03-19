@@ -1,61 +1,61 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import './profile-page.css';
+import NavBar from './nav-bar';
 
 class Profile extends Component {
-    
-    constructor(props) {
-        super(props);
-        const username = localStorage.getItem("username");
-        this.state = {
-            username: username || '',
-            email: '',
-            password: '',
-            newUsername: '',
-            newEmail: '',
-            newPassword: '',
-            confirmPassword: ''
-        };
+  constructor(props) {
+    super(props);
+    const username = localStorage.getItem("username");
+    this.state = {
+      username: username || '',
+      email: '',
+      password: '',
+      newUsername: '',
+      newEmail: '',
+      newPassword: '',
+      confirmPassword: ''
+    };
+  }
 
-    }
   componentDidMount() {
     const { username } = this.state;
     fetch("http://127.0.0.1:5000/retreive", {
-        method: "POST",
-        body: JSON.stringify({ username }),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
+      method: "POST",
+      body: JSON.stringify({ username }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
     })
-    .then((response) => {
+      .then((response) => {
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+          throw new Error('Network response was not ok');
         }
         return response.json();
-    })
-    .then((json) => {
+      })
+      .then((json) => {
         if (json.error === "Success") {
-            const { email, password } = json.message;
-            this.setState({ email, password });
+          const { email, password } = json.message;
+          this.setState({ email, password });
         } else {
-            this.setState({ error: 'Failed to retrieve profile' });
+          this.setState({ error: 'Failed to retrieve profile' });
         }
-    })
-    .catch((error) => {
+      })
+      .catch((error) => {
         this.setState({ error: 'Failed to retrieve profile: ' + error.message });
-    });
-}
-  
+      });
+  }
+
   handleInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-  }
+  };
 
   navigateTo = (path) => {
     window.location.href = path;
   };
 
-handleSubmitNewPassword = (event) => {
+  handleSubmitNewPassword = (event) => {
     event.preventDefault();
     const { username, newPassword, confirmPassword, email } = this.state;
     if (!newPassword || !confirmPassword) {
@@ -67,9 +67,8 @@ handleSubmitNewPassword = (event) => {
         email,
         newPassword,
         username,
-       
       };
-     
+
       fetch("http://127.0.0.1:5000/change-pass", {
         method: "POST",
         body: JSON.stringify(newUser),
@@ -81,344 +80,124 @@ handleSubmitNewPassword = (event) => {
         .then((json) => {
           if (json.error === "Password Change Successful") {
             this.setState({ error: "Password Change Successful" });
-            location.reload()
+            location.reload();
           } else {
-            this.setState({ error: 'Failed to change password' }); 
+            this.setState({ error: 'Failed to change password' });
           }
         });
     }
-  }
+  };
 
   handleSubmitNewEmail = (event) => {
     event.preventDefault();
     const { username, newEmail } = this.state;
 
-  
-      const newUser = {
-        newEmail,
-        username,
-        
-      };
-     
-      fetch("http://127.0.0.1:5000/change-email", {
-        method: "POST",
-        body: JSON.stringify(newUser),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          if (json.error === "Change Successful") {
-            this.setState({ error: "Email change successful" });
-            location.reload()
-          } else {
-            this.setState({ error: 'Failed to change email' }); 
-          }
-        });
-    }
-  
+    const newUser = {
+      newEmail,
+      username,
+    };
 
+    fetch("http://127.0.0.1:5000/change-email", {
+      method: "POST",
+      body: JSON.stringify(newUser),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.error === "Change Successful") {
+          this.setState({ error: "Email change successful" });
+          location.reload();
+        } else {
+          this.setState({ error: 'Failed to change email' });
+        }
+      });
+  };
 
   handleSubmitDeleteAccount = (event) => {
     event.preventDefault();
-    const { username, password} = this.state;
-   
-      const newUser = {
-        username,
-      };
-     
-      fetch("http://127.0.0.1:5000/delete-acc", {
-        method: "POST",
-        body: JSON.stringify(newUser),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
+    const { username, password } = this.state;
+
+    const newUser = {
+      username,
+    };
+
+    fetch("http://127.0.0.1:5000/delete-acc", {
+      method: "POST",
+      body: JSON.stringify(newUser),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.error == "Account Deletion Successful") {
+          this.setState({ error: "Account Deletion Successful" });
+          this.navigateTo('/home-page2');
+        } else {
+          this.setState({ error: 'Account Deletion Failed' });
         }
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          
-          if (json.error=="Account Deletion Successful") {
-            this.setState({"error": "Account Deletion Successful"});
-            this.navigateTo('/home-page2');
-          } else {
-            this.setState({error: 'Account Deletion Failed'}); 
-          }
-        });
-    }
-  
+      });
+  };
 
-
-
-  
-
-  render()
-   {
-    const { username, password, email,  error , newUsername, newPassword, newEmail, confirmPassword} = this.state;
+  render() {
+    
+    const { username, password, email, error, newUsername, newPassword, newEmail, confirmPassword } = this.state;
 
     return (
-      <div className="register-container">
-        <Helmet>
-          <title>White Soup</title>
-        </Helmet>
-
-        <div className="register-register">
+      <div><NavBar />
+      <div className="profile-container">
+        <div className="profile-box-container">
+        <span className="profile-label">Current Username: {username}</span>
         
-          <div className="register-bottom-bar">
-            <span className="register-text10">
-              <span>Email:</span>
-              <br></br>
-              <span>white.dressing@coomer.com</span>
-              <br></br>
-              <br></br>
-              <span>Phone number:</span>
-              <br></br>
-              <span>403-1111-2222</span>
-            </span>
-            <span className="register-text19">Contacts</span>
-            <span className="register-text20">Account</span>
-            <span className="register-text21">
-              <span>Forgot Password</span>
-              <br></br>
-              <br></br>
-              <span>Frequently Asked Questions</span>
-              <br></br>
-              <br></br>
-              <span>Sign up</span>
-              <br></br>
-              <br></br>
-              <span>Support</span>
-            </span>
-            <div className="register-company-logo1">
-              <img
-                src="/external/imageremovebgpreview1i192-cbkc-400h.png"
-                alt="imageremovebgpreview1I192"
-                className="register-imageremovebgpreview11"
-              />
-            </div>
-            <img
-              src="/external/socialmedialogo1927-63ch-200h.png"
-              alt="SocialMediaLogo1927"
-              className="register-social-media-logo"
-            />
-            <span className="register-text32">
-              @WhiteDressing Privacy Policy AI Agreement Terms and Conditions
-            </span>
-          </div>
-          <div className="register-design">
-            <img
-              src="/external/ellipse91927-1qqs-1600h.png"
-              alt="Ellipse91927"
-              className="register-ellipse9"
-            />
-            <img
-              src="/external/ellipse11927-g8dm-1500h.png"
-              alt="Ellipse11927"
-              className="register-ellipse1"
-            />
-            <img
-              src="/external/ellipse21927-eyxe-700h.png"
-              alt="Ellipse21927"
-              className="register-ellipse2"
-            />
-            <img
-              src="/external/ellipse31927-v3tq-300h.png"
-              alt="Ellipse31927"
-              className="register-ellipse3"
-            />
-            <img
-              src="/external/ellipse41928-0i7m-200h.png"
-              alt="Ellipse41928"
-              className="register-ellipse4"
-            />
-            <img
-              src="/external/ellipse71928-dcyp-200h.png"
-              alt="Ellipse71928"
-              className="register-ellipse7"
-            />
-            <img
-              src="/external/ellipse61928-ubzc-200h.png"
-              alt="Ellipse61928"
-              className="register-ellipse6"
-            />
-          </div>
-
-          <div className="register-design">
-            <img
-              src="/external/ellipse91927-1qqs-1600h.png"
-              alt="Ellipse91927"
-              className="register-ellipse9"
-            />
-            <img
-              src="/external/ellipse11927-g8dm-1500h.png"
-              alt="Ellipse11927"
-              className="register-ellipse1"
-            />
-            <img
-              src="/external/ellipse21927-eyxe-700h.png"
-              alt="Ellipse21927"
-              className="register-ellipse2"
-            />
-            <img
-              src="/external/ellipse31927-v3tq-300h.png"
-              alt="Ellipse31927"
-              className="register-ellipse3"
-            />
-            <img
-              src="/external/ellipse41928-0i7m-200h.png"
-              alt="Ellipse41928"
-              className="register-ellipse4"
-            />
-            <img
-              src="/external/ellipse71928-dcyp-200h.png"
-              alt="Ellipse71928"
-              className="register-ellipse7"
-            />
-            <img
-              src="/external/ellipse61928-ubzc-200h.png"
-              alt="Ellipse61928"
-              className="register-ellipse6"
-            />
-          </div>
-
-          <div>
-            <form onSubmit={this.handleSubmitNewPassword}>
-              <span className="ConfirmPass">Confirm New Password:</span>
-              <input
-                className="PasswordInputX"
-                type="password"
-                placeholder="Enter your Password"
-                value={confirmPassword}
-                onChange={this.handleInputChange}
-                name="confirmPassword"
-              />
-              <span className="EnterPass">Enter New Password:</span>
-              <input
-                className="PasswordInputY"
-                type="password"
-                placeholder="Re-Enter your Password"
-                value={newPassword}
-                onChange={this.handleInputChange}
-                name="newPassword"
-              />
-
-
-            <button type="submit" className= "Change"> 
-            <img
-                className="ChangePassword"
-                src="/external/signup5843-xcv-200h.png"
-                alt="SignUp5843"
-               
-                />
-                <span className = "ChangeText">Change</span>   
-            </button>
-            </form>
-
-
-
-            <form onSubmit={this.handleSubmitNewEmail}>
-              <span className="EnterEmail">Current Email: {email}</span>
-              <input
-                className="regEmailX"
-                type="email"
-                placeholder="Enter your Email"
-                
-                onChange={this.handleInputChange}
-                
-                name="newEmail"
-              />
-            <button type="submit" className= "ChangeEmail"> 
-            <img
-                className="ChangePassword"
-                src="/external/signup5843-xcv-200h.png"
-                alt="SignUp5843"
-               
-                />
-                <span className = "ChangeText">Change</span>   
-            </button>   
-            </form>
-
+          <span className="profile-label">Current Email: {email}</span>
+        <form onSubmit={this.handleSubmitNewEmail}>
             
-
-    
-              <span className="EnterUsername">Current Username: {username}</span>
-             
-
-    
-        
-
-            <form  onSubmit={this.handleSubmitDeleteAccount}>
-                <button type="submit" className= "Delete"> 
-                <img
-                    className="DeleteImg"
-                    src="/external/signup5843-xcv-200h.png"
-                    alt="SignUp5843"/>
-                    <span className = "ChangeTextL"> Delete Account</span>   
-                </button>
-            </form>
-          </div>
-          {error && <p className="validation-message">{error}</p>}
-
-          <div className="register-didyouknow">
-            <span className="register-text38">Did you know?</span>
-            <span className="register-text39">
-              There are over 7,000 types of apples grown worldwide, with varieties ranging from sweet to tart, 
-              and some even developed for specisfic uses like baking or cider-making!
-              Apples are one of the most diverse fruits globally, 
-              and each region has its own unique varieties.
-            </span>
-          </div>
-          <img
-            src="/external/lprocessed15855-azr-500h.png"
-            alt="lprocessed15855"
-            className="register-lprocessed1"
-          />
-
-          <div className="prepare-meal-navigation-bar">
-            <img
-              src="/external/rectangle14318-6o78-200h.png"
-              alt="Rectangle14318"
-              className="prepare-meal-rectangle1"
+            <input
+              className="profile-input"
+              type="email"
+              placeholder="Enter your Email"
+              onChange={this.handleInputChange}
+              name="newEmail"
             />
-            <div className="prepare-meal-prepare-meal-button" onClick={() => this.navigateTo('/prepare-meal')}>
-              <div className="prepare-meal-company-logo2">
-                <img
-                  src="/external/imageremovebgpreview1i431-euj-200h.png"
-                  alt="imageremovebgpreview1I431"
-                  className="prepare-meal-imageremovebgpreview12"
-                />
-                <span className="prepare-meal-text35">White Dressing</span>
-              </div>
-              
-            </div>
-            <div className="prepare-meal-signup-button1" onClick={() => this.navigateTo('/')}>
-              <img
-                src="/external/signup4319-puua-200h.png"
-                alt="SignUp4319"
-                className="prepare-meal-sign-up1"
-              />
-              <span className="prepare-meal-text37">Sign out</span>
-            </div>
-            <div className="prepare-meal-signup-button2" onClick={() => this.navigateTo('/')}>
-              <img
-                src="/external/signup6030-uw0j-200h.png"
-                alt="SignUp6030"
-                className="prepare-meal-sign-up2"
-              />
-              <span className="prepare-meal-text38">Sign out</span>
-            </div>
-            <div className="prepare-meal-home-button" onClick={() => this.navigateTo('/home-page2')}>
-              <img
-                src="/external/home4320-bkcg-200h.png"
-                alt="Home4320"
-                className="prepare-meal-home"
-              />
-              <span className="prepare-meal-text39">Home</span>
-            </div>
-          </div>
+            <button type="submit" className="profile-button">Change</button>
+          </form>
+          
+        
+          <form onSubmit={this.handleSubmitNewPassword}>
+            <span className="profile-label">Confirm New Password:</span>
+            <input
+              className="profile-input"
+              type="password"
+              placeholder="Enter your Password"
+              value={confirmPassword}
+              onChange={this.handleInputChange}
+              name="confirmPassword"/>
+
+            <span className="profile-label">Enter New Password:</span>
+            
+            <input
+              className="profile-input"
+              type="password"
+              placeholder="Re-Enter your Password"
+              value={newPassword}
+              onChange={this.handleInputChange}
+              name="newPassword"
+            />
+            <button type="submit" className="profile-button">Change</button>
+          </form>
+
+          <form onSubmit={this.handleSubmitDeleteAccount}>
+        <button type="submit" className="profile-button">Delete Account</button>
+          </form>
+
+          {error && <p className="validation-message">{error}</p>}
         </div>
       </div>
+      </div>
     );
+
   }
 }
 

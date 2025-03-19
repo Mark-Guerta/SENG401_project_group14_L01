@@ -1,10 +1,10 @@
-/* NavBar Styles */
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  margin: 0 auto; /* Center the navbar */
+  margin: 0 auto; 
   border-radius: 20px;
   padding: 10px 20px;
   background-color: #d4d1d1;
@@ -17,7 +17,7 @@
 }
 
 .navbar-logo-img {
-  width: 0px; /* Adjust logo size */
+  width: 0px;
   
 }
 

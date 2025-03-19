@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import NavBar from './nav-bar';
+import { Helmet } from 'react-helmet'
 import './prepare-meal.css'
+import NavBar from './nav-bar'
 
 const PrepareMeal = () => {
   const [inputText, setInputText] = useState('');
@@ -24,6 +25,10 @@ const PrepareMeal = () => {
     } else {
       const requestData = {
         ingredients: inputText
+        
+
+
+
       };
 
       fetch("http://127.0.0.1:5000/prepare-meal", {
@@ -49,9 +54,9 @@ const PrepareMeal = () => {
   return (
     <div> <NavBar />
 <div className="prepare-meal-container">
-
   <span className="prepare-meal-text33">Enter Your Ingredients Here:</span>
   <br />
+
   <div className="prepare-meal-prepare-meal1">
     <form onSubmit={handleSubmit}>
       <input
@@ -61,8 +66,7 @@ const PrepareMeal = () => {
         onChange={(e) => setInputText(e.target.value)}
       />
 
-<div className="diet-info-box">
-    
+      <div className="diet-info-box">
         <div className="diet-restrictions-box">
           <h3>Diet Restrictions:</h3>
           <div className="checkbox-list">
@@ -76,7 +80,6 @@ const PrepareMeal = () => {
         </div>
 
         <div className="height-weight-preferences">
-      
           <div className="height-box">
             <h3>Height:</h3>
             <input type="text" className="height-input" placeholder="Enter your height" />
@@ -106,25 +109,42 @@ const PrepareMeal = () => {
 
       <br /><br />
 
-      <span className="prepare-meal-text34">Recipes Made With Magic:</span>
-      <br /><br />
+      <div className="side-by-side-boxes">
+  <div className="main-result-box">
+    <h2 className="prepare-meal-text34">Recipe Made With Magic:</h2>
+    <br />
+    <div className="prepare-meal-input">
+      <span className="prepare-meal-input-text">
+        {outputText ? outputText : "No recipe generated yet..."}
+      </span>
+    </div>
+  </div>
 
-      <div className="prepare-meal-input">
-        <span className="prepare-meal-input-text">
-          {outputText ? outputText : "No recipe generated yet"}
-        </span>
+  <div className="right-side-container">
+    <h3 className="location-title">Enter Location:</h3>
+    <div className="location-input-box">
+      <input type="text" className="location-input" placeholder="e.g. University of Calgary" />
+    </div>
 
-        {!isGuest && (
-          <button type="submit" className="send-email-button">
-            <img
-              src="/external/signup5818-3wp5-200h.png"
-              alt="SignUp5818"
-              className="login-sign-up1"
-            />
-            <span className="send-email-button-text">Send to email</span>
-          </button>
-        )}
+    <h3 className="location-title">Nearest Location of Missing Ingredients:</h3>
+    <div className="location-output-box">
+      <div className="output-content">
+        {outputText ? outputText : "Finding Nearest Locations..."}
       </div>
+    </div>
+
+    {!isGuest ? (
+      <button type="submit" className="send-email-button">
+        <span className="send-email-button-text">Send to Email</span>
+      </button>
+      ): (
+        <></>
+      )}
+        
+  </div> 
+
+</div> 
+
     </form>
   </div>
 </div>
