@@ -6,13 +6,14 @@
   justify-content: flex-start;
   min-height: 100vh;
   position: relative; 
-  background-image: url("./external/l-2.gif");
+  background-color: #f6d6d9;
 }
 
 .prepare-meal-input-rectangle4 {
   border-radius: 20px;
   background: #ffffff;
   width: 100%;
+  opacity: 0.7;;
   max-width: 1000px; 
   min-height: 150px; 
   display: flex;
@@ -35,7 +36,7 @@
   font-weight: bold;       
   cursor: pointer;         
   text-align: center;       
-  margin-top: 20px;       
+  
   transition: background-color 0.3s ease; 
 }
 
@@ -49,6 +50,7 @@
   align-items: flex-start;
   width: 100%;
   max-width: 1000px;
+  opacity: 0.7;
   background: #ffffff;
   padding: 20px;
   border-radius: 15px;
@@ -64,10 +66,6 @@
 .diet-restrictions-box {
   flex: 1; 
   padding-right: 20px;
-}
-
-.option-button{
-
 
 }
 
@@ -111,6 +109,7 @@
 .preferences-box h3 {
   font-size: 20px;
   font-weight: bold;
+  
 }
 
 .checkbox-list {
@@ -160,6 +159,7 @@
   overflow-y: auto;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
   margin-bottom: 50px; 
+  opacity: 0.7;;
 }
 
 .side-by-side-boxes {
@@ -200,6 +200,7 @@
 }
 
 .location-output-box {
+  opacity: 0.7;;
   background: #ffffff;
   padding: 20px;
   border-radius: 10px;
@@ -229,6 +230,7 @@
   background-color: white;
   cursor: pointer;
   text-align: center;
+  opacity: 0.7;;
   margin-top: 0px; 
   width: 100%;
 }

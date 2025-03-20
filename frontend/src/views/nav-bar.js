@@ -22,15 +22,13 @@ const NavBar = () => {
       <div className="navbar-left">
         <div className="navbar-logo">
         </div>
-        <div className="navbar-item">
-          <img
+        <div className="navbar-item" onClick={() => navigateTo('/')}>
+        <img onClick={() => navigateTo('/login')} 
             src="/external/Logo2.gif"
             alt="White Dressing"
-            className="navbar-item-img"
+            className="navbar-item-img"/>
+          <span className="navbar-item-logotext" onClick={() => navigateTo('/login')} >White Dressing</span>
           
-          />
-          <span className="navbar-item-logotext">White Dressing</span>
-       
         </div>
       </div>
 
