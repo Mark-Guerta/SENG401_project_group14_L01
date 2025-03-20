@@ -26,6 +26,32 @@ const PrepareMeal = () => {
   const [highFats, setHighFats] = useState(false);
   const [customPreference, setCustomPreference] = useState('');
 
+
+  const formatOutputText = (outputText) => {
+    if (!outputText) return "";
+  
+    const { recipe_name, ingredients, steps } = outputText;
+  
+    return (
+      <div>
+        <h2>{recipe_name}</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+          {ingredients.map((ingredient, index) => (
+            <li key={index}>{ingredient}</li>
+          ))}
+        </ul>
+        <h3>Steps:</h3>
+        <ol>
+          {steps.map((step, index) => (
+            <li key={index}>{step}</li>
+          ))}
+        </ol>
+      </div>
+    );
+  };
+
+
   useEffect(() => {
     const guestStatus = localStorage.getItem("isGuest");
     setIsGuest(guestStatus === "true"); 
@@ -66,7 +92,9 @@ const PrepareMeal = () => {
           if (data.error === "Generation Successful") {
             setError("Generation Successful");
             setOutputTextLocation(data.location);
-            setOutputText(data.message);
+           
+
+            setOutputText(formatOutputText(data.message))
           } else {
             setError('Failed to generate recipes');
           }
