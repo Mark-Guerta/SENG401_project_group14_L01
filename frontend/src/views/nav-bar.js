@@ -35,6 +35,8 @@ const NavBar = () => {
       </div>
 
       <div className="navbar-right">
+
+        
         {isGuest ? (
           <div className="navbar-item" onClick={handleSignOut}>
             <span className="navbar-item-text">Sign up</span>
