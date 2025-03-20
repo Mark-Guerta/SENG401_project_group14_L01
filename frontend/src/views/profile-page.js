@@ -143,7 +143,7 @@ class Profile extends Component {
 
   render() {
     
-    const { username, password, email, error, newUsername, newPassword, newEmail, confirmPassword } = this.state;
+    const { username, password, email, error,  newPassword, newEmail, confirmPassword } = this.state;
 
     return (
       
@@ -161,6 +161,8 @@ class Profile extends Component {
               placeholder="Enter your Email"
               onChange={this.handleInputChange}
               name="newEmail"
+              value={newEmail}
+              
             />
             <button type="submit" className="profile-button">Change</button>
           </form>
@@ -175,7 +177,10 @@ class Profile extends Component {
               placeholder="Enter your Password"
               value={confirmPassword}
               onChange={this.handleInputChange}
-              name="confirmPassword"/>
+              name="confirmPassword"
+              
+              />
+              
             <br></br>
             <span className="profile-label">Enter New Password:</span>
             <br></br>
@@ -185,7 +190,7 @@ class Profile extends Component {
               placeholder="Re-Enter your Password"
               value={newPassword}
               onChange={this.handleInputChange}
-              name="newPassword"
+              
             />
             <button type="submit" className="profile-button">Change</button>
           </form>
