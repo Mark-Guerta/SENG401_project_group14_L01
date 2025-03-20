@@ -37,6 +37,10 @@ const NavBar = () => {
       <div className="navbar-right">
         {isGuest ? (
           <>
+          <div className="navbar-item" onClick={() => navigateTo('/prepare-meal')}>
+              <span className="navbar-item-text">Prepare Meal</span>
+            </div>
+
             <div className="navbar-item" onClick={() => navigateTo('/profile-page')}>
               <span className="navbar-item-text">Profile</span>
             </div>

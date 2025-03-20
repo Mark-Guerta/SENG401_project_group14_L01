@@ -202,11 +202,12 @@
   width: 100%;
   min-height: 660px; 
 }
-
 .location-output-box .output-content {
   font-size: 18px;
   padding: 10px;
   font-weight: bold;
+  overflow-y: auto;
+  max-height: 600px; 
 }
 
 .prepare-meal-input-text {
