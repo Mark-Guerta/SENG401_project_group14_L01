@@ -1,4 +1,30 @@
 
+@keyframes changeText {
+  0% { content: "Enter Your Ingredients Here..."; }
+  33% { content: "List your items..."; }
+  66% { content: "Type ingredients like: Chicken, Rice..."; }
+  100% { content: "Enter Your Ingredients Here..."; }
+}
+
+@keyframes changeTextInput {
+  0% { content: "No recipe generated yet."; }
+  33% { content: "No recipe generated yet.."; }
+  66% { content: "No recipe generated yet..."; }
+  100% { content: "No recipe generated yet."; }
+}
+
+.prepare-meal-text33::after {
+  content: "Enter Your Ingredients Here...";
+  display: inline-block;
+  animation: changeText 10s infinite ease-in-out;
+}
+
+.prepare-meal-input-text::after {
+  content: "No recipe generated yet...";
+  display: inline-block;
+  animation: changeTextInput 2s infinite ease-in-out;
+}
+
 .prepare-meal-container {
   display: flex;
   flex-direction: column;
@@ -24,7 +50,7 @@
   font-size: 24px;
   padding: 30px; 
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 .option-button {
   width: 100%;              
@@ -134,8 +160,15 @@
   cursor: pointer;
 }
 
-.prepare-meal-text34, .prepare-meal-text33, .optional {
-  margin-top: 10px;
+ .prepare-meal-text33, .optional {
+  margin-top: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.prepare-meal-text34 {
   font-size: 30px;
   font-weight: bold;
   text-align: center;
@@ -233,29 +266,16 @@
   opacity: 0.7;;
   margin-top: 0px; 
   width: 100%;
+  border: none;
+  outline: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
 }
 
 .generate-button:hover {
   background-color: lightgray;
 }
 
-.send-email-button {
-  border: 2px solid rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  padding: 20px 40px;
-  font-size: 20px;
-  background-color: white;
-  cursor: pointer;
-  text-align: center;
-  margin-top: 15px; 
-  width: 100%; 
-}
-
-.send-email-button:hover {
-  background-color: lightgray;
-}
-
-.send-email-button-text, .generate-button-text {
+.generate-button-text {
   font-weight: bold;
   color: black;
 }
