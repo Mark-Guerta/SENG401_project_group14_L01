@@ -277,9 +277,6 @@
     width: 100%;
   }
 
-  .generate-button {
-    width: 100%;
-  }
 
   .prepare-meal-text38 {
     font-size: 16px;
@@ -293,4 +290,18 @@
     width: 100%;
   }
 
+}
+
+
+
+.option-button:hover,.prepare-meal-input-rectangle4:hover{
+
+  opacity: 0.8;
+  transform: scale(1.02);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
+}.generate-button:hover {
+  opacity: 0.8;
+  transform: scale(1.02);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
