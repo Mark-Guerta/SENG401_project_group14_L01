@@ -59,24 +59,21 @@
   flex-direction: column;
   gap: 15px; 
 }
+.height-dropdown, .weight-dropdown {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+
 
 .height-box, .weight-box {
   display: flex;
   flex-direction: column;
-}
-
-.height-box h3, .weight-box h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.height-input, .weight-input {
-  width: 100%;
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  gap: 5px;
 }
 
 .other-input {
