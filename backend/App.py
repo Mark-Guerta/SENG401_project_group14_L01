@@ -62,7 +62,9 @@ def prompt():
     
     recipe, local = Gemini.getRecipe(location, ingredients, requirements, height, weight)
     recipeInstance.setResults(recipe)
-
+    introRecipe, recipe, concluRecipe = Gemini.formatRecipe(recipe)
+    if (location != ""):
+        introLocal, local, concluLocal = Gemini.formatLocation(local)
     return jsonify({"error": "Generation Successful", "message": recipe, "location": local})
 
 @app.route('/change-pass', methods=['POST'])
