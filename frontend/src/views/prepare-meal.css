@@ -113,14 +113,14 @@
 
 .prepare-meal-text34, .prepare-meal-text33, .optional {
   margin-top: 10px;
-  font-size: 35px;
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
   color: rgba(0, 0, 0, 0.7);
 }
 
 .location-title {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
   color: rgba(0, 0, 0, 0.7);
@@ -177,7 +177,7 @@
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
   width: 100%;
-  min-height: 705px; 
+  min-height: 660px; 
 }
 
 .location-output-box .output-content {
