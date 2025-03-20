@@ -1,13 +1,11 @@
 import './nav-bar.css';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const NavBar = () => {
-  const [userStatus, setUserStatus] = useState(() => {
-    return localStorage.getItem("userStatus") || "Default";
-  });
+  const isGuest = localStorage.getItem("isGuest");
 
   useEffect(() => {
-    // You can add any side effects here if needed
+   
   }, []);
 
   const navigateTo = (path) => {
@@ -15,15 +13,14 @@ const NavBar = () => {
   };
 
   const handleSignOut = () => {
-    localStorage.removeItem("userStatus");
-    setUserStatus("Default");
+    localStorage.removeItem("isGuest");
     navigateTo('/login');
   };
 
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <div className="navbar-logo">
+        <div className="navbar-logo" >
          
         </div>
         <div className="navbar-item">
@@ -37,7 +34,11 @@ const NavBar = () => {
       </div>
 
       <div className="navbar-right">
-        {userStatus === "Default" && (
+        {isGuest ? (
+          <div className="navbar-item" onClick={handleSignOut}>
+            <span className="navbar-item-text">Log Out</span>
+          </div>
+        ) : (
           <>
             <div className="navbar-item" onClick={() => navigateTo('/login')}>
               <span className="navbar-item-text">Login</span>
@@ -46,16 +47,6 @@ const NavBar = () => {
               <span className="navbar-item-text">Sign Up</span>
             </div>
           </>
-        )}
-        {userStatus === "Logged" && (
-          <div className="navbar-item" onClick={() => { handleSignOut(); }}>
-            <span className="navbar-item-text">Logout</span>
-          </div>
-        )}
-        {userStatus === "Guest" && (
-          <div className="navbar-item" onClick={() => navigateTo('/login')}>
-            <span className="navbar-item-text">Sign In</span>
-          </div>
         )}
       </div>
     
