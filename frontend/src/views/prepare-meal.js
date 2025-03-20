@@ -226,7 +226,7 @@ const PrepareMeal = () => {
 
   {outputTextLocation && (
     <div className="right-side-container">
-      <h3 className="location-title">🍔 Ingredients Finder 🌮</h3>
+      <h3 className="location-title">Ingredients Finder 🍔</h3>
       <div className="location-output-box">
         <div className="output-content">{outputTextLocation}</div>
       </div>
