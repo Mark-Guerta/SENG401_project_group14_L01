@@ -24,7 +24,7 @@ const NavBar = () => {
         </div>
         <div className="navbar-item" onClick={() => navigateTo('/')}>
         <img onClick={() => navigateTo('/login')} 
-            src="/external/Logo2.gif"
+            src="/external/Logo2.png"
             alt="White Dressing"
             className="navbar-item-img"/>
           <span className="navbar-item-logotext" onClick={() => navigateTo('/login')} >White Dressing</span>
