@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './register.css';
 import NavBar from './nav-bar.js';
+import Footer from './footer'
 
 class Register extends Component {
   constructor(props) {
@@ -116,6 +117,7 @@ class Register extends Component {
             </form>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
