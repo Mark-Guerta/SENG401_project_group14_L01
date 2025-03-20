@@ -67,7 +67,7 @@ class Register extends Component {
           <div className="Box-ContainerReg">
             <form onSubmit={this.handleSubmit}>
               <div>
-                <span className="UsernameText">Username</span>
+                <span className="UsernameText">Username:</span>
                 <input
                   className="LoginInput"
                   type="text"
@@ -77,7 +77,7 @@ class Register extends Component {
                   name="username"
                 />
 
-                <span className="PasswordText">Password</span>
+                <span className="PasswordText">Password:</span>
                 <input
                   className="PasswordInput3"
                   type="password"
@@ -87,7 +87,7 @@ class Register extends Component {
                   name="password"
                 />
 
-                <span className="PasswordText">Confirm Password</span>
+                <span className="PasswordText">Confirm Password:</span>
                 <input
                   className="PasswordInput3"
                   type="password"
@@ -97,7 +97,7 @@ class Register extends Component {
                   name="confirmPassword"
                 />
 
-                <span className="PasswordText">Email</span>
+                <span className="PasswordText">Email:</span>
                 <input
                   className="LoginInput"
                   type="email"
