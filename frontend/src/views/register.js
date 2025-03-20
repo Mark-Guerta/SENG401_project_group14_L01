@@ -109,8 +109,8 @@ class Register extends Component {
 
                 {error && <p className="validation-message">{error}</p>}
 
-                <button type="submit" className="LoginButton">
-                  <span className="LoginText">Register</span>
+                <button type="submit" className="RegisterButton">
+                  <span className="RegisterText">Register</span>
                 </button>
               </div>
             </form>

@@ -67,9 +67,7 @@ class Login extends Component {
         <NavBar />
         <div className="intro-box">
 
-          <span className="intro-text">Welcome to White Dressing! <br></br> 
-
-          </span>
+        
 
 
 
