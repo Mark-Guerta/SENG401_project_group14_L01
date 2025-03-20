@@ -60,10 +60,10 @@ def prompt():
     requirements[10] = request.json['customPreference']
     location = request.json['location']
     
-    message = Gemini.getRecipe(location, ingredients, requirements, height, weight)
-    recipeInstance.setResults(message)
+    recipe, local = Gemini.getRecipe(location, ingredients, requirements, height, weight)
+    recipeInstance.setResults(recipe)
 
-    return jsonify({"error": "Generation Successful", "message": message})
+    return jsonify({"error": "Generation Successful", "message": recipe, "location": local})
 
 @app.route('/change-pass', methods=['POST'])
 def switchPassword():
