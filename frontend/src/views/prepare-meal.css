@@ -1,5 +1,6 @@
 
 .prepare-meal-container {
+  background-image: url("./external/l-2.gif");
   display: flex;
   flex-direction: column;
   align-items: center;

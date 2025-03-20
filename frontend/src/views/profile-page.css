@@ -3,13 +3,13 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-
+  background-image: url("./external/l-2.gif");
   align-items: center;
   /*background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.09) 32.5%, rgba(255, 255, 255, 0.10) 38%, rgba(255, 255, 255, 0.20) 100%), linear-gradient(180deg, #FFF 0%, #6EFD77 100%);*/
 }
 
 .profile-box-container {
-
+  
 
   display: flex;
   flex-direction: column;
