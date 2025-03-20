@@ -7,10 +7,9 @@
   margin-top: 20px;
   border-radius: 20px;
   padding: 10px 20px;
-  background-color: rgba(212, 209, 209, 0.5);
-  
+  background: #f4f4f4;
   flex-wrap: wrap; 
-
+  opacity: 0.85;
 }
 
 .navbar-left, .navbar-right {
