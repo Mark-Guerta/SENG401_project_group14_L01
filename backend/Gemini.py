@@ -14,10 +14,10 @@ def getRecipe(location, ingredients, requirements, height, weight):
                 Here is the given ingredients: {ingredients}
                 And here is a list of the dietary restrictions/preferences, ignore False values: {str(requirements)}"""
     
-    if (height != False):
+    if (height != ""):
         content1 += f"""Fit the recipe to this height: {str(height)}"""
 
-    if (weight != False):
+    if (weight != ""):
         content1 += f"""Fit the recipe to this weight: {str(weight)}"""
     
     response1 = client.models.generate_content(
@@ -26,11 +26,11 @@ def getRecipe(location, ingredients, requirements, height, weight):
         contents=content1
     )
 
-    if (location != False):
+    if (location != ""):
         content2 = f"""Given a location and a recipe, list locations nearby that sell the recipe ingredients in JSON format. 
                     If the text that is given does not have anything to do with making recipes return just NULL. 
                     Use this JSON schema:
-                    Locations = {{'Locations': {{'location_name': str,'address': str,'food_available': list[str]}}}}
+                    Locations = {{'Locations': {{'location_name': str,'address': str}}}}
                     Return: Locations
                     Here is the location: {location}
                     Here is the given text: {response1.text}"""
@@ -50,5 +50,11 @@ def formatRecipe(recipe):
     jsonRecipe, partition, conclu = recipe_conclu.partition("```")
     return intro, jsonRecipe, conclu
 
-recipe, local = getRecipe("Calgary", "Rice, chicken, eggs", ["High Protein", False], False, "80kg")
-print(recipe, "\n\n\n", local)
+def formatLocation(location):
+    intro, partition, location_conclu = location.partition("```json")
+    jsonLocation, partition, conclu = location_conclu.partition("```")
+    return intro, jsonLocation, conclu
+
+#recipe, local = getRecipe("Calgary", "Chicken, rice, eggs", [False, False], "", "")
+#x, y, z = formatLocation(local)
+#print(y)
