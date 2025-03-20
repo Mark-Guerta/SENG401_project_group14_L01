@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Helmet } from 'react-helmet'
 import './prepare-meal.css'
 import NavBar from './nav-bar'
 
@@ -8,7 +7,7 @@ const PrepareMeal = () => {
   const [outputText, setOutputText] = useState('');
   const [isGuest, setIsGuest] = useState(true);
   const [error, setError] = useState('');
-
+  const [location, setLocation] = useState('');
   const [lactoseFree, setLactoseFree] = useState(false);
   const [glutenFree, setGlutenFree] = useState(false);
   const [vegetarian, setVegetarian] = useState(false);
@@ -24,6 +23,7 @@ const PrepareMeal = () => {
   const [highCarbs, setHighCarbs] = useState(false);
   const [highFats, setHighFats] = useState(false);
   const [customPreference, setCustomPreference] = useState('');
+
 
   useEffect(() => {
     const guestStatus = localStorage.getItem("isGuest");
@@ -48,7 +48,8 @@ const PrepareMeal = () => {
         highProtein: highProtein,
         highCarbs: highCarbs,
         highFats: highFats,
-        customPreference: customPreference
+        customPreference: customPreference,
+        location: location
       };
 
       fetch("http://127.0.0.1:5000/prepare-meal", {
@@ -168,7 +169,7 @@ const PrepareMeal = () => {
               <div className="right-side-container">
                 <h3 className="location-title">Enter Location:</h3>
                 <div className="location-input-box">
-                  <input type="text" className="location-input" placeholder="e.g. University of Calgary" />
+                  <input type="text" className="location-input" placeholder="e.g. University of Calgary" value={location} onChange={(e) => setLocation(e.target.value)}/>
                 </div>
 
                 <h3 className="location-title">Nearest Location of Missing Ingredients:</h3>
