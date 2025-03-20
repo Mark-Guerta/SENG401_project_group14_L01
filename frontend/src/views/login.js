@@ -10,7 +10,7 @@ class Login extends Component {
       password: '',
       error: ''
     };
-    localStorage.setItem("isGuest", "false");
+  
   }
   
 
@@ -47,7 +47,7 @@ class Login extends Component {
           if (json.error == 'Login Failed') {
             this.setState({ error: 'Username or Password does not exist' });
           } else {
-            localStorage.setItem("isGuest", "false");
+            localStorage.setItem("isGuest", "Logged");
             
             localStorage.setItem("username", username);
 
@@ -99,7 +99,7 @@ class Login extends Component {
               {error && <p className="validation-message">{error}</p>}
             </div>
             <span className="GuestButton" onClick={() => {
-              localStorage.setItem("isGuest", "true");
+              localStorage.setItem("isGuest", "Guest");
               this.navigateTo('/prepare-meal');
             }}>
               Continue as Guest
