@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './login.css';
 import NavBar from './nav-bar.js'
+import Footer from './footer'
 
 class Login extends Component {
   constructor(props) {
@@ -67,10 +68,6 @@ class Login extends Component {
         <NavBar />
         <div className="intro-box">
 
-        
-
-
-
         </div>
         <div className="Box-Container">
 
@@ -117,24 +114,19 @@ class Login extends Component {
             
             <span className="GuestText">
               Continue as Guest
-            </span>
-          
-</div>
-
-
-
+            </span>         
+            </div>
 
             <button type="submit" className="LoginButton">
               <span className="LoginText">Login</span>
-
-
             </button>
-
-
-            
+            </div>
+            <div className="register-text">
+              <span>Don't have an Account? <a href="/register">Register Here</a></span>
             </div>
           </form>
         </div>
+        <Footer />
       </div>
     );
   };
