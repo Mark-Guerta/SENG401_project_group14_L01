@@ -201,7 +201,7 @@ const PrepareMeal = () => {
                   </div>
                 </div>
 
-                {!isGuest ? (
+                {isGuest ? (
                   <button type="submit" className="send-email-button">
                     <span className="send-email-button-text">Send to Email</span>
                   </button>
