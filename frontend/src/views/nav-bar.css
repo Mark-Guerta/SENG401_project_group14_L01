@@ -4,11 +4,11 @@
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  margin-top:20px;
+  margin-top: 20px;
   border-radius: 20px;
   padding: 10px 20px;
   background-color: rgba(212, 209, 209, 0.5);
-
+  flex-wrap: wrap; 
 }
 
 .navbar-left, .navbar-right {
@@ -17,7 +17,7 @@
 }
 
 .navbar-logo-img {
-  width: 0px;
+  width: 10%;
   
 }
 
@@ -44,8 +44,9 @@
 }
 
 .navbar-item-logotext {
+  display: flex;
   color: rgba(0, 0, 0, 1);
-  font-size: 30px;
+  font-size: 25px;
   font-style: Bold;
   font-family: Maven Pro;
   font-weight: 700;

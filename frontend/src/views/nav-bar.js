@@ -1,12 +1,11 @@
 import './nav-bar.css';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const NavBar = () => {
-  const [isGuest, setIsGuest] = useState(false);
+  const isGuest = localStorage.getItem("isGuest");
 
   useEffect(() => {
-    const guestStatus = localStorage.getItem("isGuest");
-    setIsGuest(guestStatus === "true"); 
+   
   }, []);
 
   const navigateTo = (path) => {
@@ -37,7 +36,7 @@ const NavBar = () => {
       <div className="navbar-right">
         {isGuest ? (
           <div className="navbar-item" onClick={handleSignOut}>
-            <span className="navbar-item-text">Sign up</span>
+            <span className="navbar-item-text">Log Out</span>
           </div>
         ) : (
           <>
