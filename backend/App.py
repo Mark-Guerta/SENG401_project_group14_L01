@@ -43,19 +43,25 @@ def login():
 def prompt():
 
     requirements = []
-    requirements[0] = request.json['location']
-    requirements[1] = request.json['location']
-    requirements[2] = request.json['location']
-    requirements[3] = request.json['location']
-    requirements[4] = request.json['location']
-    requirements[5] = request.json['location']
-    requirements[6] = request.json['location']
-    requirements[7] = request.json['location']
-    requirements[8] = request.json['location']
-    requirements[9] = request.json['location']
+
+    ingredients = request.json['ingredients']
+    requirements[0] = request.json['lactoseFree']
+    requirements[1] = request.json['glutenFree']
+    requirements[2] = request.json['vegetarian']
+    requirements[3] = request.json['vegan']
+    requirements[4] = request.json['halal']
+    requirements[5] = request.json['kosher']
+    requirements[6] = request.json['diabetic']
+    requirements[7] = request.json['highProtein']
+    requirements[8] = request.json['highCarbs']
+    requirements[9] = request.json['highFats']
+    requirements[10] = request.json['customPreference']
+    height = request.json['height']
+    weight = request.json['weight']
     location = request.json['location']
     ingredients = request.json['ingredients']
-    message = Gemini.getRecipe(location, ingredients, requirements)
+    
+    message = Gemini.getRecipe(location, ingredients, requirements, height, weight)
     recipeInstance.setResults(message)
 
     return jsonify({"error": "Generation Successful", "message": message})
