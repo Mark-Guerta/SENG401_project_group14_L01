@@ -40,5 +40,5 @@ def getRecipe(location, ingredients, requirements, height, weight):
             contents=content2
         )
 
-    return response1.text
+    return response1.text, response2.text
 
