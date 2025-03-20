@@ -52,14 +52,13 @@ def prompt():
     requirements[4] = request.json['halal']
     requirements[5] = request.json['kosher']
     requirements[6] = request.json['diabetic']
+    height = request.json['height']
+    weight = request.json['weight']
     requirements[7] = request.json['highProtein']
     requirements[8] = request.json['highCarbs']
     requirements[9] = request.json['highFats']
     requirements[10] = request.json['customPreference']
-    height = request.json['height']
-    weight = request.json['weight']
     location = request.json['location']
-    ingredients = request.json['ingredients']
     
     message = Gemini.getRecipe(location, ingredients, requirements, height, weight)
     recipeInstance.setResults(message)
