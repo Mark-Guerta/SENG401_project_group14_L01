@@ -63,69 +63,54 @@ class Login extends Component {
     const { username, password, error } = this.state;
 
     return (
-    
-      
       <div className="login-container">
-     
-      
-      <NavBar />
+        <NavBar />
         <div className="Box-Container">
-    
-
           <form onSubmit={this.handleSubmit}>
-            <div >
-             
-
+            <div>
               <span className="UsernameText">Username</span>
               <div className="pass-img">
-              <input
-                className="LoginInput"
-                type="text"
-                value={username}
-                placeholder="Username"
-                onChange={this.handleInputChange}
-                name="username"
-              />
-            
+                <input
+                  className="LoginInput"
+                  type="text"
+                  value={username}
+                  placeholder="Username"
+                  onChange={this.handleInputChange}
+                  name="username"
+                  maxLength="15"
+                  pattern="[A-Za-z0-9]{1,15}"
+                  
+                />
+              </div>
+              <span className="PasswordText">Password</span>
+              <div className="pass-text">
+                <input
+                  className="PasswordInput3"
+                  type="password"
+                  placeholder="Enter your Password"
+                  value={password}
+                  onChange={this.handleInputChange}
+                  name="password"
+                  maxLength="15"
+                 
+                  title="Max 15 chars"
+                />
+              </div>
+              {error && <p className="validation-message">{error}</p>}
             </div>
-
-
-              
-               <span className="PasswordText">Password</span>
-               
-
-               <div className="pass-text">
-              <input
-                className="PasswordInput3"
-                type="password"
-                placeholder="Enter your Password"
-                value={password}
-                onChange={this.handleInputChange}
-                name="password"
-              />  
-        </div>
-                 {error && <p className="validation-message">{error}</p>}
-            
-         </div>
             <span className="GuestButton" onClick={() => {
-                    localStorage.setItem("isGuest", "true");
-                    this.navigateTo('/prepare-meal');}}>
-                 Continue as Guest</span>
-            
-            
+              localStorage.setItem("isGuest", "true");
+              this.navigateTo('/prepare-meal');
+            }}>
+              Continue as Guest
+            </span>
             <button type="submit" className="LoginButton">
-            
               <span className="LoginText">Login</span>
             </button>
-
-
           </form>
-          </div>
-
-
-</div>
-       
-  );
+        </div>
+      </div>
+    );
   };
   }
 
