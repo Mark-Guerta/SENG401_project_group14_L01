@@ -68,8 +68,21 @@
 
 }
 
+.register-text {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
 
+.register-text a {
+  color: #3fb33f; 
+}
 
+.register-text a:hover {
+  text-decoration: underline;
+}
 
 .PasswordText {
 
@@ -99,17 +112,18 @@
 }
 
 .GuestButton {
-  margin-top:20px;
-  cursor:pointer;
-
+  margin-top:25px;
+  cursor: pointer;
 }
 .GuestText {
   font-size: 20px;
   font-style: Bold;
   padding: 8px;
-  text-decoration: underline;
 }
 
+.GuestText:hover {
+  text-decoration: underline;
+}
 
 .LoginButton {
   
@@ -124,6 +138,7 @@
   font-family: Maven Pro;
   font-weight: 700;
   line-height: normal;
+  cursor: pointer;
 
   padding: 7px;
 
