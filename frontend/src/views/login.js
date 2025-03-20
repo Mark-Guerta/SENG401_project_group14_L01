@@ -68,7 +68,7 @@ class Login extends Component {
         <div className="Box-Container">
           <form onSubmit={this.handleSubmit}>
             <div>
-              <span className="UsernameText">Username</span>
+              <span className="UsernameText">Username: </span>
               <div className="pass-img">
                 <input
                   className="LoginInput"
@@ -82,7 +82,7 @@ class Login extends Component {
                   
                 />
               </div>
-              <span className="PasswordText">Password</span>
+              <span className="PasswordText">Password: </span>
               <div className="pass-text">
                 <input
                   className="PasswordInput3"
@@ -98,15 +98,28 @@ class Login extends Component {
               </div>
               {error && <p className="validation-message">{error}</p>}
             </div>
-            <span className="GuestButton" onClick={() => {
+            
+
+            <div className="log-guest">
+
+            <div className="GuestButton" onClick={() => {
               
               this.navigateTo('/prepare-meal');
             }}>
+            
+            <span className="GuestText">
               Continue as Guest
             </span>
+
+</div>
             <button type="submit" className="LoginButton">
               <span className="LoginText">Login</span>
+
+
             </button>
+
+            
+            </div>
           </form>
         </div>
       </div>

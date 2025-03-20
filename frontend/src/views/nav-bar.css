@@ -9,9 +9,11 @@
   padding: 10px 20px;
   background-color: rgba(212, 209, 209, 0.5);
   flex-wrap: wrap; 
+
 }
 
 .navbar-left, .navbar-right {
+  
   display: flex;
   align-items: center;
 }
