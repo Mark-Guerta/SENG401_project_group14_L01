@@ -65,7 +65,17 @@ class Login extends Component {
     return (
       <div className="login-container">
         <NavBar />
+        <div className="intro-box">
+
+          <span className="intro-text">Welcome to White Dressing! <br></br> 
+
+          </span>
+
+
+
+        </div>
         <div className="Box-Container">
+
           <form onSubmit={this.handleSubmit}>
             <div>
               <span className="UsernameText">Username: </span>
@@ -110,13 +120,18 @@ class Login extends Component {
             <span className="GuestText">
               Continue as Guest
             </span>
-
+          
 </div>
+
+
+
+
             <button type="submit" className="LoginButton">
               <span className="LoginText">Login</span>
 
 
             </button>
+
 
             
             </div>

@@ -26,9 +26,8 @@ const PrepareMeal = () => {
   const [highFats, setHighFats] = useState(false);
   const [customPreference, setCustomPreference] = useState('');
 
-
   const formatOutputText = (outputText) => {
-    if (!outputText) return "";
+    if (!outputText || typeof outputText !== 'object') return "";
   
     const { recipe_name, ingredients, steps } = outputText;
   
@@ -50,6 +49,7 @@ const PrepareMeal = () => {
       </div>
     );
   };
+  
 
 
   useEffect(() => {
@@ -92,8 +92,6 @@ const PrepareMeal = () => {
           if (data.error === "Generation Successful") {
             setError("Generation Successful");
             setOutputTextLocation(data.location);
-           
-
             setOutputText(formatOutputText(data.message))
           } else {
             setError('Failed to generate recipes');

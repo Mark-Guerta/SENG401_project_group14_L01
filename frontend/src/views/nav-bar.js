@@ -54,7 +54,7 @@ const NavBar = () => {
               <span className="navbar-item-text">Login</span>
             </div>
             <div className="navbar-item signup-button" onClick={() => navigateTo('/register')}>
-              <span className="navbar-item-text">Sign Up</span>
+              <span className="navbar-item-text">Register</span>
             </div>
           </>
         )}
