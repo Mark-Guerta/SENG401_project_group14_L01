@@ -85,12 +85,12 @@ const PrepareMeal = () => {
         <div className="height-weight-preferences">
           <div className="height-box">
             <h3>Height:</h3>
-            <input type="text" className="height-input" placeholder="Enter your height" />
+            <input type="text" className="height-input" placeholder="Enter your height (in cm or feet)" />
           </div>
 
           <div className="weight-box">
             <h3>Weight:</h3>
-            <input type="text" className="weight-input" placeholder="Enter your weight" />
+            <input type="text" className="weight-input" placeholder="Enter your weight (in lbs or kg)" />
           </div>
 
           <div className="preferences-box">
