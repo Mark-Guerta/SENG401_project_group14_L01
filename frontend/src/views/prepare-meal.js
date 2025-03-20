@@ -86,7 +86,7 @@ const PrepareMeal = () => {
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
             />
-
+          <span className="optional">Optional Choices:</span>
             <div className="diet-info-box">
               <div className="diet-restrictions-box">
                 <h3>Diet Restrictions:</h3>
