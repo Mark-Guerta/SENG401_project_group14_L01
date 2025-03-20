@@ -100,7 +100,7 @@
 
 .GuestButton {
   margin-top:20px;
- 
+  cursor:pointer;
 
 }
 .GuestText {
