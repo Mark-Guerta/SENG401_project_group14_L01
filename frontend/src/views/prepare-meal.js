@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './prepare-meal.css'
 import NavBar from './nav-bar'
+import Footer from './footer'
 
 const PrepareMeal = () => {
   const [option, setOption] = useState(localStorage.getItem("option") === "true");
@@ -117,7 +118,7 @@ const PrepareMeal = () => {
     <div>
       <div className="prepare-meal-container">
         <NavBar />
-        <span className="prepare-meal-text33">Enter Your Ingredients Here:</span>
+        <span className="prepare-meal-text33"></span>
         <br />
         <div className="prepare-meal-prepare-meal1">
           <form onSubmit={handleSubmit}>
@@ -214,18 +215,18 @@ const PrepareMeal = () => {
 
 <div className="side-by-side-boxes">
   <div className="main-result-box">
-    <h2 className="prepare-meal-text34">Recipe Made With Magic:</h2>
+    <h2 className="prepare-meal-text34">🍳 Recipe 🍳</h2>
     <br />
     <div className="prepare-meal-input">
       <span className="prepare-meal-input-text">
-        {outputText ? outputText : "No recipe generated yet..."}
+        {outputText ? outputText : ""}
       </span>
     </div>
   </div>
 
   {outputTextLocation && (
     <div className="right-side-container">
-      <h3 className="location-title">Nearest Location of Missing Ingredients:</h3>
+      <h3 className="location-title">🍔 Ingredients Finder 🌮</h3>
       <div className="location-output-box">
         <div className="output-content">{outputTextLocation}</div>
       </div>
@@ -235,7 +236,9 @@ const PrepareMeal = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
+
   );
 };
 
