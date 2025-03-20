@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Helmet } from 'react-helmet';
 import './profile-page.css';
 import NavBar from './nav-bar';
+import Footer from './footer'
 
 class Profile extends Component {
   constructor(props) {
@@ -201,8 +201,9 @@ class Profile extends Component {
 
           {error && <p className="validation-message">{error}</p>}
         </div>
+        <Footer />
       </div>
-     
+    
     );
 
   }
