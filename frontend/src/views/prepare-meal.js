@@ -61,16 +61,18 @@ const PrepareMeal = () => {
           "Content-type": "application/json; charset=UTF-8"
         }
       })
-        .then((response) => response.text())
-        .then((text) => {
-          if (text.includes("Generation Successful")) {
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.error === "Generation Successful") {
             setError("Generation Successful");
-            setOutputTextLocation(text.location)
-            setOutputText(text.message); 
-
+            setOutputTextLocation(data.location);
+            setOutputText(data.message);
           } else {
             setError('Failed to generate recipes');
           }
+        })
+        .catch((error) => {
+          setError('Failed to generate recipes');
         });
     }
   };
@@ -199,7 +201,7 @@ const PrepareMeal = () => {
                   </div>
                 </div>
 
-                {!isGuest ? (
+                {isGuest ? (
                   <button type="submit" className="send-email-button">
                     <span className="send-email-button-text">Send to Email</span>
                   </button>
