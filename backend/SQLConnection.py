@@ -53,12 +53,11 @@ class SQLConnect:
             else:
                 print("Cursor already created")
 
-        usernames = self.databaseInstance.getLoginData()
-
+        usernames, passwords = self.databaseInstance.getLoginData()
         if username in usernames:
             cursor.close()
             self.closeDB()
-            return print("Username already in use")
+            return False
 
         cursor.execute("INSERT INTO User (userName, userEmail, userPassword) VALUES (%s, %s, %s)", (username, email, password))
         self.database.commit()
