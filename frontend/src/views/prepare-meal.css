@@ -1,29 +1,4 @@
 
-@keyframes changeText {
-  0% { content: "Enter Your Ingredients Here..."; }
-  33% { content: "List your items..."; }
-  66% { content: "Type ingredients like: Chicken, Rice..."; }
-  100% { content: "Enter Your Ingredients Here..."; }
-}
-
-@keyframes changeTextInput {
-  0% { content: "No recipe generated yet."; }
-  33% { content: "No recipe generated yet.."; }
-  66% { content: "No recipe generated yet..."; }
-  100% { content: "No recipe generated yet."; }
-}
-
-.prepare-meal-text33::after {
-  content: "Enter Your Ingredients Here...";
-  display: inline-block;
-  animation: changeText 10s infinite ease-in-out;
-}
-
-.prepare-meal-input-text::after {
-  content: "No recipe generated yet...";
-  display: inline-block;
-  animation: changeTextInput 2s infinite ease-in-out;
-}
 
 .prepare-meal-container {
   display: flex;
