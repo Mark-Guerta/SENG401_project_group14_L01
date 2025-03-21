@@ -9,7 +9,7 @@ class SQLConnect:
 
     def connectDB(self):
         try:
-            self.database = mysql.connector.connect(host='127.0.0.1', user='root', password='', database="LoginDB")
+            self.database = mysql.connector.connect(host='127.0.0.1', user='root', password='Spookygoat32!', database="LoginDB")
         except:
             print("Could not connect to database")
 

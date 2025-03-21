@@ -119,10 +119,12 @@ const PrepareMeal = () => {
         .then((data) => {
           if (Object.keys(data).length > 1){
             const recipe = data.recipe;
-            recip2 = clean(recipe)
-            setOutputTextRAW(recipe2)
+            const deepRecipe = JSON.parse(JSON.stringify(recipe));
+            let recipe2 = clean(deepRecipe);
+            setOutputTextRAW(recipe2);
             const local = data.local;
-            local2 = clean(local)
+            const deepLocation = JSON.parse(JSON.stringify(local));
+            let local2 = clean(deepLocation);
             setOutputTextLocationRAW(local2)
             setError("Generation Successful");
             setOutputText(formatOutputText(recipe)); 
@@ -130,8 +132,9 @@ const PrepareMeal = () => {
           }
           else {
             const recipe = data.recipe
-            recip2 = clean(recipe)
-            setOutputTextRAW(recipe2)
+            const deepRecipe = JSON.parse(JSON.stringify(recipe));
+            let recipe2 = clean(deepRecipe);
+            setOutputTextRAW(recipe2);
   
             setError("Generation Successful");
             setOutputText(formatOutputText(recipe)); 
