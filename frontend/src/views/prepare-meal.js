@@ -50,7 +50,25 @@ const PrepareMeal = () => {
       </div>
     );
   };
-  
+
+  const formatOutputLocation = (outputText) => {
+    if (!outputText || typeof outputText !== 'object') return "";
+
+    const { Locations } = outputText;
+
+    return (
+      <div>
+        <h3>Locations:</h3>
+        <ul>
+          {Locations.map((location, index) => (
+            <li key={index}>
+              <strong>{location.location_name}</strong>: {location.address}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
 
 
   useEffect(() => {
@@ -90,17 +108,22 @@ const PrepareMeal = () => {
       })
         .then((response) => response.json())
         .then((data) => {
+
           if (data.error === "Generation Successful") {
             setError("Generation Successful");
             setOutputTextLocation(data.location);
-            setOutputText(formatOutputText(data.message));
-          } else {
+            console.log(data.message, data.location)
+            const formattedMessage = formatOutputText(data.message);
+            setOutputText(formattedMessage);
+            
+            
+            const formattedLocation = formatOutputLocation(data.location)
+            setOutputTextLocation(formattedLocation);
+        } else {
             setError('Failed to generate recipes');
           }
         })
-        .catch((error) => {
-          setError('Failed to generate recipes');
-        });
+
     }
   };
 
@@ -145,7 +168,7 @@ const PrepareMeal = () => {
         </div>
       </div>
 
-      <div className="height-weight-preferences"> 
+      <div className="height-weight-preferences">
         <div className="height-box">
           <h3>Height:</h3>
           <select className="height-dropdown" onChange={(e) => setHeight(e.target.value)} defaultValue="">
