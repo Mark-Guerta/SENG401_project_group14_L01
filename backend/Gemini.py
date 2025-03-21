@@ -7,7 +7,7 @@ def getRecipe(location, ingredients, requirements, height, weight):
     client = genai.Client(api_key="AIzaSyCpnYk7EshXUwbqK_PBp7izaPVrd5wK1q8")
 
     content1 = f"""List a recipe using the given ingredients and dietary restrictions in JSON format.
-                If the ingredients that are given do not have anything to do with making recipes return just NULL. 
+                If an ingredient given has nothing to do with food, ignore it.
                 Use this JSON schema:
                 Recipe = {{'recipe_name': str, 'ingredients': list[str], 'steps': list[str]}}
                 Return: Recipe
@@ -28,12 +28,12 @@ def getRecipe(location, ingredients, requirements, height, weight):
 
     if (location != ""):
         content2 = f"""Given a location and a recipe, list locations nearby that sell the recipe ingredients in JSON format. 
-                    If the text that is given does not have anything to do with making recipes return just NULL. 
+                    If the text that is given does not have anything to do with making recipes just ignore it and find locations for the actual real ingredients. 
+                    Here is the location: {location}
+                    Here is the given text: {response1.text}
                     Use this JSON schema:
                     Locations = {{'Locations': {{'location_name': str,'address': str}}}}
-                    Return: Locations
-                    Here is the location: {location}
-                    Here is the given text: {response1.text}"""
+                    Return: Locations"""
         
         response2 = client.models.generate_content(
             model="gemini-2.0-flash", 
