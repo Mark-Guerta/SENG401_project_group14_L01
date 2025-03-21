@@ -30,10 +30,10 @@ class FoodApp:
                 file.write(f'''Recipe Name: {self.recipeName} \n\n''')
                 file.write("Ingredients\n")
                 for i in self.recipeIngredients:
-                    file.write(i + '\n')
+                    file.write('* '+ i + '\n')
                 file.write('\nSteps \n')
-                for i in self.recipeSteps:
-                    file.write(i + '\n')
+                for i,j in enumerate(self.recipeSteps):
+                    file.write(f'''{i+1}. {j}\n''')
                 if (file != None):
                     complete = True
                 else:
