@@ -13,7 +13,8 @@ class TestGuest:
 
     def test_guest_get_info(self):
         guest = Guest()
-        assert guest.getInfo() is None
+        assert guest.getInfo() == "Guest information not available."
+
 
     def test_guest_set_result(self):
         guest = Guest()
@@ -22,5 +23,6 @@ class TestGuest:
 
     def test_guest_get_result(self):
         guest = Guest()
-        guest.result = "Test Result"
+        guest.setResult("Test Result")
         assert guest.getResult() == "Test Result"
+
