@@ -41,7 +41,7 @@ class TestSQLConnection(unittest.TestCase):
         mock_cursor = mock_db.cursor.return_value
 
         sql = SQLConnect()
-        sql.databaseInstance.getLoginData = MagicMock(return_value=['existingUser'])
+        sql.databaseInstance.getLoginData = MagicMock(return_value=(['existingUser'], ['existingPass']))
         
         # Test inserting a new user
         sql.inputDatabase('newUser', 'newuser@example.com', 'newpass')
