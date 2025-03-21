@@ -2,7 +2,7 @@ import './nav-bar.css';
 import React, { useEffect } from 'react';
 
 const NavBar = () => {
-  const isGuest = localStorage.getItem("isGuest");
+  const isGuestX = localStorage.getItem("isGuest");
 
   useEffect(() => {
    
@@ -32,7 +32,7 @@ const NavBar = () => {
         </div>
       </div>
       <div className="navbar-right">
-        {!isGuest ? (
+        {!isGuestX ? (
           <>
           <div className="navbar-item" onClick={() => navigateTo('/prepare-meal')}>
               <span className="navbar-item-text">Prepare Meal</span>
