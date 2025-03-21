@@ -125,7 +125,7 @@ const PrepareMeal = () => {
             const local = data.local;
             const deepLocation = JSON.parse(JSON.stringify(local));
             let local2 = clean(deepLocation);
-            setOutputTextLocationRAW(local2)
+            setOutputTextLocationRAW(local2);
             setError("Generation Successful");
             setOutputText(formatOutputText(recipe)); 
             setOutputTextLocation(formatOutputLocation(local));
