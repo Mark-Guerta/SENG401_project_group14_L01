@@ -267,26 +267,40 @@ const PrepareMeal = () => {
                     {outputText}
                   </div>
 
-
-
-                  {outputText && (
-                  <button className="tts-button" type="button" onClick={() => speakText(outputTextRAW)}>
-                    🔊 Read Recipe
+                  {outputTextRAW && (
+                  <button className="tts-button" type="button" onClick={() => speakText(
+                    outputTextRAW,
+                    () => setIsTTSActive(true),  
+                    () => setIsTTSActive(false)   
+                  )}
+                >
+                  {isTTSActive ? "🛑 Stop 🛑" : "🔊 Read Recipe"}
                   </button>
                   )}
-                </div>
-              </div>
+            
               {outputTextLocation && (
                 <div className="right-side-container">
                   <h3 className="location-title">Ingredients Finder 🍔</h3>
                   <div className="location-output-box">
                     <div className="output-content">{outputTextLocation}</div>
-                    <button className="tts-button" type="button" onClick={() => speakText(outputTextLocationRAW)}>
-                    🔊 Read Location
+                    <button
+                      className="tts-button"
+                      type="button"
+                      onClick={() =>
+                        speakText(
+                          outputTextLocationRAW,
+                          () => setIsTTSLocationActive(true),
+                          () => setIsTTSLocationActive(false)
+                        )
+                      }
+                    >
+                      {isTTSLocationActive ? "🛑 Stop 🛑" : "🔊 Read Location"}
                     </button>
+                    </div>
+                  </div>
+                )}
                   </div>
                 </div>
-              )}
             </div>
           </form>
         </div>
