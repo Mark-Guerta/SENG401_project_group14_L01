@@ -1,19 +1,28 @@
+Recipe Name: Sublime Simplisticité: Poulet et Riz (Chicken and Rice, Elevated) 
 
-{
-  "recipe_name": "Deconstructed Volaille et Riz: A Study in Simplistic Disappointment",
-  "ingredients": [
-    "One (organic, free-range, naturally fed, of course) chicken breast, skin on",
-    "Arborio rice, sourced from a small, biodynamic farm in Piedmont, Italy",
-    "Shallots, minced with the precision of a surgeon",
-    "Dry white wine, something crisp, perhaps a Sancerre if you must",
-    "Chicken stock, homemade, I trust?",
-    "Butter, oh, the creamiest, most decadent French butter you can find",
-    "Fresh thyme sprigs, because why not pretend we have some refinement?"
-  ],
-  "steps": [
-    "First, the chicken: score the skin lightly and season generously with sea salt and freshly cracked white pepper. Sear skin-side down in a screaming hot pan with a touch of clarified butter until golden brown and crispy. Then, and only then, finish in a moderate oven until just cooked through. Rest, darling, rest. It's essential.",
-    "For the rice, sauté the shallots in more of that precious butter until translucent. Add the Arborio rice and toast lightly, stirring constantly. Deglaze with a splash of the Sancerre. Let the alcohol evaporate, then add the chicken stock a ladleful at a time, stirring until each addition is absorbed. Continue until the rice is al dente – not mushy, you philistine.",
-    "Finish the rice with a generous knob of butter, a grating of Parmigiano-Reggiano (aged at least 36 months, naturally), and a scattering of fresh thyme leaves. ",
-    "Deconstruct, as the name suggests, by slicing the chicken breast and arranging it artfully next to a mound of the risotto. Garnish with a sprig of thyme. Serve immediately, and try to pretend you're not eating something so utterly…ordinary."
-  ]
-}
+Ingredients
+Free-range chicken thighs (bone-in, skin-on, of course)
+Carnaroli rice (because Arborio is simply barbaric)
+Shallots (finely minced, as onions are far too vulgar)
+Dry white wine (something crisp and French, naturally)
+Chicken stock (homemade, I trust?)
+Fresh thyme sprigs
+Bay leaf
+Unsalted butter (European-style, please)
+Extra virgin olive oil (the good stuff)
+Sea salt (Maldon, if you insist)
+Freshly ground white pepper (black pepper is so déclassé)
+
+Steps 
+Preheat your oven to 375°F (190°C). If your oven lacks precision, simply discard it and acquire a better one.
+Season the chicken thighs generously with sea salt and white pepper. Don't be shy; we need to impart *some* flavor.
+In an oven-safe skillet (cast iron, naturally), heat the olive oil over medium-high heat. Sear the chicken thighs, skin-side down, until golden brown and crispy. This is crucial for texture, you see.
+Remove the chicken and set aside. Add the minced shallots to the skillet and sauté until translucent. Do *not* let them brown.
+Add the Carnaroli rice to the skillet and toast for a minute or two, stirring constantly. We need to awaken the starch, you understand.
+Deglaze the skillet with the dry white wine, scraping up any browned bits from the bottom. This is where the *flavor* resides, darling.
+Pour in the chicken stock, ensuring it covers the rice. Add the thyme sprigs and bay leaf. Return the chicken thighs to the skillet, skin-side up.
+Bring the mixture to a simmer, then transfer the skillet to the preheated oven.
+Bake for 25-30 minutes, or until the rice is cooked through and the chicken is tender. The rice should be creamy, not mushy.
+Remove the skillet from the oven and let it rest for 5 minutes. This allows the flavors to meld, however unlikely.
+Stir in a knob of unsalted butter to enrich the sauce. Remove the thyme sprigs and bay leaf before serving. We wouldn't want any unpleasant surprises.
+Serve immediately. And try to pretend it's not just chicken and rice.

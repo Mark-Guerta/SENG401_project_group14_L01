@@ -1,12 +1,19 @@
 from Gemini import recipeCheckingBeforeDownload
 
 class FoodApp:
-    recipe = "Not Set"
+
     def __init__(self):
         self.recipe = None
-
+        self.recipeName = None
+        self.recipeIngredients = None
+        self.recipeSteps = None 
     def setResults(self, recipe):
         self.recipe = recipe
+        
+    def setRecipeVariables(self, recipeVariables):
+        self.recipeName = recipeVariables[0]
+        self.recipeIngredients = recipeVariables[1]
+        self.recipeSteps = recipeVariables[2]
 
     def getResults(self):
         return self.recipe
@@ -18,16 +25,21 @@ class FoodApp:
         if "true" in recipeChecking.lower():
             with open("results.txt", "w") as file: # clearing the file
                 pass
-            with open("results.txt", "w") as file:
+            with open("results.txt", "a") as file:
                 # write results to file
-                file.write(self.recipe)
+                file.write(f'''Recipe Name: {self.recipeName} \n\n''')
+                file.write("Ingredients\n")
+                for i in self.recipeIngredients:
+                    file.write(i + '\n')
+                file.write('\nSteps \n')
+                for i in self.recipeSteps:
+                    file.write(i + '\n')
                 if (file != None):
                     complete = True
                 else:
                     complete = False
         else:
-            with open("results.txt", "w") as file:
-                # write results to file
-                file.write("checking: " + recipeChecking)
+            with open("results.txt", "w") as file: # clearing the file
+                file.write(recipeChecking)
             complete = False
         return complete
