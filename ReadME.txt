@@ -6,7 +6,8 @@ Frontend:
         4. pip install google-genai
         5. npm install craco
         6. npm install react-router-dom
-        7. npm start
+        7. pip install pytest (optional for testing)
+        8. npm start
 
 
 Backend:
