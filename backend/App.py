@@ -62,13 +62,12 @@ def prompt():
     recipe, local = Gemini.getRecipe(location, ingredients, requirements, height, weight)
     recipeInstance.setResults(recipe)
     introRecipe, recipe, concluRecipe = Gemini.formatRecipe(recipe)
-    if location != "":
+    if location:
         introLocal, local, concluLocal = Gemini.formatLocation(local)
         combined_response = '{"recipe": ' + recipe + ', "local": ' + local + '}'
         return Response(combined_response, mimetype='application/json')
-    
-    combined_response = '{"recipe": ' + recipe + ', "local": ' + '' + '}'
-    return Response(combined_response, mimetype='application/json')
+
+    return Response(recipe, mimetype='application/json')
 
 @app.route('/change-pass', methods=['POST'])
 def switchPassword():
