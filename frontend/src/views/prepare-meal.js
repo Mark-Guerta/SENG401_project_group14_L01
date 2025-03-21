@@ -109,7 +109,7 @@ const PrepareMeal = () => {
         .then((data) => {
           if (data.error === "Generation Successful") {
             setError("Generation Successful");
-            setOutputTextLocation(data.location);
+            setOutputTextLocation(formatOutputLocation(data.location));
             setOutputText(formatOutputText(data.message));
           } else {
             setError('Failed to generate recipes');
