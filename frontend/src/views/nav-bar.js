@@ -31,9 +31,8 @@ const NavBar = () => {
           
         </div>
       </div>
-
       <div className="navbar-right">
-        {isGuest ? (
+        {!isGuest ? (
           <>
           <div className="navbar-item" onClick={() => navigateTo('/prepare-meal')}>
               <span className="navbar-item-text">Prepare Meal</span>
