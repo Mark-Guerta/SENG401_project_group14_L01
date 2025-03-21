@@ -107,19 +107,14 @@ const PrepareMeal = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
-          if (data.error === "Generation Successful") {
+          
+     
             setError("Generation Successful");
-            setOutputTextLocation(formatOutputLocation(data.location)); 
-            setOutputText(formatOutputText(data.message));
-            console.log(outputText)
-            console.log(outputTextLocation)
-          } else {
-            setError('Failed to generate recipes');
-          }
-        })
-        
-    }
+            setOutputTextLocation(formatOutputLocation(data.recipe)); 
+
+            setOutputText(formatOutputText(data.local));
+     } )}
+
   };
 
   const handleMoreOptions = () => {
