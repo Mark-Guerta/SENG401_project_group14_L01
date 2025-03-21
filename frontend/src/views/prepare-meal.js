@@ -111,7 +111,7 @@ const PrepareMeal = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data.length > 1){
+          if (Object.keys(data).length > 1){
             const recipe = data.recipe;
             setOutputTextRAW(recipe)
             const local = data.local;
