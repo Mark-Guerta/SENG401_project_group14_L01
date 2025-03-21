@@ -82,7 +82,7 @@ const PrepareMeal = () => {
 
   useEffect(() => {
     const guestStatus = localStorage.getItem("isGuest");
-    setIsGuest(guestStatus === "true"); 
+    setIsGuest(guestStatus === true); 
   }, []);
 
   const handleSubmit = (event) => {
@@ -129,7 +129,7 @@ const PrepareMeal = () => {
             setOutputTextLocation(formatOutputLocation(local));
           }
           else {
-            const recipe = data
+            const recipe = data.recipe
             recip2 = clean(recipe)
             setOutputTextRAW(recipe2)
   

@@ -13,7 +13,7 @@ const NavBar = () => {
   };
 
   const handleSignOut = () => {
-    localStorage.setItem("isGuest","True");
+    localStorage.setItem("isGuest",true);
     navigateTo('/login');
   };
 
