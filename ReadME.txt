@@ -6,7 +6,8 @@ Frontend:
         4. pip install google-genai
         5. npm install craco
         6. npm install react-router-dom
-        7. pip install pytest (optional for testing)
+        7. pip install pytest (optional and only for testing)
+        8. pip install mysql-connector-python (Optional and only for testing)
         8. npm start
 
 
