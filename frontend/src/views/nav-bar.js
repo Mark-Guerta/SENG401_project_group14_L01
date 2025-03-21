@@ -1,11 +1,22 @@
 import './nav-bar.css';
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const NavBar = () => {
-  const isGuestX = localStorage.getItem("isGuest");
+  const [isGuest, setIsGuest] = useState(localStorage.getItem("isGuest") === 'true'); // Initialize based on localStorage
 
   useEffect(() => {
-   
+    // Listen for changes in the localStorage item
+    const handleStorageChange = () => {
+      setIsGuest(localStorage.getItem("isGuest") === 'true');
+    };
+
+    // Set up the event listener for localStorage changes
+    window.addEventListener('storage', handleStorageChange);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
   }, []);
 
   const navigateTo = (path) => {
@@ -13,31 +24,29 @@ const NavBar = () => {
   };
 
   const handleSignOut = () => {
-    localStorage.setItem("isGuest",true);
+    localStorage.setItem("isGuest", 'true');
+    setIsGuest(true); // Update state immediately
     navigateTo('/login');
   };
 
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <div className="navbar-logo">
-        </div>
+        <div className="navbar-logo"></div>
         <div className="navbar-item" onClick={() => navigateTo('/')}>
-        <img onClick={() => navigateTo('/login')} 
-            src="/external/Logo2.png"
-            alt="White Dressing"
-            className="navbar-item-img"/>
-          <span className="navbar-item-logotext" onClick={() => navigateTo('/login')} >White Dressing</span>
-          
+          <img onClick={() => navigateTo('/login')} 
+               src="/external/Logo2.png"
+               alt="White Dressing"
+               className="navbar-item-img" />
+          <span className="navbar-item-logotext" onClick={() => navigateTo('/login')}>White Dressing</span>
         </div>
       </div>
       <div className="navbar-right">
-        {!isGuestX ? (
+        {!isGuest ? (
           <>
-          <div className="navbar-item" onClick={() => navigateTo('/prepare-meal')}>
+            <div className="navbar-item" onClick={() => navigateTo('/prepare-meal')}>
               <span className="navbar-item-text">Prepare Meal</span>
             </div>
-
             <div className="navbar-item" onClick={() => navigateTo('/profile-page')}>
               <span className="navbar-item-text">Profile</span>
             </div>
