@@ -17,3 +17,9 @@ Backend:
     Create connection to sql server in visual studio Code
     Run 401LoginSchema.sql on active connection
     Run App.py
+
+Testing:
+    change working directory to testing_folder in backend folder.
+    pip install pytest
+    pip install mysql-connector-python
+    enter the command pytest to run all tests
