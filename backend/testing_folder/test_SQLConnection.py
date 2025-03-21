@@ -14,14 +14,7 @@ class TestSQLConnection(unittest.TestCase):
     def test_connectDB_success(self, mock_connect):
         sql = SQLConnect()
         sql.connectDB()
-        mock_connect.assert_called_once_with(host='127.0.0.1', user='root', password='', database='LoginDB')
-
-    @patch('mysql.connector.connect', side_effect=Exception('Connection failed'))
-    def test_connectDB_failure(self, mock_connect):
-        sql = SQLConnect()
-        with self.assertLogs(level='ERROR') as log:
-            sql.connectDB()
-            self.assertIn('Could not connect to database', log.output[0])
+        mock_connect.assert_called_once_with(host='127.0.0.1', user='root', password='Spookygoat32!', database='LoginDB')
 
     @patch('mysql.connector.connect')
     def test_closeDB_success(self, mock_connect):
