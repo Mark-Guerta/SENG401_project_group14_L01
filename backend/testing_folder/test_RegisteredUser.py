@@ -17,9 +17,9 @@ def test_get_info():
     user = RegisteredUser("john@example.com", "12345", "john_doe")
     info = user.getInfo()
     assert info == {
-        "username": "username",
-        "email": "email",
-        "password": "password"
+        "username": "john_doe",
+        "email": "john@example.com",
+        "password": "12345"
     }
 
 def test_set_and_get_result():
