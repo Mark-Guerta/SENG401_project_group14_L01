@@ -7,7 +7,7 @@ class RegisteredUser(User.User):
         self.password = password
         self.result = ""
 
-    def getInfo():
+    def getInfo(self):
         return {"username": "username", "email": "email", "password": "password"}
     
     def setResult(self, result):
