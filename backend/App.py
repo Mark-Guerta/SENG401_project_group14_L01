@@ -68,7 +68,7 @@ def prompt():
         combined_response = '{"recipe": ' + recipe + ', "local": ' + local + '}'
         # return Response(combined_response, mimetype='application/json')
     else:  
-        combined_response = '{"recipe": ' + recipe + ', "local": ' + '' + '}'
+        combined_response = '{"recipe": ' + recipe + '}'
     recipeInstance.setResults(recipe)
     transportRecipe = json.loads(recipe)
     recipeInstance.setRecipeVariables([transportRecipe['recipe_name'], transportRecipe["ingredients"], transportRecipe["steps"]])
