@@ -6,8 +6,11 @@ import speakText from './TTS';
 
 const PrepareMeal = () => {
   const [option, setOption] = useState(localStorage.getItem("option") === "true");
-  const [inputText, setInputText] = useState('');
+
   const [outputText, setOutputText] = useState('');
+  const [outputTextRAW, setOutputTextRAW] = useState('');
+  const [inputText, setInputText] = useState('');
+  const [outputTextLocationRAW, setOutputTextLocationRAW] = useState('');
   const [outputTextLocation, setOutputTextLocation] = useState('');
   const [isGuest, setIsGuest] = useState(true);
   const [error, setError] = useState('');
@@ -109,7 +112,9 @@ const PrepareMeal = () => {
         .then((response) => response.json())
         .then((data) => {
           const recipe = data.recipe;
+          setOutputTextRAW(recipe)
           const local = data.local;
+          setOutputTextLocationRAW(local)
           setError("Generation Successful");
           setOutputText(formatOutputText(recipe)); 
           setOutputTextLocation(formatOutputLocation(local));
@@ -238,7 +243,7 @@ const PrepareMeal = () => {
                     {outputText}
                   </div>
                   {outputText && (
-                  <button className="tts-button" type="button" onClick={() => speakText(outputText)}>
+                  <button className="tts-button" type="button" onClick={() => speakText(outputTextRAW)}>
                     🔊 Read Recipe
                   </button>
                   )}
@@ -249,7 +254,7 @@ const PrepareMeal = () => {
                   <h3 className="location-title">Ingredients Finder 🍔</h3>
                   <div className="location-output-box">
                     <div className="output-content">{outputTextLocation}</div>
-                    <button className="tts-button" type="button" onClick={() => speakText(outputTextLocation)}>
+                    <button className="tts-button" type="button" onClick={() => speakText(outputTextLocationRAW)}>
                     🔊 Read Location
                     </button>
                   </div>
