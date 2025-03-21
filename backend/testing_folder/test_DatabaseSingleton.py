@@ -1,5 +1,7 @@
 import sys
 import os
+import pytest
+from unittest import mock
 
 # Add the parent directory to the sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -7,9 +9,17 @@ import pytest
 from DatabaseSingleton import DatabaseSingleton
 
 @pytest.fixture
-def database():
+def database(mocker):
     db = DatabaseSingleton()
+
+    # Mocking the database connection
+    db.mydb = mocker.MagicMock()
+
+    # Provide the expected return value: Three lists for usernames, emails, and passwords
+    db.mydb.getDatabase.return_value = (['testuser'], ['testuser@example.com'], ['password123'])
+
     db.setLoginData()
+
     return db
 
 def test_delete_account(database, mocker):
@@ -35,3 +45,4 @@ def test_retrieve_profile(database, mocker):
     result = database.retrieveProfile('testuser')
     assert result == {'username': 'testuser', 'email': 'testuser@example.com'}
     database.mydb.retrieveProfileData.assert_called_once_with('testuser')
+
