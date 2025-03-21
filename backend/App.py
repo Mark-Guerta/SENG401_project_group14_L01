@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
-import Signup, Login, Gemini, FoodApp, DatabaseSingleton
+import Signup, Login, Gemini, DatabaseSingleton
+from FoodApp import FoodApp
+import json
 
 app = Flask(__name__) 
 CORS(app)
@@ -9,7 +11,7 @@ signup = Signup.Signup()
 logins = Login.Login()
 databaseInstance = DatabaseSingleton.DatabaseSingleton()
 databaseInstance.setLoginData()
-recipeInstance = FoodApp.FoodApp()
+recipeInstance = FoodApp()
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -60,15 +62,18 @@ def prompt():
     location = request.json['location']
     
     recipe, local = Gemini.getRecipe(location, ingredients, requirements, height, weight)
-    recipeInstance.setResults(recipe)
     introRecipe, recipe, concluRecipe = Gemini.formatRecipe(recipe)
     if location:
         introLocal, local, concluLocal = Gemini.formatLocation(local)
         combined_response = '{"recipe": ' + recipe + ', "local": ' + local + '}'
-        return Response(combined_response, mimetype='application/json')
-
-    response = '{"recipe": ' + recipe + '}'
-    return Response(response, mimetype='application/json')
+        # return Response(combined_response, mimetype='application/json')
+    else:  
+        combined_response = '{"recipe": ' + recipe + ', "local": ' + '' + '}'
+    recipeInstance.setResults(recipe)
+    transportRecipe = json.loads(recipe)
+    recipeInstance.setRecipeVariables([transportRecipe['recipe_name'], transportRecipe["ingredients"], transportRecipe["steps"]])
+    recipeInstance.downloadResults()
+    return Response(combined_response, mimetype='application/json')
 
 @app.route('/change-pass', methods=['POST'])
 def switchPassword():
@@ -119,6 +124,7 @@ def RetrieveData():
 
 @app.route('/results', methods=['POST'])
 def downloadRecipe():
+    #download the recipe  
     recipeInstance.downloadResults()
     return
 
