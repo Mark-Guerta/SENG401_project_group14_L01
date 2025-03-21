@@ -41,7 +41,6 @@ def login():
     
 @app.route('/prepare-meal', methods=['POST'])
 def prompt():
-
     requirements = []
 
     ingredients = request.json['ingredients']
@@ -63,14 +62,21 @@ def prompt():
     recipe, local = Gemini.getRecipe(location, ingredients, requirements, height, weight)
     recipeInstance.setResults(recipe)
     introRecipe, recipe, concluRecipe = Gemini.formatRecipe(recipe)
-    if (location != ""):
+    if location:
         introLocal, local, concluLocal = Gemini.formatLocation(local)
- 
+    
+    
+    
+    data = combine(recipe, local)
+    
+    return data
 
-    return {
+def combine(recipe, local):
+    combined_data = {
         "recipe": recipe,
         "local": local
     }
+    return combined_data
 
 
 @app.route('/change-pass', methods=['POST'])
