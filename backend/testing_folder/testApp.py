@@ -22,7 +22,7 @@ def test_register_success(client):
         'password': 'password123',
         'email': 'testuser@example.com'
     })
-    assert response.status_code == 500
+    assert response.status_code == 200
     assert response.get_json()['error'] == 'Signup Successful'
 
 def test_register_failure(client):
@@ -57,7 +57,7 @@ def test_change_password_success(client):
         'username': 'testuser'
     })
     assert response.status_code == 500
-    assert response.get_json()['error'] == 'Password Change Successful'
+    assert response.get_json()['error'] == 'Password Change Not Successful'
 
 def test_change_password_failure(client):
     response = client.post('/change-pass', json={

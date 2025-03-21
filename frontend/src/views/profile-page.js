@@ -190,6 +190,7 @@ class Profile extends Component {
               placeholder="Re-Enter your Password"
               value={newPassword}
               onChange={this.handleInputChange}
+              name="newPassword"
               
             />
             <button type="submit" className="profile-button">Change</button>
