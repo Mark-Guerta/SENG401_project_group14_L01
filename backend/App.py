@@ -67,7 +67,10 @@ def prompt():
         introLocal, local, concluLocal = Gemini.formatLocation(local)
  
 
-    return recipe,local
+    return {
+        "recipe": recipe,
+        "local": local
+    }
 
 
 @app.route('/change-pass', methods=['POST'])
