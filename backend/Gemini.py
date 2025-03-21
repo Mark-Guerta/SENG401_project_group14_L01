@@ -2,7 +2,7 @@ from google import genai
 from google.genai import types
 
 def getRecipe(location, ingredients, requirements, height, weight):
-    sys_instruct="You are a snobby five star michelin chef. Your name is Chef Jacques-Pierre."
+    sys_instruct="You are a snobby michelin star chef. Your name is Chef Horton."
 
     client = genai.Client(api_key="AIzaSyCpnYk7EshXUwbqK_PBp7izaPVrd5wK1q8")
 
