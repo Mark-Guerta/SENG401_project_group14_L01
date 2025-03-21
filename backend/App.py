@@ -63,7 +63,7 @@ def prompt():
     
     recipe, local = Gemini.getRecipe(location, ingredients, requirements, height, weight)
     introRecipe, recipe, concluRecipe = Gemini.formatRecipe(recipe)
-    if location != "":
+    if location:
         introLocal, local, concluLocal = Gemini.formatLocation(local)
         combined_response = '{"recipe": ' + recipe + ', "local": ' + local + '}'
         # return Response(combined_response, mimetype='application/json')

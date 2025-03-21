@@ -48,10 +48,8 @@ class Login extends Component {
           if (json.error == 'Login Failed') {
             this.setState({ error: 'Username or Password does not exist' });
           } else {
-            localStorage.setItem("isGuest", "False");
-            
+            localStorage.setItem("isGuest", false);
             localStorage.setItem("username", username);
-
             this.setState({ error: 'Login Successful' });
             this.navigateTo('/prepare-meal');
           }

@@ -6,8 +6,11 @@ import speakText from './TTS';
 
 const PrepareMeal = () => {
   const [option, setOption] = useState(localStorage.getItem("option") === "true");
-  const [inputText, setInputText] = useState('');
+
   const [outputText, setOutputText] = useState('');
+  const [outputTextRAW, setOutputTextRAW] = useState('');
+  const [inputText, setInputText] = useState('');
+  const [outputTextLocationRAW, setOutputTextLocationRAW] = useState('');
   const [outputTextLocation, setOutputTextLocation] = useState('');
   const [isGuest, setIsGuest] = useState(true);
   const [error, setError] = useState('');
@@ -27,6 +30,12 @@ const PrepareMeal = () => {
   const [highCarbs, setHighCarbs] = useState(false);
   const [highFats, setHighFats] = useState(false);
   const [customPreference, setCustomPreference] = useState('');
+
+  const clean = (data) => {
+    if (typeof data !== 'object' || data === null) return '';
+
+    return JSON.stringify(data, null, 2);
+  };
 
   const formatOutputText = (outputText) => {
     if (!outputText || typeof outputText !== 'object') return "";
@@ -73,7 +82,7 @@ const PrepareMeal = () => {
 
   useEffect(() => {
     const guestStatus = localStorage.getItem("isGuest");
-    setIsGuest(guestStatus === "true"); 
+    setIsGuest(guestStatus === true); 
   }, []);
 
   const handleSubmit = (event) => {
@@ -108,11 +117,29 @@ const PrepareMeal = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          const recipe = data.recipe;
-          const local = data.local;
-          setError("Generation Successful");
-          setOutputText(formatOutputText(recipe)); 
-          setOutputTextLocation(formatOutputLocation(local));
+          if (Object.keys(data).length > 1){
+            const recipe = data.recipe;
+            const deepRecipe = JSON.parse(JSON.stringify(recipe));
+            let recipe2 = clean(deepRecipe);
+            setOutputTextRAW(recipe2);
+            const local = data.local;
+            const deepLocation = JSON.parse(JSON.stringify(local));
+            let local2 = clean(deepLocation);
+            setOutputTextLocationRAW(local2);
+            setError("Generation Successful");
+            setOutputText(formatOutputText(recipe)); 
+            setOutputTextLocation(formatOutputLocation(local));
+          }
+          else {
+            const recipe = data.recipe
+            const deepRecipe = JSON.parse(JSON.stringify(recipe));
+            let recipe2 = clean(deepRecipe);
+            setOutputTextRAW(recipe2);
+  
+            setError("Generation Successful");
+            setOutputText(formatOutputText(recipe)); 
+            setOutputTextLocation('');
+          }
         })
         .catch((error) => {
           setError("An error occurred while generating the meal.");
@@ -234,11 +261,16 @@ const PrepareMeal = () => {
                 <h2 className="prepare-meal-text34">🍳 Recipe 🍳</h2>
                 <br />
                 <div className="prepare-meal-input">
+                  
+                  
                   <div className="prepare-meal-input-text">
                     {outputText}
                   </div>
+
+
+
                   {outputText && (
-                  <button className="tts-button" type="button" onClick={() => speakText(outputText)}>
+                  <button className="tts-button" type="button" onClick={() => speakText(outputTextRAW)}>
                     🔊 Read Recipe
                   </button>
                   )}
@@ -249,7 +281,7 @@ const PrepareMeal = () => {
                   <h3 className="location-title">Ingredients Finder 🍔</h3>
                   <div className="location-output-box">
                     <div className="output-content">{outputTextLocation}</div>
-                    <button className="tts-button" type="button" onClick={() => speakText(outputTextLocation)}>
+                    <button className="tts-button" type="button" onClick={() => speakText(outputTextLocationRAW)}>
                     🔊 Read Location
                     </button>
                   </div>
