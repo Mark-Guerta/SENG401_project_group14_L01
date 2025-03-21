@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './prepare-meal.css'
 import NavBar from './nav-bar'
 import Footer from './footer'
+import speakText from './TTS';
 
 const PrepareMeal = () => {
   const [option, setOption] = useState(localStorage.getItem("option") === "true");
@@ -133,6 +134,7 @@ const PrepareMeal = () => {
     <div>
       <div className="prepare-meal-container">
         <NavBar />
+        
         <span className="prepare-meal-text33"></span>
         <br />
         <div className="prepare-meal-prepare-meal1">
@@ -143,6 +145,7 @@ const PrepareMeal = () => {
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
             />
+            
             <div className="diet-info-box">
               {option ? (
                 <>
@@ -234,14 +237,21 @@ const PrepareMeal = () => {
                   <div className="prepare-meal-input-text">
                     {outputText}
                   </div>
+                  {outputText && (
+                  <button className="tts-button" type="button" onClick={() => speakText(outputText)}>
+                    🔊 Read Recipe
+                  </button>
+                  )}
                 </div>
               </div>
-
               {outputTextLocation && (
                 <div className="right-side-container">
                   <h3 className="location-title">Ingredients Finder 🍔</h3>
                   <div className="location-output-box">
                     <div className="output-content">{outputTextLocation}</div>
+                    <button className="tts-button" type="button" onClick={() => speakText(outputTextLocation)}>
+                    🔊 Read Location
+                    </button>
                   </div>
                 </div>
               )}
