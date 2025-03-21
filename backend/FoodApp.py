@@ -39,7 +39,5 @@ class FoodApp:
                 else:
                     complete = False
         else:
-            with open("results.txt", "w") as file: # clearing the file
-                file.write(recipeChecking)
             complete = False
         return complete
