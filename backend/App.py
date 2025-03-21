@@ -67,7 +67,8 @@ def prompt():
         combined_response = '{"recipe": ' + recipe + ', "local": ' + local + '}'
         return Response(combined_response, mimetype='application/json')
 
-    return Response(recipe, mimetype='application/json')
+    response = '{"recipe": ' + recipe + '}'
+    return Response(response, mimetype='application/json')
 
 @app.route('/change-pass', methods=['POST'])
 def switchPassword():
