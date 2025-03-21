@@ -93,7 +93,7 @@ const PrepareMeal = () => {
           if (data.error === "Generation Successful") {
             setError("Generation Successful");
             setOutputTextLocation(data.location);
-            setOutputText(formatOutputText(data.message))
+            setOutputText(formatOutputText(data.message));
           } else {
             setError('Failed to generate recipes');
           }
@@ -103,6 +103,7 @@ const PrepareMeal = () => {
         });
     }
   };
+
 
   const handleMoreOptions = () => {
     setOption(true);
@@ -218,11 +219,11 @@ const PrepareMeal = () => {
     <h2 className="prepare-meal-text34">🍳 Recipe 🍳</h2>
     <br />
     <div className="prepare-meal-input">
-      <span className="prepare-meal-input-text">
-        {outputText ? outputText : ""}
-      </span>
-    </div>
+  <div className="prepare-meal-input-text">
+    {outputText}
   </div>
+</div>
+</div>
 
   {outputTextLocation && (
     <div className="right-side-container">
