@@ -31,6 +31,12 @@ const PrepareMeal = () => {
   const [highFats, setHighFats] = useState(false);
   const [customPreference, setCustomPreference] = useState('');
 
+  const clean = (data) => {
+    if (typeof data !== 'object' || data === null) return '';
+
+    return JSON.stringify(data, null, 2);
+  };
+
   const formatOutputText = (outputText) => {
     if (!outputText || typeof outputText !== 'object') return "";
   
@@ -113,16 +119,20 @@ const PrepareMeal = () => {
         .then((data) => {
           if (data.length > 1){
             const recipe = data.recipe;
-            setOutputTextRAW(recipe)
+            recip2 = clean(recipe)
+            setOutputTextRAW(recipe2)
             const local = data.local;
-            setOutputTextLocationRAW(local)
+            local2 = clean(local)
+            setOutputTextLocationRAW(local2)
             setError("Generation Successful");
             setOutputText(formatOutputText(recipe)); 
             setOutputTextLocation(formatOutputLocation(local));
           }
           else {
             const recipe = data
-            setOutputTextRAW(recipe)
+            recip2 = clean(recipe)
+            setOutputTextRAW(recipe2)
+  
             setError("Generation Successful");
             setOutputText(formatOutputText(recipe)); 
             setOutputTextLocation('');
@@ -248,9 +258,14 @@ const PrepareMeal = () => {
                 <h2 className="prepare-meal-text34">🍳 Recipe 🍳</h2>
                 <br />
                 <div className="prepare-meal-input">
+                  
+                  
                   <div className="prepare-meal-input-text">
                     {outputText}
                   </div>
+
+
+
                   {outputText && (
                   <button className="tts-button" type="button" onClick={() => speakText(outputTextRAW)}>
                     🔊 Read Recipe
