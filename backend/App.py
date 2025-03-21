@@ -64,20 +64,8 @@ def prompt():
     introRecipe, recipe, concluRecipe = Gemini.formatRecipe(recipe)
     if location:
         introLocal, local, concluLocal = Gemini.formatLocation(local)
-    
-    
-    
-    data = combine(recipe, local)
-    
-    return data
 
-def combine(recipe, local):
-    combined_data = {
-        "recipe": recipe,
-        "local": local
-    }
-    return combined_data
-
+    return recipe, local
 
 @app.route('/change-pass', methods=['POST'])
 def switchPassword():

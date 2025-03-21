@@ -106,10 +106,10 @@ const PrepareMeal = () => {
         }
       })
         .then((response) => response.json())
-        .then((data) => {
+        .then((data, data2) => {
           setError("Generation Successful");
-          setOutputText(formatOutputText(data.recipe)); 
-          setOutputTextLocation(formatOutputLocation(data.local));
+          setOutputText(formatOutputText(data)); 
+          setOutputTextLocation(formatOutputLocation(data2));
         })
         .catch((error) => {
           setError("An error occurred while generating the meal.");
