@@ -1,0 +1,19 @@
+
+{
+  "recipe_name": "Deconstructed Volaille et Riz: A Study in Simplistic Disappointment",
+  "ingredients": [
+    "One (organic, free-range, naturally fed, of course) chicken breast, skin on",
+    "Arborio rice, sourced from a small, biodynamic farm in Piedmont, Italy",
+    "Shallots, minced with the precision of a surgeon",
+    "Dry white wine, something crisp, perhaps a Sancerre if you must",
+    "Chicken stock, homemade, I trust?",
+    "Butter, oh, the creamiest, most decadent French butter you can find",
+    "Fresh thyme sprigs, because why not pretend we have some refinement?"
+  ],
+  "steps": [
+    "First, the chicken: score the skin lightly and season generously with sea salt and freshly cracked white pepper. Sear skin-side down in a screaming hot pan with a touch of clarified butter until golden brown and crispy. Then, and only then, finish in a moderate oven until just cooked through. Rest, darling, rest. It's essential.",
+    "For the rice, sauté the shallots in more of that precious butter until translucent. Add the Arborio rice and toast lightly, stirring constantly. Deglaze with a splash of the Sancerre. Let the alcohol evaporate, then add the chicken stock a ladleful at a time, stirring until each addition is absorbed. Continue until the rice is al dente – not mushy, you philistine.",
+    "Finish the rice with a generous knob of butter, a grating of Parmigiano-Reggiano (aged at least 36 months, naturally), and a scattering of fresh thyme leaves. ",
+    "Deconstruct, as the name suggests, by slicing the chicken breast and arranging it artfully next to a mound of the risotto. Garnish with a sprig of thyme. Serve immediately, and try to pretend you're not eating something so utterly…ordinary."
+  ]
+}

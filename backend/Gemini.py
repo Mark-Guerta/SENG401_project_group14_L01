@@ -55,6 +55,22 @@ def formatLocation(location):
     jsonLocation, partition, conclu = location_conclu.partition("```")
     return intro, jsonLocation, conclu
 
+def recipeCheckingBeforeDownload(recipe):
+    client = genai.Client(api_key="AIzaSyCpnYk7EshXUwbqK_PBp7izaPVrd5wK1q8")
+    
+    sys_instruct="You are a food recipe critic that responds in strictly in one answer out of two possible responses, True or False. No needed for conversation."
+
+    content1 = f"""Given a text, determine if it's a food recipe. If it is a food recipe, answer True.
+                If the given text is not a recipe or sounds offended then answer False. 
+                Here is the test: {recipe}"""
+
+    
+    response1 = client.models.generate_content(
+        model="gemini-2.0-flash", 
+        config=types.GenerateContentConfig(system_instruction=sys_instruct),
+        contents=content1
+    )
+    return response1.text
 #recipe, local = getRecipe("Calgary", "Chicken, rice, eggs", [False, False], "", "")
 #x, y, z = formatLocation(local)
 #print(y)
