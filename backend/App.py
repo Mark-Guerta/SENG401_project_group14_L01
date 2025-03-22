@@ -13,6 +13,7 @@ databaseInstance = DatabaseSingleton.DatabaseSingleton()
 databaseInstance.setLoginData()
 recipeInstance = FoodApp()
 
+
 @app.route('/register', methods=['POST'])
 def register():
 
@@ -72,7 +73,7 @@ def prompt():
     recipeInstance.setResults(recipe)
     transportRecipe = json.loads(recipe)
     recipeInstance.setRecipeVariables([transportRecipe['recipe_name'], transportRecipe["ingredients"], transportRecipe["steps"]])
-    recipeInstance.downloadResults()
+   
     return Response(combined_response, mimetype='application/json')
 
 @app.route('/change-pass', methods=['POST'])

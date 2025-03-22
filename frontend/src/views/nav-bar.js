@@ -2,7 +2,7 @@ import './nav-bar.css';
 import React, { useState, useEffect } from 'react';
 
 const NavBar = () => {
-  const [isGuest, setIsGuest] = useState(localStorage.getItem("isGuest") === 'true'); // Initialize based on localStorage
+  const [isGuest, setIsGuest] = useState(localStorage.getItem("isGuest") === 'true'); 
 
   useEffect(() => {
     // Listen for changes in the localStorage item
@@ -13,7 +13,7 @@ const NavBar = () => {
     // Set up the event listener for localStorage changes
     window.addEventListener('storage', handleStorageChange);
 
-    // Cleanup the event listener on component unmount
+   
     return () => {
       window.removeEventListener('storage', handleStorageChange);
     };
