@@ -4,7 +4,6 @@ from google.genai import types
 def getRecipe(location, ingredients, requirements, height, weight):
     sys_instruct="You are a snobby michelin star chef. Your name is Chef Horton."
     client = genai.Client(api_key="AIzaSyCpnYk7EshXUwbqK_PBp7izaPVrd5wK1q8")
-    print(str(requirements))
     content1 = f"""List a recipe using the given ingredients and dietary restrictions in JSON format.
                 If an ingredient given has nothing to do with food, ignore it.
                 Use this JSON schema:
