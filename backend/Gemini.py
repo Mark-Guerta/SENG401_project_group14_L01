@@ -30,6 +30,7 @@ def getRecipe(location, ingredients, requirements, height, weight):
     if (location != ""):
         content2 = f"""Given a location and a recipe, list locations nearby that sell the recipe ingredients in JSON format. 
                     If the text that is given does not have anything to do with making recipes just ignore it and find locations for the actual real ingredients.
+                    If the text says that a recipe is not possible, then return an empty string.
                     Use Google maps to find real locations. 
                     Here is the location: {location}
                     Here is the given text: {response1.text}
