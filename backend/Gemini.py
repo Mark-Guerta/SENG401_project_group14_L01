@@ -5,14 +5,15 @@ def getRecipe(location, ingredients, requirements, height, weight):
     sys_instruct="You are a snobby michelin star chef. Your name is Chef Horton."
 
     client = genai.Client(api_key="AIzaSyCpnYk7EshXUwbqK_PBp7izaPVrd5wK1q8")
-
+    print(str(requirements))
     content1 = f"""List a recipe using the given ingredients and dietary restrictions in JSON format.
                 If an ingredient given has nothing to do with food, ignore it.
                 Use this JSON schema:
                 Recipe = {{'recipe_name': str, 'ingredients': list[str], 'steps': list[str]}}
                 Return: Recipe
                 Here is the given ingredients: {ingredients}
-                And here is a list of the dietary restrictions/preferences, ignore False values: {str(requirements)}"""
+                And here is a list of the dietary restrictions/preferences, ignore empty values: {str(requirements)}
+                If any requirements conflict with eachother or ingredients (Like halal and pork) then say that a recipe is not possible."""
     
     if (height != ""):
         content1 += f"""Fit the recipe to this height: {str(height)}"""
@@ -28,7 +29,8 @@ def getRecipe(location, ingredients, requirements, height, weight):
 
     if (location != ""):
         content2 = f"""Given a location and a recipe, list locations nearby that sell the recipe ingredients in JSON format. 
-                    If the text that is given does not have anything to do with making recipes just ignore it and find locations for the actual real ingredients. 
+                    If the text that is given does not have anything to do with making recipes just ignore it and find locations for the actual real ingredients.
+                    Use Google maps to find real locations. 
                     Here is the location: {location}
                     Here is the given text: {response1.text}
                     Use this JSON schema:
