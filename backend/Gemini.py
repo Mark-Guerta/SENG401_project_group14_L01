@@ -3,7 +3,6 @@ from google.genai import types
 
 def getRecipe(location, ingredients, requirements, height, weight):
     sys_instruct="You are a snobby michelin star chef. Your name is Chef Horton."
-
     client = genai.Client(api_key="AIzaSyCpnYk7EshXUwbqK_PBp7izaPVrd5wK1q8")
     print(str(requirements))
     content1 = f"""List a recipe using the given ingredients and dietary restrictions in JSON format.
@@ -12,7 +11,7 @@ def getRecipe(location, ingredients, requirements, height, weight):
                 Recipe = {{'recipe_name': str, 'ingredients': list[str], 'steps': list[str]}}
                 Return: Recipe
                 Here is the given ingredients: {ingredients}
-                And here is a list of the dietary restrictions/preferences, ignore empty values: {str(requirements)}
+                And here is a list of the dietary restrictions/preferences, ignore empty values or preferences that are not real or possible: {str(requirements)}
                 If any requirements conflict with eachother or ingredients (Like halal and pork) then say that a recipe is not possible."""
     
     if (height != ""):
