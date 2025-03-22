@@ -51,9 +51,9 @@ def prompt():
     location = request.json['location']
 
     if request.json['lactoseFree']:
-            requirements.append('lactoseFree')
+            requirements.append('lactose free')
     if request.json['glutenFree']:
-            requirements.append('glutenFree')
+            requirements.append('gluten free')
     if request.json['vegetarian']:
             requirements.append('vegetarian')
     if request.json['vegan']:
@@ -65,25 +65,25 @@ def prompt():
     if request.json['diabetic']:
             requirements.append('diabetic')
     if request.json['highProtein']:
-            requirements.append('highProtein')
+            requirements.append('high protein')
     if request.json['highCarbs']:
-            requirements.append('highCarbs')
+            requirements.append('high carbs')
     if request.json['highFats']:
-            requirements.append('highFats')
+            requirements.append('high fats')
     
-    requirements.append(request.json['customPreferences'])
+    requirements.append(request.json['customPreference'])
             
     recipe, local = Gemini.getRecipe(location, ingredients, requirements, height, weight)
     introRecipe, recipe, concluRecipe = Gemini.formatRecipe(recipe)
     if location:
         introLocal, local, concluLocal = Gemini.formatLocation(local)
         combined_response = '{"recipe": ' + recipe + ', "local": ' + local + '}'
-        # return Response(combined_response, mimetype='application/json')
     else:  
         combined_response = '{"recipe": ' + recipe + '}'
+        
     recipeInstance.setResults(recipe)
-    transportRecipe = json.loads(recipe)
-    recipeInstance.setRecipeVariables([transportRecipe['recipe_name'], transportRecipe["ingredients"], transportRecipe["steps"]])
+    #transportRecipe = json.loads(recipe)
+    #recipeInstance.setRecipeVariables([transportRecipe['recipe_name'], transportRecipe["ingredients"], transportRecipe["steps"]])
    
     return Response(combined_response, mimetype='application/json')
 
