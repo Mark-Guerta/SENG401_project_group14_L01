@@ -29,13 +29,14 @@ class Signup:
         """
         username, email, password = self.getSignupCredentials()
         newRegisteredUser = RegisteredUser.RegisteredUser(username, email, password)
-        self.transportUserCredentialsIntoDatabase()
-        return newRegisteredUser is not None  # Cleaner check
+        check = self.transportUserCredentialsIntoDatabase()
+        return check  # Cleaner check
     
     # sending registered information into database
     def transportUserCredentialsIntoDatabase(self):
         # open connection to database
-        self.SQL.inputDatabase(self.username, self.email, self.password)
+        check = self.SQL.inputDatabase(self.username, self.email, self.password)
+        return check
         
         
         

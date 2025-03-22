@@ -64,6 +64,7 @@ class SQLConnect:
 
         cursor.close()
         self.closeDB()
+        return True
 
     def removeFromDatabase(self, username):
 
