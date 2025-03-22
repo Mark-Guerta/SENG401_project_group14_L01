@@ -229,7 +229,27 @@
   padding: 10px;
   font-weight: bold;
 }
+.download-button-text{
+  font-weight: bold;
+  color: black;
+}
 
+
+.download-button {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 20px 40px; 
+  font-size: 20px;
+  background-color: white;
+  cursor: pointer;
+  text-align: center;
+  opacity: 0.7;;
+  margin-top: 18px; 
+  width: 100%;
+  border: none;
+  outline: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+} 
 .generate-button {
   border: 2px solid rgba(0, 0, 0, 0.5);
   border-radius: 10px;

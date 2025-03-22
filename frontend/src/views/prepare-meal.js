@@ -255,6 +255,9 @@ const PrepareMeal = () => {
             <button type="submit" className="generate-button">
               <span className="generate-button-text">Generate</span>
             </button>
+            <button type="submit" className="download-button">
+              <span className="download-button-text">Download</span>
+            </button>
 
             <div className="side-by-side-boxes">
               <div className="main-result-box">
