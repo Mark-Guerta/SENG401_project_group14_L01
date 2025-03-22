@@ -6,8 +6,7 @@ import speakText from './TTS';
 
 const PrepareMeal = () => {
   const [option, setOption] = useState(localStorage.getItem("option") === "true");
-  const [isTTSActive, setIsTTSActive] = useState(false);
-  const [isTTSLocationActive, setIsTTSLocationActive] = useState(false);
+
   const [outputText, setOutputText] = useState('');
   const [outputTextRAW, setOutputTextRAW] = useState('');
   const [inputText, setInputText] = useState('');
@@ -31,7 +30,6 @@ const PrepareMeal = () => {
   const [highCarbs, setHighCarbs] = useState(false);
   const [highFats, setHighFats] = useState(false);
   const [customPreference, setCustomPreference] = useState('');
-  const [downloadRecipe, setDownloadRecipe] = useState(false);
 
   const clean = (data) => {
     if (typeof data !== 'object' || data === null) return '';
@@ -141,29 +139,6 @@ const PrepareMeal = () => {
             setError("Generation Successful");
             setOutputText(formatOutputText(recipe)); 
             setOutputTextLocation('');
-          }
-
-          if (downloadRecipe) {
-            fetch("http://127.0.0.1:5000/download-recipe", {
-              method: "POST",
-              body: JSON.stringify(requestData),
-              headers: {
-                "Content-type": "application/json; charset=UTF-8"
-              }
-            })
-              .then((response) => response.blob())
-              .then((blob) => {
-                const url = window.URL.createObjectURL(new Blob([blob])); //downloading txt
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'recipe.txt';
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-              })
-              .catch((error) => {
-                setError("An error occurred while downloading the recipe.");
-              });
           }
         })
         .catch((error) => {
@@ -281,17 +256,7 @@ const PrepareMeal = () => {
               <span className="generate-button-text">Generate</span>
             </button>
 
-            {!isGuest ? (
-              <label>
-                <input
-                  type="checkbox"
-                  checked={downloadRecipe}
-                  onChange={(e) => setDownloadRecipe(e.target.checked)}
-                />
-                Download Recipe
-              </label>
-            ) : (<div></div>)
-            }
+            
             
 
             <div className="side-by-side-boxes">
