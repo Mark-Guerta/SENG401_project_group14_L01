@@ -1,6 +1,6 @@
 let isSpeaking = false;
 
-const speakText = (text) => {
+const speakText = (text, onStart, onEnd) => {
   if (!("speechSynthesis" in window)) {
     alert("Text-to-Speech not supported in your browser.");
     return;
@@ -9,6 +9,7 @@ const speakText = (text) => {
   if (isSpeaking) {
     window.speechSynthesis.cancel();
     isSpeaking = false;
+    if (onEnd) onEnd();
     return;
   }
 
@@ -19,9 +20,11 @@ const speakText = (text) => {
   utterance.volume = 1;
 
   isSpeaking = true;
+  if (onStart) onStart();
 
   utterance.onend = () => {
     isSpeaking = false;
+    if (onEnd) onEnd();
   };
 
   window.speechSynthesis.speak(utterance);

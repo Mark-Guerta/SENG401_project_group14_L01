@@ -2,13 +2,14 @@ import User
 
 class Guest(User.User):
     def __init__(self):
+        super().__init__()
         self.result = ""
 
     def getInfo(self):
-        pass
+        return "Guest information not available."
 
     def setResult(self, result):
-        pass
+        self.result = result
 
     def getResult(self):
-        pass
+        return self.result
