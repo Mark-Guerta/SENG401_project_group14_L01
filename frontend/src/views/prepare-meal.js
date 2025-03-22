@@ -6,7 +6,8 @@ import speakText from './TTS';
 
 const PrepareMeal = () => {
   const [option, setOption] = useState(localStorage.getItem("option") === "true");
-
+  const [isTTSActive, setIsTTSActive] = useState(false);
+  const [isTTSLocationActive, setIsTTSLocationActive] = useState(false);
   const [outputText, setOutputText] = useState('');
   const [outputTextRAW, setOutputTextRAW] = useState('');
   const [inputText, setInputText] = useState('');
