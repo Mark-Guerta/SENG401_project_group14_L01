@@ -132,17 +132,17 @@ const PrepareMeal = () => {
             setOutputText(formatOutputText(recipe)); 
             setOutputTextLocation(formatOutputLocation(local));
           }
-          else {
+          else if (Object.keys(data).length == 1){
             const recipe = data.recipe
+            console.log(recipe)
             const deepRecipe = JSON.parse(JSON.stringify(recipe));
             let recipe2 = clean(deepRecipe);
             setOutputTextRAW(recipe2);
-  
+            
             setError("Generation Successful");
             setOutputText(formatOutputText(recipe)); 
             setOutputTextLocation('');
           }
-
       
         })
         

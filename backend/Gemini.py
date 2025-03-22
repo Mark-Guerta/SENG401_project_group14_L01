@@ -11,7 +11,8 @@ def getRecipe(location, ingredients, requirements, height, weight):
                 Return: Recipe
                 Here is the given ingredients: {ingredients}
                 And here is a list of the dietary restrictions/preferences, ignore empty values or preferences that are not real or possible: {str(requirements)}
-                If any requirements conflict with eachother or ingredients (Like halal and pork) then say that a recipe is not possible."""
+                If any requirements conflict with eachother or ingredients (Like halal and pork) which makes a recipe not possible then say so. Don't not return a recipe 
+                if there's only one ingredient, even with one ingredient you can find a recipe. """
     
     if (height != ""):
         content1 += f"""Fit the recipe to this height: {str(height)}"""
@@ -55,20 +56,3 @@ def formatLocation(location):
     intro, partition, location_conclu = location.partition("```json")
     jsonLocation, partition, conclu = location_conclu.partition("```")
     return intro, jsonLocation, conclu
-
-def recipeCheckingBeforeDownload(recipe):
-    client = genai.Client(api_key="AIzaSyCpnYk7EshXUwbqK_PBp7izaPVrd5wK1q8")
-    
-    sys_instruct="You are a food recipe critic that responds in strictly in one answer out of two possible responses, True or False. No needed for conversation."
-
-    content1 = f"""Given a text, determine if it's a food recipe. If it is a food recipe, answer True.
-                If the given text is not a recipe or sounds offended then answer False. 
-                Here is the test: {recipe}"""
-
-    
-    response1 = client.models.generate_content(
-        model="gemini-2.0-flash", 
-        config=types.GenerateContentConfig(system_instruction=sys_instruct),
-        contents=content1
-    )
-    return response1.text

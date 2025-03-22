@@ -40,6 +40,7 @@ def login():
         return jsonify({'error': 'Login Successful'}), 500
     else:
         return jsonify({'error': 'Login Failed'}), 500
+    
 @app.route('/prepare-meal', methods=['POST'])
 def prompt():
     requirements = []
@@ -76,12 +77,19 @@ def prompt():
     introRecipe, recipe, concluRecipe = Gemini.formatRecipe(recipe)
     if location:
         introLocal, local, concluLocal = Gemini.formatLocation(local)
-        combined_response = '{"recipe": ' + recipe + ', "local": ' + local + '}'
-    else:  
-        combined_response = '{"recipe": ' + recipe + '}'
+        if recipe:
+            combined_response = '{"recipe": ' + recipe + ', "local": ' + local + '}'
+        else:
+            recipe = "No Recipe Found"
+            combined_response = '{"recipe": ' + recipe + ', "local": ' + local + '}'
+    else:
+        if recipe:
+            combined_response = '{"recipe": ' + recipe + '}'
+        else:
+            recipe = "No Recipe Found"
+            combined_response = '{"recipe": ' + recipe + '}'
 
     recipeInstance.setResults(recipe)
-   
     return Response(combined_response, mimetype='application/json')
 
 @app.route('/change-pass', methods=['POST'])
