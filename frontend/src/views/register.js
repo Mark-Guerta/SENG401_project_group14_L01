@@ -52,7 +52,7 @@ class Register extends Component {
             this.setState({ error: "Signup Successful" });
             this.navigateTo('/home-page2');
           } else {
-            this.setState({ error: 'Failed to register' });
+            this.setState({ error: 'Username already exists' });
           }
         });
     }

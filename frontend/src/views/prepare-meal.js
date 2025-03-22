@@ -186,7 +186,7 @@ const PrepareMeal = () => {
     <div>
       <div className="prepare-meal-container">
         <NavBar />
-        
+  
         <span className="prepare-meal-text33"></span>
         <br />
         <div className="prepare-meal-prepare-meal1">
@@ -197,7 +197,7 @@ const PrepareMeal = () => {
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
             />
-            
+  
             <div className="diet-info-box">
               {option ? (
                 <>
@@ -213,7 +213,7 @@ const PrepareMeal = () => {
                       <label><input type="checkbox" checked={diabetic} onChange={(e) => setDiabetic(e.target.checked)} /> Diabetic</label>
                     </div>
                   </div>
-
+  
                   <div className="height-weight-preferences">
                     <div className="height-box">
                       <h3>Height:</h3>
@@ -227,7 +227,7 @@ const PrepareMeal = () => {
                         <option value="200+cm">200 cm and above</option>
                       </select>
                     </div>
-
+  
                     <div className="weight-box">
                       <h3>Weight:</h3>
                       <select className="weight-dropdown" onChange={(e) => setWeight(e.target.value)} defaultValue="">
@@ -244,7 +244,7 @@ const PrepareMeal = () => {
                         <option value="100+kg">100 kg and above</option>
                       </select>
                     </div>
-
+  
                     <div className="preferences-box">
                       <h3>Preferences:</h3>
                       <div className="checkbox-list">
@@ -253,11 +253,12 @@ const PrepareMeal = () => {
                         <label><input type="checkbox" checked={highFats} onChange={(e) => setHighFats(e.target.checked)} /> High Fats</label>
                       </div>
                     </div>
-
+  
                     <div className="height-box">
                       <h3>Other:</h3>
                       <input type="text" className="other-input" placeholder="Enter custom preference" value={customPreference} onChange={(e) => setCustomPreference(e.target.value)} />
                     </div>
+  
                     <div className="location-box">
                       <h3>Enter Location:</h3>
                       <input 
@@ -268,6 +269,7 @@ const PrepareMeal = () => {
                         onChange={(e) => setLocation(e.target.value)} 
                       />
                     </div>
+  
                     <button className="option-button" type="button" onClick={handleLessOptions}>Less Options</button>
                   </div>
                 </>
@@ -275,13 +277,13 @@ const PrepareMeal = () => {
                 <button className="option-button" type="button" onClick={handleMoreOptions}>More Options</button>
               )}
             </div>
-
+  
             <br />
             <button type="submit" className="generate-button">
               <span className="generate-button-text">Generate</span>
             </button>
-
-            {!isGuest ? (
+  
+            {!isGuest && (
               <label>
                 <input
                   type="checkbox"
@@ -290,32 +292,29 @@ const PrepareMeal = () => {
                 />
                 Download Recipe
               </label>
-            ) : (<div></div>)
-            }
-            
-
+            )}
+  
             <div className="side-by-side-boxes">
               <div className="main-result-box">
                 <h2 className="prepare-meal-text34">🍳 Recipe 🍳</h2>
                 <br />
                 <div className="prepare-meal-input">
-                  
-                  
                   <div className="prepare-meal-input-text">
                     {outputText}
                   </div>
-
+  
                   {outputTextRAW && (
-                  <button className="tts-button" type="button" onClick={() => speakText(
-                    outputTextRAW,
-                    () => setIsTTSActive(true),  
-                    () => setIsTTSActive(false)   
+                    <button className="tts-button" type="button" onClick={() => speakText(
+                      outputTextRAW,
+                      () => setIsTTSActive(true),
+                      () => setIsTTSActive(false)
+                    )}>
+                      {isTTSActive ? "🛑 Stop 🛑" : "🔊 Read Recipe"}
+                    </button>
                   )}
-                >
-                  {isTTSActive ? "🛑 Stop 🛑" : "🔊 Read Recipe"}
-                  </button>
-                  )}
-            
+                </div>
+              </div>
+  
               {outputTextLocation && (
                 <div className="right-side-container">
                   <h3 className="location-title">Ingredients Finder 🍔</h3>
@@ -334,16 +333,14 @@ const PrepareMeal = () => {
                     >
                       {isTTSLocationActive ? "🛑 Stop 🛑" : "🔊 Read Location"}
                     </button>
-                    </div>
-                  </div>
-                )}
                   </div>
                 </div>
+              )}
             </div>
           </form>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };
