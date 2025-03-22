@@ -1,6 +1,5 @@
 import RegisteredUser
 import SQLConnection
-# use sqlconnection as it seeks to modify database
 
 class Signup:
     
@@ -32,9 +31,7 @@ class Signup:
         check = self.transportUserCredentialsIntoDatabase()
         return check  # Cleaner check
     
-    # sending registered information into database
     def transportUserCredentialsIntoDatabase(self):
-        # open connection to database
         check = self.SQL.inputDatabase(self.username, self.email, self.password)
         return check
         

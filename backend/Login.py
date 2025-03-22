@@ -3,8 +3,6 @@ import DatabaseSingleton
 class Login:
 
     def __init__(self):
-        # self.SQL.storeDatabase()
-        # self.usernames, self.passwords = self.SQL.getDatabase()
         self.usernames = None
         self.passwords = None
         self.databaseInstance = DatabaseSingleton.DatabaseSingleton()

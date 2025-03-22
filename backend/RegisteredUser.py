@@ -13,11 +13,9 @@ class RegisteredUser(User.User):
             "email": self.email,
             "password": self.password
         }
-
     
     def setResult(self, result):
         self.result = result
-    # function to set the user's result after entering prompt
 
     def getResult(self):
         return self.result

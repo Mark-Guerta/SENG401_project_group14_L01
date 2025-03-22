@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
 import Signup, Login, Gemini, DatabaseSingleton
 from FoodApp import FoodApp
-import json
 
 app = Flask(__name__) 
 CORS(app)
@@ -80,10 +79,8 @@ def prompt():
         combined_response = '{"recipe": ' + recipe + ', "local": ' + local + '}'
     else:  
         combined_response = '{"recipe": ' + recipe + '}'
-        
+
     recipeInstance.setResults(recipe)
-    #transportRecipe = json.loads(recipe)
-    #recipeInstance.setRecipeVariables([transportRecipe['recipe_name'], transportRecipe["ingredients"], transportRecipe["steps"]])
    
     return Response(combined_response, mimetype='application/json')
 

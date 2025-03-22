@@ -72,7 +72,3 @@ def recipeCheckingBeforeDownload(recipe):
         contents=content1
     )
     return response1.text
-
-#recipe, local = getRecipe("Calgary", "Chicken, rice, eggs", [False, False], "", "")
-#x, y, z = formatLocation(local)
-#print(y)
