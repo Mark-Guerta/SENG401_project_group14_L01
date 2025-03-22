@@ -14,8 +14,7 @@ class Profile extends Component {
       newUsername: '',
       newEmail: '',
       newPassword: '',
-      confirmPassword: '',
-      error: ''
+      confirmPassword: ''
     };
   }
 
@@ -142,40 +141,20 @@ class Profile extends Component {
       });
   };
 
-  handleDownloadRecipe = () => {
-    fetch("http://127.0.0.1:5000/results", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      }
-    })
-      .then((response) => {
-        return response.blob();
-      })
-      .then((blob) => {
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'recipe.pdf'; 
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      })
-      .catch((error) => {
-        this.setState({ error: 'Failed to download recipe: ' + error.message });
-      });
-  };
-
   render() {
-    const { username, password, email, error, newPassword, newEmail, confirmPassword } = this.state;
+    
+    const { username, password, email, error,  newPassword, newEmail, confirmPassword } = this.state;
 
     return (
+      
       <div className="profile-container">
-        <NavBar />
+          <NavBar />
         <div className="profile-box-container">
-          <span className="profile-label">Current Username: {username}</span>
+        <span className="profile-label">Current Username: {username}</span>
+        
           <span className="profile-label">Current Email: {email}</span>
-          <form onSubmit={this.handleSubmitNewEmail}>
+        <form onSubmit={this.handleSubmitNewEmail}>
+            
             <input
               className="profile-input"
               type="email"
@@ -183,12 +162,15 @@ class Profile extends Component {
               onChange={this.handleInputChange}
               name="newEmail"
               value={newEmail}
+              
             />
             <button type="submit" className="profile-button">Change</button>
           </form>
+          
+        
           <form onSubmit={this.handleSubmitNewPassword}>
             <span className="profile-label">Confirm New Password:</span>
-            <br />
+            <br></br>
             <input
               className="profile-input"
               type="password"
@@ -196,10 +178,12 @@ class Profile extends Component {
               value={confirmPassword}
               onChange={this.handleInputChange}
               name="confirmPassword"
-            />
-            <br />
+              
+              />
+              
+            <br></br>
             <span className="profile-label">Enter New Password:</span>
-            <br />
+            <br></br>
             <input
               className="profile-input"
               type="password"
@@ -207,18 +191,22 @@ class Profile extends Component {
               value={newPassword}
               onChange={this.handleInputChange}
               name="newPassword"
+              
             />
             <button type="submit" className="profile-button">Change</button>
           </form>
+
           <form onSubmit={this.handleSubmitDeleteAccount}>
-            <button type="submit" className="profile-button">Delete Account</button>
+        <button type="submit" className="profile-button">Delete Account</button>
           </form>
-          <button onClick={this.handleDownloadRecipe} className="profile-button">Download Recipe</button>
+
           {error && <p className="validation-message">{error}</p>}
         </div>
         <Footer />
       </div>
+    
     );
+
   }
 }
 
