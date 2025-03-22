@@ -41,27 +41,38 @@ def login():
         return jsonify({'error': 'Login Successful'}), 500
     else:
         return jsonify({'error': 'Login Failed'}), 500
-    
 @app.route('/prepare-meal', methods=['POST'])
 def prompt():
     requirements = []
 
     ingredients = request.json['ingredients']
-    requirements.append(request.json['lactoseFree'])
-    requirements.append(request.json['glutenFree'])
-    requirements.append(request.json['vegetarian'])
-    requirements.append(request.json['vegan'])
-    requirements.append(request.json['halal'])
-    requirements.append(request.json['kosher'])
-    requirements.append(request.json['diabetic'])
     height = request.json['height']
     weight = request.json['weight']
-    requirements.append(request.json['highProtein'])
-    requirements.append(request.json['highCarbs'])
-    requirements.append(request.json['highFats'])
-    requirements.append(request.json['customPreference'])
     location = request.json['location']
+
+    if request.json['lactoseFree']:
+            requirements.append('lactoseFree')
+    if request.json['glutenFree']:
+            requirements.append('glutenFree')
+    if request.json['vegetarian']:
+            requirements.append('vegetarian')
+    if request.json['vegan']:
+            requirements.append('vegan')
+    if request.json['halal']:
+            requirements.append('halal')
+    if request.json['kosher']:
+            requirements.append('kosher')
+    if request.json['diabetic']:
+            requirements.append('diabetic')
+    if request.json['highProtein']:
+            requirements.append('highProtein')
+    if request.json['highCarbs']:
+            requirements.append('highCarbs')
+    if request.json['highFats']:
+            requirements.append('highFats')
     
+    requirements.append(request.json['customPreferences'])
+            
     recipe, local = Gemini.getRecipe(location, ingredients, requirements, height, weight)
     introRecipe, recipe, concluRecipe = Gemini.formatRecipe(recipe)
     if location:
